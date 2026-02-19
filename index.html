@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JISMF 2026 | HOME | Legacy in Motion</title>
+    <title>JISMF 2026 | Classical Symphony</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cinzel (Classic), Lato (Clean), Great Vibes (Script), Noto Serif SC (Chinese) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Lato:wght@300;400;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- CSS VARIABLES & RESET --- */
+        /* --- CSS VARIABLES: CLASSICAL THEME --- */
         :root {
-            --primary-gold: #D4AF37;
-            --primary-gold-light: #F3E5AB;
-            --dark-navy: #0F172A;
-            --darker-navy: #020617;
-            --text-light: #F8F9FA;
-            --text-gray: #CBD5E1;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --transition-speed: 0.4s;
+            /* Warna Kayu & Tembaga Kuno */
+            --wood-dark: #1A120B;      /* Hitam/Kayu sangat gelap */
+            --wood-brown: #3E2723;     /* Coklat Mahoni */
+            --antique-gold: #C5A059;   /* Emas Kuno/Brass */
+            --light-gold: #F3E5AB;     /* Krem/Emas Muda */
+            --parchment: #FFF8E7;      /* Warna Kertas Lagu */
+            --violin-red: #5D1616;     /* Aksen Merah Biola */
+            
+            --bg-gradient: linear-gradient(135deg, var(--wood-dark) 0%, var(--wood-brown) 100%);
+            
             --font-heading: 'Cinzel', serif;
+            --font-script: 'Great Vibes', cursive; /* Font tangan klasik */
             --font-body: 'Lato', sans-serif;
             --font-cn: 'Noto Serif SC', serif;
+            
+            --border-classic: 4px double var(--antique-gold); /* Garis ganda klasik */
+            --transition-speed: 0.4s;
         }
 
         * {
@@ -40,94 +46,112 @@
         }
 
         body {
-            background-color: var(--dark-navy);
-            color: var(--text-light);
+            background: var(--bg-gradient);
+            color: var(--parchment);
             font-family: var(--font-body);
-            line-height: 1.6;
+            line-height: 1.8;
             overflow-x: hidden;
+            /* Background texture simulasi kayu halus */
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 60%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
-        /* --- LANGUAGE VISIBILITY CONTROL --- */
-        /* By default show English, hide others */
+        /* --- LANGUAGE VISIBILITY --- */
         body.lang-en .lang-id, body.lang-en .lang-cn { display: none !important; }
         body.lang-id .lang-en, body.lang-id .lang-cn { display: none !important; }
         body.lang-cn .lang-en, body.lang-cn .lang-id { display: none !important; }
-
-        /* Adjust font for Chinese if needed */
-        body.lang-cn {
-            font-family: var(--font-cn);
-        }
+        body.lang-cn { font-family: var(--font-cn); }
 
         /* --- NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(26, 18, 11, 0.95);
+            border-bottom: 2px solid var(--antique-gold);
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
 
         .logo {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-gold);
+            font-size: 1.8rem;
+            color: var(--antique-gold);
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-light);
+            color: var(--parchment);
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '♩'; /* Musical note symbol */
+            position: absolute;
+            font-size: 0.8rem;
+            color: var(--antique-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            transition: transform 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary-gold);
+            color: var(--antique-gold);
+        }
+        
+        .nav-links a:hover::after {
+            transform: translateX(-50%) scale(1);
         }
 
         .lang-switch {
             display: flex;
-            gap: 10px;
+            gap: 5px;
+            background: rgba(255,255,255,0.05);
+            padding: 5px;
+            border-radius: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
         }
 
         .lang-btn {
             background: transparent;
-            border: 1px solid var(--text-gray);
-            color: var(--text-gray);
-            padding: 5px 10px;
+            border: none;
+            color: var(--parchment);
+            padding: 5px 12px;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 15px;
             font-size: 0.8rem;
             transition: all 0.3s;
+            font-family: var(--font-heading);
         }
 
         .lang-btn.active, .lang-btn:hover {
-            border-color: var(--primary-gold);
-            color: var(--primary-gold);
-            background: rgba(212, 175, 55, 0.1);
+            background: var(--antique-gold);
+            color: var(--wood-dark);
+            font-weight: bold;
         }
 
-        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
-            color: var(--primary-gold);
+            color: var(--antique-gold);
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -152,22 +176,25 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            opacity: 0.4;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
-            animation: fadeInUp 1.2s ease-out;
+            max-width: 1000px;
+            animation: fadeInUp 1.5s ease-out;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 3rem;
+            background: rgba(26, 18, 11, 0.6);
+            backdrop-filter: blur(3px);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
         }
 
         .hero-subtitle {
-            color: var(--primary-gold);
-            font-family: var(--font-heading);
-            letter-spacing: 4px;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-family: var(--font-script);
+            color: var(--antique-gold);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
         .hero-title {
@@ -175,35 +202,56 @@
             font-size: 4rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff, var(--primary-gold-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--parchment);
+            text-shadow: 2px 2px 4px #000;
+            border-bottom: 1px solid var(--antique-gold);
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
         .hero-tagline {
-            font-size: 1.2rem;
-            color: var(--text-gray);
+            font-family: var(--font-script);
+            font-size: 1.8rem;
+            color: var(--light-gold);
             margin-bottom: 2.5rem;
-            font-weight: 300;
+            font-weight: normal;
         }
 
         .cta-btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, var(--primary-gold), #B8860B);
-            color: var(--darker-navy);
+            padding: 18px 50px;
+            background: transparent;
+            color: var(--antique-gold);
             text-decoration: none;
+            font-family: var(--font-heading);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border-radius: 50px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: 2px solid var(--antique-gold);
+            border-radius: 2px; /* Sharp corners for classic look */
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--antique-gold);
+            transition: all 0.4s;
+            z-index: -1;
         }
 
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            color: var(--wood-dark);
+        }
+
+        .cta-btn:hover::before {
+            left: 0;
         }
 
         /* --- SECTIONS COMMON --- */
@@ -212,26 +260,40 @@
             position: relative;
         }
 
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--primary-gold);
+        .section-header {
             text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
+            margin-bottom: 4rem;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background: var(--primary-gold);
+        .section-script {
+            font-family: var(--font-script);
+            font-size: 2rem;
+            color: var(--antique-gold);
+            margin-bottom: -10px;
+            display: block;
         }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            color: var(--parchment);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::before, .section-title::after {
+            content: "❧"; /* Ornament */
+            color: var(--violin-red);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+        
+        .section-title::before { left: -40px; }
+        .section-title::after { right: -40px; transform: translateY(-50%) scaleX(-1); }
 
         /* --- ABOUT & DESCRIPTION --- */
         .about-grid {
@@ -241,124 +303,158 @@
             align-items: center;
         }
 
+        .about-frame {
+            border: var(--border-classic);
+            padding: 15px;
+            position: relative;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .about-frame img {
+            width: 100%;
+            display: block;
+            filter: sepia(30%) contrast(110%);
+        }
+
+        /* Corner ornaments */
+        .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: var(--antique-gold);
+            border-style: solid;
+        }
+        .tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+        .tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
+        .bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
+        .br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+
         .about-text p {
             margin-bottom: 1.5rem;
-            color: var(--text-gray);
+            color: #d1c4a8; /* Slightly darker than parchment for readability */
             font-size: 1.1rem;
             text-align: justify;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--primary-gold);
-            z-index: -1;
-            border-radius: 8px;
+            font-style: italic; /* Classic book feel */
         }
 
         /* --- DISTINCTION (Cards) --- */
-        .distinction-bg {
-            background: var(--darker-navy);
-        }
-
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s, border-color 0.3s;
+            background: rgba(62, 39, 35, 0.4);
+            padding: 0; /* Padding handled by inner content */
+            border: 1px solid var(--antique-gold);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            pointer-events: none;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: rgba(62, 39, 35, 0.6);
         }
 
-        .card-icon {
-            font-size: 2.5rem;
-            color: var(--primary-gold);
-            margin-bottom: 1.5rem;
-        }
-
-        .card h3 {
+        .card-header {
+            background: var(--antique-gold);
+            color: var(--wood-dark);
+            padding: 15px;
+            text-align: center;
             font-family: var(--font-heading);
-            margin-bottom: 1rem;
-            color: var(--text-light);
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
-        .card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-        }
-
-        /* --- ARTISTIC DIRECTOR MESSAGE --- */
-        .message-section {
-            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://picsum.photos/seed/piano/1920/1080');
-            background-size: cover;
-            background-attachment: fixed;
+        .card-body {
+            padding: 2rem;
             text-align: center;
         }
 
+        .card-icon {
+            font-size: 3rem;
+            color: var(--light-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .card p {
+            color: #d1c4a8;
+            font-size: 0.95rem;
+        }
+
+        /* --- MESSAGE SECTION --- */
+        .message-section {
+            background: linear-gradient(rgba(26, 18, 11, 0.9), rgba(26, 18, 11, 0.8)), url('https://picsum.photos/seed/piano/1920/1080');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+        }
+
         .message-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(20, 10, 5, 0.85);
             padding: 4rem;
             max-width: 800px;
-            margin: 0 auto;
-            border: 1px solid var(--primary-gold);
-            border-radius: 4px;
+            margin: 2rem 0;
+            border: var(--border-classic);
             position: relative;
         }
 
-        .quote-icon {
-            font-size: 3rem;
-            color: var(--primary-gold);
-            opacity: 0.5;
-            margin-bottom: 1rem;
+        .quote-deco {
+            position: absolute;
+            font-family: var(--font-script);
+            font-size: 8rem;
+            color: rgba(197, 160, 89, 0.1);
+            top: -20px;
+            left: 20px;
+            pointer-events: none;
         }
 
-        .director-name {
-            margin-top: 2rem;
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            color: var(--primary-gold);
-        }
-
-        .director-role {
-            font-size: 0.9rem;
-            color: var(--text-gray);
+        .message-text {
             font-style: italic;
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--parchment);
+            position: relative;
+            z-index: 2;
+        }
+
+        .signature {
+            margin-top: 3rem;
+            text-align: right;
+            font-family: var(--font-script);
+            font-size: 1.5rem;
+            color: var(--antique-gold);
         }
 
         /* --- REGISTRATION FORM --- */
         .form-container {
             max-width: 700px;
             margin: 0 auto;
-            background: var(--card-bg);
+            background: rgba(20, 10, 5, 0.6);
             padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid var(--antique-gold);
+            position: relative;
+        }
+        
+        /* Ornamental corners for form */
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: repeating-linear-gradient(45deg, var(--antique-gold), var(--antique-gold) 10px, var(--wood-dark) 10px, var(--wood-dark) 20px);
         }
 
         .form-group {
@@ -368,103 +464,108 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--primary-gold);
+            color: var(--antique-gold);
+            font-family: var(--font-heading);
             font-size: 0.9rem;
-            font-weight: 700;
         }
 
         .form-control {
             width: 100%;
             padding: 12px 15px;
             background: rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
-            border-radius: 6px;
+            border: 1px solid #5d4037;
+            border-bottom: 2px solid var(--antique-gold);
+            border-radius: 0; /* Classic sharp input */
             color: #fff;
-            font-family: inherit;
-            transition: border-color 0.3s;
+            font-family: var(--font-body);
+            transition: background 0.3s;
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--primary-gold);
+            background: rgba(0, 0, 0, 0.5);
         }
 
         select.form-control option {
-            background-color: var(--dark-navy);
+            background-color: var(--wood-brown);
         }
 
         .submit-btn {
             width: 100%;
             padding: 15px;
-            background: var(--primary-gold);
-            color: var(--darker-navy);
-            border: none;
-            border-radius: 6px;
+            background: var(--wood-brown);
+            color: var(--antique-gold);
+            border: 2px solid var(--antique-gold);
+            font-family: var(--font-heading);
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
             font-size: 1rem;
+            letter-spacing: 2px;
         }
 
         .submit-btn:hover {
-            background: #fff;
+            background: var(--antique-gold);
+            color: var(--wood-dark);
         }
 
         /* --- FOOTER --- */
         footer {
-            background: var(--darker-navy);
+            background: #0f0905;
             padding: 4rem 10% 2rem;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px double var(--antique-gold);
         }
 
         .footer-logo {
             font-family: var(--font-heading);
-            color: var(--primary-gold);
-            font-size: 1.8rem;
+            color: var(--antique-gold);
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
         .footer-links a {
-            color: var(--text-gray);
-            margin: 0 10px;
-            text-decoration: none;
+            color: var(--parchment);
+            margin: 0 15px;
+            font-size: 1.2rem;
             transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--primary-gold);
+            color: var(--violin-red);
         }
 
         .copyright {
             margin-top: 2rem;
             font-size: 0.8rem;
-            color: #64748b;
+            color: #6d4c41;
+            font-family: var(--font-heading);
         }
 
-        /* --- TOAST NOTIFICATION --- */
+        /* --- TOAST --- */
         #toast {
             visibility: hidden;
-            min-width: 250px;
-            background-color: var(--primary-gold);
-            color: var(--dark-navy);
+            min-width: 300px;
+            background-color: var(--wood-brown);
+            color: var(--antique-gold);
             text-align: center;
-            border-radius: 8px;
-            padding: 16px;
+            border: 1px solid var(--antique-gold);
+            border-radius: 4px;
+            padding: 20px;
             position: fixed;
             z-index: 1001;
             right: 30px;
             bottom: 30px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transform: translateY(100%);
-            transition: transform 0.3s, visibility 0.3s;
+            font-family: var(--font-heading);
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            transform: translateX(100%);
+            transition: transform 0.5s ease-in-out;
         }
 
         #toast.show {
             visibility: visible;
-            transform: translateY(0);
+            transform: translateX(0);
         }
 
         /* --- ANIMATIONS --- */
@@ -476,7 +577,7 @@
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: all 0.8s ease-out;
+            transition: all 1s ease-out;
         }
 
         .reveal.active {
@@ -484,7 +585,7 @@
             transform: translateY(0);
         }
 
-        /* --- MEDIA QUERIES --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -493,38 +594,26 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: var(--dark-navy);
+                background: var(--wood-dark);
                 padding: 2rem;
-                border-bottom: 1px solid var(--primary-gold);
+                border-bottom: 2px solid var(--antique-gold);
             }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
             
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                order: -1;
-            }
+            .hero-title { font-size: 2.5rem; }
+            .section-title::before, .section-title::after { display: none; } /* Hide ornaments on small screen */
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .about-frame { order: -1; }
         }
     </style>
 </head>
-<body class="lang-en"> <!-- Default Language -->
+<body class="lang-en">
 
     <!-- NAVIGATION -->
     <nav>
-        <div class="logo">JISMF 2026</div>
+        <div class="logo"><i class="fas fa-music"></i> JISMF 2026</div>
         <div class="menu-toggle" id="mobile-menu">
             <i class="fas fa-bars"></i>
         </div>
@@ -540,9 +629,9 @@
                 <span class="lang-cn">特色</span>
             </a>
             <a href="#message">
-                <span class="lang-en">Message</span>
-                <span class="lang-id">Pesan</span>
-                <span class="lang-cn">寄语</span>
+                <span class="lang-en">Director</span>
+                <span class="lang-id">Direktur</span>
+                <span class="lang-cn">总监</span>
             </a>
             <a href="#register">
                 <span class="lang-en">Register</span>
@@ -562,111 +651,126 @@
     <header id="home">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
-            <h2 class="hero-subtitle">JAKARTA INTERNATIONAL SUMMER MUSIC FESTIVAL 2026</h2>
+            <h2 class="hero-subtitle">Jakarta International Summer Music Festival</h2>
             <h1 class="hero-title">
-                <span class="lang-en">HOME | Legacy in Motion</span>
-                <span class="lang-id">HOME | Legacy in Motion</span>
-                <span class="lang-cn">HOME | Legacy in Motion</span>
+                <span class="lang-en">Legacy in Motion</span>
+                <span class="lang-id">Legacy in Motion</span>
+                <span class="lang-cn">Legacy in Motion</span>
             </h1>
             <p class="hero-tagline">
-                <span class="lang-en">Roots & Wings – Re:Sound, A New Chapter. The Return of Excellence.</span>
-                <span class="lang-id">Roots & Wings – Re:Sound, A New Chapter. The Return of Excellence.</span>
-                <span class="lang-cn">Roots & Wings – Re:Sound, A New Chapter. The Return of Excellence.</span>
+                <span class="lang-en">Roots & Wings – Re:Sound</span>
+                <span class="lang-id">Roots & Wings – Re:Sound</span>
+                <span class="lang-cn">Roots & Wings – Re:Sound</span>
             </p>
             <a href="#register" class="cta-btn">
-                <span class="lang-en">Join The Festival</span>
-                <span class="lang-id">Bergabung Sekarang</span>
-                <span class="lang-cn">立即加入</span>
+                <span class="lang-en">Join the Symphony</span>
+                <span class="lang-id">Bergabung dalam Simfoni</span>
+                <span class="lang-cn">加入交响乐章</span>
             </a>
         </div>
     </header>
 
     <!-- ABOUT SECTION -->
     <section id="about" class="reveal">
-        <h2 class="section-title">
-            <span class="lang-en">Official Description</span>
-            <span class="lang-id">Deskripsi Resmi</span>
-            <span class="lang-cn">官方介绍</span>
-        </h2>
+        <div class="section-header">
+            <span class="section-script">The Maestro's Vision</span>
+            <h2 class="section-title">
+                <span class="lang-en">Official Description</span>
+                <span class="lang-id">Deskripsi Resmi</span>
+                <span class="lang-cn">官方介绍</span>
+            </h2>
+        </div>
         <div class="about-grid">
             <div class="about-text">
                 <!-- English -->
                 <div class="lang-en">
-                    <p>After years of global uncertainty and pause, the Jakarta International Summer Music Festival returns in 2026 with renewed clarity of purpose and artistic conviction. HOME | Legacy in Motion marks not merely the revival of a music camp, but the continuation of a living legacy.</p>
-                    <p>For many years, JISMF has been a formative space where young musicians discovered discipline, artistry, and international standards of excellence. In 2026, that legacy comes full circle. JISMF alumni — now graduates of leading international institutions — return as faculty members. What was once a place of learning becomes a place of mentorship. What began as roots now extends as wings.</p>
+                    <p>After years of global uncertainty and pause, the Jakarta International Summer Music Festival returns in 2026 with renewed clarity of purpose. HOME | Legacy in Motion marks not merely the revival of a music camp, but the continuation of a living legacy.</p>
+                    <p>JISMF alumni — now graduates of leading international institutions — return as faculty members. What was once a place of learning becomes a place of mentorship. What began as roots now extends as wings.</p>
                     <p>Throughout one immersive week, participants will reside within a vibrant artistic community. They will receive intensive lessons and masterclasses, engage in daily artistic dialogue, and perform in nightly concerts. Music becomes not only study, but lived experience.</p>
                     <p>The festival culminates in the Indonesia Open Competition (IOC), a platform designed to uphold transparency, rigor, and international standards. Winners will be presented in a distinguished Gala Concert.</p>
                 </div>
                 <!-- Bahasa Indonesia -->
                 <div class="lang-id">
-                    <p>Setelah melewati masa ketidakpastian global dan jeda yang panjang, Jakarta International Summer Music Festival kembali hadir pada tahun 2026 dengan semangat, visi, dan arah yang semakin matang. HOME | Legacy in Motion bukan sekadar kembalinya sebuah music camp, melainkan kelanjutan dari sebuah warisan pendidikan yang hidup dan bertumbuh.</p>
-                    <p>Selama bertahun-tahun, JISMF telah menjadi ruang pembentukan karakter, disiplin, dan standar artistik internasional bagi para musisi muda Indonesia. Edisi 2026 memiliki makna yang istimewa. Para alumni JISMF — yang kini telah menyelesaikan studi di berbagai institusi musik terkemuka dunia — kembali sebagai anggota fakultas.</p>
+                    <p>Setelah melewati masa ketidakpastian global dan jeda yang panjang, Jakarta International Summer Music Festival kembali hadir pada tahun 2026. HOME | Legacy in Motion bukan sekadar kembalinya sebuah music camp, melainkan kelanjutan dari sebuah warisan pendidikan yang hidup.</p>
+                    <p>Para alumni JISMF — yang kini telah menyelesaikan studi di berbagai institusi musik terkemuka dunia — kembali sebagai anggota fakultas. Tempat yang dahulu menjadi ruang belajar mereka kini menjadi ruang pengabdian.</p>
                     <p>Selama satu minggu penuh, peserta akan menjalani pengalaman artistik yang intensif: tinggal bersama dalam komunitas kreatif, mengikuti lesson dan masterclass instrumen mayor, serta tampil dalam konser setiap malam.</p>
-                    <p>Festival ini akan ditutup dengan Indonesia Open Competition (IOC), sebuah kompetisi terbuka yang menjunjung tinggi transparansi dan standar internasional, serta diakhiri dengan Gala Concert bagi para pemenang.</p>
+                    <p>Festival ini akan ditutup dengan Indonesia Open Competition (IOC), sebuah kompetisi terbuka yang menjunjung tinggi transparansi dan standar internasional, serta diakhiri dengan Gala Concert.</p>
                 </div>
                 <!-- Mandarin -->
                 <div class="lang-cn">
-                    <p>在经历全球不确定与长期停顿之后，雅加达国际夏季音乐节（JISMF）将于2026年以更加成熟与坚定的姿态重启。HOME | Legacy in Motion 不仅仅是一次音乐营的回归，更是一份持续发展的教育传承。</p>
-                    <p>多年来，JISMF 一直是印尼年轻音乐家建立艺术修养、纪律精神与国际标准的重要平台。2026年的特别之处在于——曾经的学员，如今已毕业于世界顶尖音乐学府，现以导师身份回归。这不仅是一次重聚，更是一种传承的完成。</p>
-                    <p>为期一周的沉浸式课程中，学员将与导师共同生活于艺术氛围之中，接受主要乐器的一对一课程与大师班，并在每晚音乐会上登台演出，与同伴及导师共同分享舞台。</p>
+                    <p>在经历全球不确定与长期停顿之后，雅加达国际夏季音乐节（JISMF）将于2026年重启。HOME | Legacy in Motion 不仅仅是一次音乐营的回归，更是一份持续发展的教育传承。</p>
+                    <p>2026年的特别之处在于——曾经的学员，如今已毕业于世界顶尖音乐学府，现以导师身份回归。这不仅是一次重聚，更是一种传承的完成。</p>
+                    <p>为期一周的沉浸式课程中，学员将与导师共同生活于艺术氛围之中，接受主要乐器的一对一课程与大师班，并在每晚音乐会上登台演出。</p>
                     <p>音乐节最终将以 印尼公开赛（Indonesia Open Competition, IOC） 作为高潮，在透明与国际标准的评审机制下选出优胜者，并以盛大的 Gala Concert 为音乐节画下荣耀句点。</p>
                 </div>
             </div>
-            <div class="about-image">
-                <img src="https://picsum.photos/seed/violin/600/400" alt="Music Performance">
+            <div class="about-frame">
+                <div class="corner tl"></div><div class="corner tr"></div>
+                <div class="corner bl"></div><div class="corner br"></div>
+                <!-- Image of Violin/Cello -->
+                <img src="pict">
             </div>
         </div>
     </section>
 
     <!-- DISTINCTION SECTION -->
-    <section id="distinction" class="distinction-bg reveal">
-        <h2 class="section-title">
-            <span class="lang-en">Artistic & Educational Distinction</span>
-            <span class="lang-id">Keunggulan Artistik & Pendidikan</span>
-            <span class="lang-cn">艺术与教育特色</span>
-        </h2>
+    <section id="distinction" class="reveal">
+        <div class="section-header">
+            <span class="section-script">Artistic Excellence</span>
+            <h2 class="section-title">
+                <span class="lang-en">Distinction</span>
+                <span class="lang-id">Keunggulan</span>
+                <span class="lang-cn">特色</span>
+            </h2>
+        </div>
         <div class="cards-container">
             <!-- Card 1 -->
             <div class="card">
-                <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
-                <h3>
-                    <span class="lang-en">Alumni as Faculty</span>
-                    <span class="lang-id">Alumni Sebagai Fakultas</span>
-                    <span class="lang-cn">校友担任导师</span>
-                </h3>
-                <p>
-                    <span class="lang-en">Distinguished alumni of the festival who have graduated from leading international institutions and are now active artists and educators return to give back to the next generation.</span>
-                    <span class="lang-id">Para alumni festival yang kini telah menjadi lulusan institusi musik internasional dan aktif sebagai performer maupun pendidik kembali untuk mengabdi kepada generasi berikutnya.</span>
-                    <span class="lang-cn">音乐节校友现已毕业于国际知名音乐学院，并活跃于演出与教学领域，他们回归以回馈下一代。</span>
-                </p>
+                <div class="card-header">
+                    <span class="lang-en">Mentorship</span>
+                    <span class="lang-id">Mentorship</span>
+                    <span class="lang-cn">导师传承</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
+                    <p>
+                        <span class="lang-en">Alumni return as faculty. A seamless bridge between international standards and local context.</span>
+                        <span class="lang-id">Alumni kembali sebagai fakultas. Jembatan sempurna antara standar internasional dan konteks lokal.</span>
+                        <span class="lang-cn">校友回归担任导师。完美连接国际标准与本土语境。</span>
+                    </p>
+                </div>
             </div>
             <!-- Card 2 -->
             <div class="card">
-                <div class="card-icon"><i class="fas fa-globe-asia"></i></div>
-                <h3>
-                    <span class="lang-en">Bridging Worlds</span>
-                    <span class="lang-id">Menghubungkan Dunia</span>
-                    <span class="lang-cn">连接世界</span>
-                </h3>
-                <p>
-                    <span class="lang-en">Young, vibrant, and internationally trained faculty bridge global standards with local context. There is no cultural distance, no pedagogical disconnect.</span>
-                    <span class="lang-id">Dengan energi yang muda dan perspektif global, mereka mampu menjembatani standar internasional dengan konteks lokal secara efektif. Tidak ada kesenjangan budaya atau perbedaan pendekatan pedagogis.</span>
-                    <span class="lang-cn">年轻而充满活力的导师将国际视野与本土语境自然结合，不存在文化隔阂或教学落差。</span>
-                </p>
+                <div class="card-header">
+                    <span class="lang-en">Masterclasses</span>
+                    <span class="lang-id">Masterclasses</span>
+                    <span class="lang-cn">大师班</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon"><i class="fas fa-music"></i></div>
+                    <p>
+                        <span class="lang-en">Intensive lessons and masterclasses. Daily artistic dialogue shaping the musicians of tomorrow.</span>
+                        <span class="lang-id">Les intensif dan masterclasses. Dialog artistik harian yang membentuk musisi masa depan.</span>
+                        <span class="lang-cn">强化课程与大师班。每日的艺术对话塑造未来的音乐家。</span>
+                    </p>
+                </div>
             </div>
             <!-- Card 3 -->
             <div class="card">
-                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>
-                    <span class="lang-en">Ecosystem of Growth</span>
-                    <span class="lang-id">Ekosistem Pertumbuhan</span>
-                    <span class="lang-cn">成长生态系统</span>
-                </h3>
-                <p>
-                    <span class="lang-en">For parents, JISMF offers tangible proof of long-term impact: witnessing students transform into professionals. It is an ecosystem of measurable artistic transformation.</span>
-                    <span class="lang-id">Bagi para orang tua, JISMF menghadirkan bukti nyata dampak jangka panjang. Mereka melihat siswa bertransformasi menjadi profesional. Ini adalah ekosistem pertumbuhan yang berdampak nyata.</span>
-                    <span class="lang-cn">对于家长而言，JISMF 是最有说服力的成果展示——见证学生从学员转变为专业人士。这是一套可持续发展的音乐教育生态系统。</span>
-                </p>
+                <div class="card-header">
+                    <span class="lang-en">Gala Concert</span>
+                    <span class="lang-id">Gala Concert</span>
+                    <span class="lang-cn">盛典音乐会</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon"><i class="fas fa-trophy"></i></div>
+                    <p>
+                        <span class="lang-en">The Indonesia Open Competition (IOC) culminates in a distinguished Gala Concert of winners.</span>
+                        <span class="lang-id">Indonesia Open Competition (IOC) ditutup dengan Gala Concert yang megah untuk para pemenang.</span>
+                        <span class="lang-cn">印尼公开赛（IOC）最终以优胜者参与的盛大盛典音乐会画下句点。</span>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -674,54 +778,58 @@
     <!-- MESSAGE SECTION -->
     <section id="message" class="message-section reveal">
         <div class="message-card">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 2rem;">
-                <span class="lang-en">Artistic Director’s Message</span>
-                <span class="lang-id">Pesan dari Artistic Director</span>
-                <span class="lang-cn">艺术总监寄语</span>
-            </h2>
+            <div class="quote-deco">“</div>
+            <div class="section-header">
+                <span class="section-script">From the Podium</span>
+                <h2 class="section-title" style="font-size: 2rem;">
+                    <span class="lang-en">Artistic Director’s Message</span>
+                    <span class="lang-id">Pesan Artistic Director</span>
+                    <span class="lang-cn">艺术总监寄语</span>
+                </h2>
+            </div>
             
-            <div style="text-align: left;">
-                <!-- English Msg -->
+            <div class="message-text">
+                <!-- English -->
                 <div class="lang-en">
-                    <p style="margin-bottom: 1rem;">"It is with deep gratitude and conviction that I welcome the return of the Jakarta International Summer Music Festival in 2026."</p>
-                    <p style="margin-bottom: 1rem;">"JISMF alumni, now graduates of leading international music institutions, return as faculty members. They once stood where today’s participants stand. They understand the same journey, the same challenges, and the same aspirations."</p>
+                    <p>"It is with deep gratitude that I welcome the return of the Jakarta International Summer Music Festival in 2026."</p>
                     <p>"This is the true spirit of HOME | Legacy in Motion — where strong roots give rise to wings, and those wings return to strengthen the roots of the next generation."</p>
+                    <p>"May this festival become a renewed resonance for Indonesia — a meeting place of tradition, renewal, and excellence."</p>
                 </div>
-                <!-- ID Msg -->
+                <!-- ID -->
                 <div class="lang-id">
-                    <p style="margin-bottom: 1rem;">"Dengan penuh rasa syukur dan kebanggaan, saya menyambut kembalinya Jakarta International Summer Music Festival pada tahun 2026."</p>
-                    <p style="margin-bottom: 1rem;">"Para alumni JISMF, yang kini telah menempuh pendidikan di institusi musik internasional terkemuka, kembali sebagai anggota fakultas. Mereka pernah berada di posisi para peserta hari ini. Mereka memahami perjalanan, tantangan, dan impian yang sama."</p>
+                    <p>"Dengan penuh rasa syukur dan kebanggaan, saya menyambut kembalinya Jakarta International Summer Music Festival pada tahun 2026."</p>
                     <p>"Inilah makna sejati dari HOME | Legacy in Motion — ketika akar yang kuat melahirkan sayap, dan sayap itu kembali untuk memperkuat akar generasi berikutnya."</p>
+                    <p>"Semoga festival ini menjadi ruang resonansi baru bagi Indonesia — tempat tradisi, pembaruan, dan keunggulan bertemu."</p>
                 </div>
-                <!-- CN Msg -->
+                <!-- CN -->
                 <div class="lang-cn">
-                    <p style="margin-bottom: 1rem;">"怀着感恩与坚定的信念，我诚挚欢迎雅加达国际夏季音乐节于2026年的回归。"</p>
-                    <p style="margin-bottom: 1rem;">"曾经的 JISMF 学员，如今已毕业于世界顶尖音乐学府，并以导师身份回归。他们曾经站在学员的位置上，深刻理解同样的挑战与梦想。"</p>
+                    <p>"怀着感恩与坚定的信念，我诚挚欢迎雅加达国际夏季音乐节于2026年的回归。"</p>
                     <p>"这正是 HOME | Legacy in Motion 的核心精神——坚实的根基孕育出翅膀，而翅膀归来，继续滋养新的根基。"</p>
+                    <p>"愿本届音乐节成为印尼音乐再次共鸣的重要里程碑，让传统、更新与卓越在此汇聚。"</p>
                 </div>
             </div>
 
-            <div class="director-name">Dr. Kuei Pin Yeo (杨圭斌博士)</div>
-            <div class="director-role">Artistic Director, JISMF 2026</div>
+            <div class="signature">Dr. Kuei Pin Yeo</div>
         </div>
     </section>
 
     <!-- REGISTRATION FORM -->
     <section id="register" class="reveal">
-        <h2 class="section-title">
-            <span class="lang-en">Registration</span>
-            <span class="lang-id">Pendaftaran</span>
-            <span class="lang-cn">注册报名</span>
-        </h2>
+        <div class="section-header">
+            <span class="section-script">Secure Your Seat</span>
+            <h2 class="section-title">
+                <span class="lang-en">Registration</span>
+                <span class="lang-id">Pendaftaran</span>
+                <span class="lang-cn">注册报名</span>
+            </h2>
+        </div>
         <div class="form-container">
-            <p style="text-align: center; margin-bottom: 20px; color: var(--text-gray); font-size: 0.9rem;">
-                <span class="lang-en">Join us for a week of artistic excellence.</span>
-                <span class="lang-id">Bergabunglah dengan kami dalam satu minggu penuh keunggulan artistik.</span>
-                <span class="lang-cn">加入我们，共度一周的艺术盛典。</span>
+            <p style="text-align: center; margin-bottom: 20px; color: var(--antique-gold); font-style: italic;">
+                <span class="lang-en">Apply now to secure your place in the 2026 Season.</span>
+                <span class="lang-id">Daftarkan diri Anda sekarang untuk musim 2026.</span>
+                <span class="lang-cn">立即申请，锁定2026乐季席位。</span>
             </p>
             
-            <!-- Form action uses mailto for static website functionality -->
             <form id="registrationForm" action="mailto:info@yayasanmusikjakarta.org" method="post" enctype="text/plain">
                 <div class="form-group">
                     <label>
@@ -743,34 +851,36 @@
 
                 <div class="form-group">
                     <label>
-                        <span class="lang-en">Instrument / Major</span>
-                        <span class="lang-id">Instrumen / Jurusan</span>
-                        <span class="lang-cn">专业 / 乐器</span>
+                        <span class="lang-en">Instrument</span>
+                        <span class="lang-id">Instrumen</span>
+                        <span class="lang-cn">乐器</span>
                     </label>
                     <select name="Instrument" class="form-control" required>
-                        <option value="" disabled selected>Select Option...</option>
+                        <option value="" disabled selected>Select Instrument...</option>
                         <option value="Piano">Piano</option>
                         <option value="Violin">Violin</option>
+                        <option value="Viola">Viola</option>
                         <option value="Cello">Cello</option>
+                        <option value="Double Bass">Double Bass</option>
                         <option value="Flute">Flute</option>
+                        <option value="Clarinet">Clarinet</option>
                         <option value="Voice">Voice</option>
-                        <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>
-                        <span class="lang-en">Message / Inquiry</span>
-                        <span class="lang-id">Pesan / Pertanyaan</span>
-                        <span class="lang-cn">留言 / 咨询</span>
+                        <span class="lang-en">Message</span>
+                        <span class="lang-id">Pesan</span>
+                        <span class="lang-cn">留言</span>
                     </label>
                     <textarea name="Message" rows="4" class="form-control"></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <span class="lang-en">Send Registration</span>
-                    <span class="lang-id">Kirim Pendaftaran</span>
-                    <span class="lang-cn">发送注册信息</span>
+                    <span class="lang-en">Send Application</span>
+                    <span class="lang-id">Kirim Permohonan</span>
+                    <span class="lang-cn">发送申请</span>
                 </button>
             </form>
         </div>
@@ -781,7 +891,7 @@
         <div class="footer-logo">JISMF 2026</div>
         <div class="footer-links">
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
             <a href="mailto:info@yayasanmusikjakarta.org"><i class="fas fa-envelope"></i></a>
         </div>
@@ -790,65 +900,43 @@
         </div>
     </footer>
 
-    <!-- TOAST NOTIFICATION -->
+    <!-- TOAST -->
     <div id="toast">
-        <i class="fas fa-check-circle"></i> 
+        <i class="fas fa-music"></i> 
         <span id="toast-msg">Success</span>
     </div>
 
     <!-- JAVASCRIPT -->
     <script>
-        // --- LANGUAGE SWITCHER LOGIC ---
+        // --- LANGUAGE SWITCHER ---
         function setLanguage(lang) {
-            // Update Body Class
             document.body.className = `lang-${lang}`;
-            
-            // Update Button States
             const buttons = document.querySelectorAll('.lang-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Find the button that was clicked (based on onclick attribute text match or index logic)
-            // Simplified: Find button by text content or order
             if(lang === 'en') buttons[0].classList.add('active');
             if(lang === 'id') buttons[1].classList.add('active');
             if(lang === 'cn') buttons[2].classList.add('active');
-
-            // Re-trigger scroll animations check (optional, ensures layout refresh)
             checkScroll();
         }
 
         // --- MOBILE MENU ---
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking a link
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
-        // --- SCROLL ANIMATION (Intersection Observer) ---
+        // --- SCROLL ANIMATION ---
         const revealElements = document.querySelectorAll('.reveal');
-
         function checkScroll() {
             const triggerBottom = window.innerHeight * 0.85;
-
             revealElements.forEach(box => {
                 const boxTop = box.getBoundingClientRect().top;
-
-                if(boxTop < triggerBottom) {
-                    box.classList.add('active');
-                }
+                if(boxTop < triggerBottom) box.classList.add('active');
             });
         }
-
         window.addEventListener('scroll', checkScroll);
-        // Initial check
         checkScroll();
 
         // --- FORM HANDLING ---
@@ -857,116 +945,94 @@
         const toastMsg = document.getElementById('toast-msg');
 
         form.addEventListener('submit', function(e) {
-            // Prevent default submission briefly to show animation
             e.preventDefault();
             
-            // Gather data for the mailto body (formatting it nicely)
-            const formData = new FormData(form);
-            let body = "";
-            formData.forEach((value, key) => {
-                body += `${key}: ${value}\r\n`;
-            });
-
-            // Set the subject line
-            const currentLang = document.body.classList.contains('lang-id') ? 'Pendaftaran Baru' : 
-                               (document.body.classList.contains('lang-cn') ? '新注册' : 'New Registration');
-            
-            form.setAttribute('subject', `${currentLang} - JISMF 2026`);
-            
-            // Show Toast Notification
-            let successText = "Opening your email client...";
-            if(document.body.classList.contains('lang-id')) successText = "Membuka aplikasi email Anda...";
-            if(document.body.classList.contains('lang-cn')) successText = "正在打开您的邮件应用...";
+            // Visual Feedback
+            let successText = "Opening Mail Client...";
+            if(document.body.classList.contains('lang-id')) successText = "Membuka Aplikasi Email...";
+            if(document.body.classList.contains('lang-cn')) successText = "正在打开邮件应用...";
 
             toastMsg.textContent = successText;
             toast.className = "show";
 
-            // Allow the browser to handle the mailto action after a short delay
-            // Note: We must set action dynamically to include the subject/body if we want it perfect,
-            // but standard HTML form behavior handles the fields with enctype="text/plain".
-            
             setTimeout(() => {
-                form.submit(); // Triggers the mailto
+                form.submit();
                 toast.className = toast.className.replace("show", "");
                 form.reset();
             }, 3000);
         });
 
-        // --- HERO CANVAS ANIMATION (Sound Waves) ---
+        // --- HERO ANIMATION: VIBRATING STRINGS (CLASSICAL THEME) ---
         const canvas = document.getElementById('hero-canvas');
         const ctx = canvas.getContext('2d');
-
+        
         let width, height;
-        let particles = [];
+        let strings = [];
 
         function resize() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
+            initStrings();
         }
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = height + Math.random() * 100;
-                this.speed = 0.5 + Math.random() * 1.5;
-                this.radius = 1 + Math.random() * 2;
-                this.opacity = 0.1 + Math.random() * 0.4;
+        class StringLine {
+            constructor(y, amplitude, frequency, speed, color) {
+                this.yBase = y;
+                this.amplitude = amplitude;
+                this.frequency = frequency;
+                this.speed = speed;
+                this.color = color;
+                this.offset = Math.random() * Math.PI * 2;
             }
 
-            update() {
-                this.y -= this.speed;
-                if (this.y < -10) {
-                    this.y = height + Math.random() * 100;
-                    this.x = Math.random() * width;
-                }
-            }
-
-            draw() {
+            draw(time) {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`; // Gold color
-                ctx.fill();
+                for (let x = 0; x < width; x+=5) { // Optimization: skip pixels
+                    // Sine wave equation for vibration
+                    const y = this.yBase + Math.sin(x * this.frequency + time * this.speed + this.offset) * this.amplitude * Math.sin(time * 0.5); 
+                    if(x===0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
             }
         }
 
-        function initParticles() {
-            particles = [];
-            const particleCount = Math.floor(width / 10); // Responsive count
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
+        function initStrings() {
+            strings = [];
+            // Create multiple lines resembling strings (Violin/Cello/Piano)
+            const numStrings = 12;
+            const spacing = height / (numStrings + 2);
+            
+            for (let i = 1; i <= numStrings; i++) {
+                // Gold colors with varying opacity
+                const alpha = 0.1 + (i / numStrings) * 0.3;
+                const color = `rgba(197, 160, 89, ${alpha})`;
+                
+                strings.push(new StringLine(
+                    i * spacing,      // Y position
+                    30 + Math.random() * 20, // Amplitude (vibration width)
+                    0.002 + Math.random() * 0.003, // Frequency (wave tightness)
+                    0.002 + Math.random() * 0.003, // Speed
+                    color
+                ));
             }
         }
 
+        let time = 0;
         function animate() {
             ctx.clearRect(0, 0, width, height);
             
-            // Draw a subtle wave line
-            ctx.beginPath();
-            ctx.moveTo(0, height / 2);
-            for (let i = 0; i < width; i++) {
-                ctx.lineTo(i, height / 2 + Math.sin(i * 0.01 + Date.now() * 0.001) * 50);
-            }
-            ctx.strokeStyle = "rgba(212, 175, 55, 0.1)";
-            ctx.lineWidth = 2;
-            ctx.stroke();
-
-            // Update particles
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-
+            // Draw all strings
+            strings.forEach(str => str.draw(time));
+            
+            time += 1;
             requestAnimationFrame(animate);
         }
 
-        window.addEventListener('resize', () => {
-            resize();
-            initParticles();
-        });
-
-        // Initialize
+        window.addEventListener('resize', resize);
         resize();
-        initParticles();
         animate();
 
     </script>
