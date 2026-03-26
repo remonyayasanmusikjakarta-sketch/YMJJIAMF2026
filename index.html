@@ -3,1152 +3,1151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JISMF 2026 | Classical Symphony</title>
-    
-    <!-- Google Fonts: Cinzel (Classic), Lato (Clean), Great Vibes (Script), Noto Serif SC (Chinese) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Lato:wght@300;400;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>JISMF 2026 - Jakarta International Summer Music Festival</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- CSS VARIABLES: CLASSICAL THEME --- */
         :root {
-            /* Warna Kayu & Tembaga Kuno */
-            --wood-dark: #1A120B;      /* Hitam/Kayu sangat gelap */
-            --wood-brown: #3E2723;     /* Coklat Mahoni */
-            --antique-gold: #C5A059;   /* Emas Kuno/Brass */
-            --light-gold: #F3E5AB;     /* Krem/Emas Muda */
-            --parchment: #FFF8E7;      /* Warna Kertas Lagu */
-            --violin-red: #5D1616;     /* Aksen Merah Biola */
-            
-            --bg-gradient: linear-gradient(135deg, var(--wood-dark) 0%, var(--wood-brown) 100%);
-            
-            --font-heading: 'Cinzel', serif;
-            --font-script: 'Great Vibes', cursive; /* Font tangan klasik */
-            --font-body: 'Lato', sans-serif;
-            --font-cn: 'Noto Serif SC', serif;
-            
-            --border-classic: 4px double var(--antique-gold); /* Garis ganda klasik */
-            --transition-speed: 0.4s;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg-gradient);
-            color: var(--parchment);
-            font-family: var(--font-body);
-            line-height: 1.8;
-            overflow-x: hidden;
-            /* Background texture simulasi kayu halus */
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 60%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-
-        /* --- LANGUAGE VISIBILITY --- */
-        body.lang-en .lang-id, body.lang-en .lang-cn { display: none !important; }
-        body.lang-id .lang-en, body.lang-id .lang-cn { display: none !important; }
-        body.lang-cn .lang-en, body.lang-cn .lang-id { display: none !important; }
-        body.lang-cn { font-family: var(--font-cn); }
-
-        /* --- NAVIGATION --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(26, 18, 11, 0.95);
-            border-bottom: 2px solid var(--antique-gold);
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-        }
-
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            color: var(--antique-gold);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--parchment);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '♩'; /* Musical note symbol */
-            position: absolute;
-            font-size: 0.8rem;
-            color: var(--antique-gold);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%) scale(0);
-            transition: transform 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--antique-gold);
+            --primary-color: #1a237e;
+            --secondary-color: #ff6f00;
+            --light-bg: #f5f5f5;
+            --dark-text: #333;
+            --light-text: #fff;
         }
         
-        .nav-links a:hover::after {
-            transform: translateX(-50%) scale(1);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            padding-top: 80px;
         }
-
-        .lang-switch {
-            display: flex;
-            gap: 5px;
-            background: rgba(255,255,255,0.05);
-            padding: 5px;
+        
+        /* Enhanced Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+        
+        .language-btn {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 16px;
             border-radius: 20px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: var(--parchment);
-            padding: 5px 12px;
-            cursor: pointer;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            margin: 0 3px;
             transition: all 0.3s;
-            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 14px;
         }
-
-        .lang-btn.active, .lang-btn:hover {
-            background: var(--antique-gold);
-            color: var(--wood-dark);
+        
+        .language-btn:hover, .language-btn.active {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            transform: translateY(-2px);
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
             font-weight: bold;
         }
-
-        .menu-toggle {
-            display: none;
-            color: var(--antique-gold);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* --- HERO SECTION --- */
-        header {
+        
+        .nav-link {
+            color: var(--light-text) !important;
+            margin: 0 10px;
+            transition: all 0.3s;
             position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            overflow: hidden;
         }
-
-        #hero-canvas {
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/musicfest/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
+        
+        .hero-theme {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            border: none;
+            color: var(--light-text);
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #e65100;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .light-bg {
+            background-color: var(--light-bg);
+        }
+        
+        .card-custom {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .faculty-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .faculty-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--primary-color);
+        }
+        
+        .faculty-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .faculty-title {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .workshop-card {
+            padding: 25px;
+            height: 100%;
+        }
+        
+        .workshop-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .workshop-subtitle {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline:before {
+            content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            width: 2px;
             height: 100%;
-            z-index: 1;
+            background: var(--primary-color);
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1000px;
-            animation: fadeInUp 1.5s ease-out;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 3rem;
-            background: rgba(26, 18, 11, 0.6);
-            backdrop-filter: blur(3px);
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-        }
-
-            .hero-subtitle {
-                font-family: var(--font-script);
-                color: #f6b684;
-                font-size: 3rem;
-                margin-bottom: 0.5rem;
-                text-shadow: 
-            1px 1px 0px #6b3e05, 
-            2px 2px 0px #5c3504, 
-            3px 3px 0px #000000,
-            4px 4px 5px rgba(0,0,0,0.3);
-        }
-
-        .hero-title {
-            font-family: var(--font-heading);
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--parchment);
-            text-shadow: 2px 2px 4px #000;
-            border-bottom: 1px solid var(--antique-gold);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-            .hero-tagline {
-    font-family: var(--font-script);
-    font-size: 1.8rem;
-    
-    /* --- PERUBAHAN DIMULAI DI SINI --- */
-
-    color: var(--light-gold);
-
-    /* Efek 3D yang lebih lembut menggunakan transparansi */
-    text-shadow:
-        1px 1px 2px rgba(48, 38, 13, 0.6), /* Warna emas gelap semi-transparan */
-        2px 2px 4px rgba(61, 48, 13, 0.4), /* Warna cokelat emas semi-transparan */
-        3px 3px 6px rgba(0, 0, 0, 0.2);      /* Bayangan hitam yang sangat lembut */
-
-/* --- PROPERTI ASLI ANDA TETAP DIPERTAHANKAN --- */
-margin-bottom: 2.5rem;
-font-weight: normal;
-padding: 5px;
-}
-
-.cta-btn {
-    display: inline-block;
-    padding: 18px 50px;
-    background: transparent;
-    color: var(--antique-gold);
-    text-decoration: none;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 2px solid var(--antique-gold);
-    border-radius: 2px; /* Sharp corners for classic look */
-    transition: all 0.4s;
-    position: relative;
-    overflow: hidden;
-    
-    /* Efek 3D tambahan */
-    transform-style: preserve-3d;
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-    box-shadow: 
-        0 10px 20px rgba(0, 0, 0, 0.2),
-        0 6px 6px rgba(0, 0, 0, 0.15),
-        inset 0 -2px 5px rgba(0, 0, 0, 0.1),
-        inset 0 2px 5px rgba(255, 255, 255, 0.2);
-    transform: translateZ(20px);
-}
-
-.cta-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--antique-gold);
-    transition: all 0.4s;
-    z-index: -1;
-    
-    /* Efek 3D tambahan untuk pseudo-element */
-    transform: translateZ(-10px);
-}
-
-.cta-btn:hover {
-    color: var(--wood-dark);
-    
-    /* Efek 3D saat hover */
-    transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateZ(30px);
-    box-shadow: 
-        0 15px 30px rgba(0, 0, 0, 0.3),
-        0 10px 10px rgba(0, 0, 0, 0.2),
-        inset 0 -2px 5px rgba(0, 0, 0, 0.15),
-        inset 0 2px 5px rgba(255, 255, 255, 0.3);
-}
-
-.cta-btn:hover::before {
-    left: 0;
-    transform: translateZ(-10px);
-}
-
-/* Efek 3D saat tombol ditekan */
-.cta-btn:active {
-    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
-    box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.2),
-        0 3px 3px rgba(0, 0, 0, 0.15),
-        inset 0 -2px 5px rgba(0, 0, 0, 0.2),
-        inset 0 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-        /* --- SECTIONS COMMON --- */
-        section {
-            padding: 6rem 10%;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-script {
-    font-family: var(--font-script);
-    font-size: 3rem;
-    
-    /* --- PERUBAHAN DIMULAI DI SINI --- */
-
-    /* 1. Efek 3D Dasar */
-    color: var(--antique-gold); /* Gunakan warna asli Anda */
-    text-shadow:
-        1px 1px 2px rgba(0, 0, 0, 0.6),
-        2px 2px 4px rgba(0, 0, 0, 0.4),
-        3px 3px 6px rgba(0, 0, 0, 0.2);
-
-    /* 2. Animasi Melayang */
-    animation: float 4s ease-in-out infinite;
-
-    /* --- PROPERTI ASLI ANDA TETAP DIPERTAHANKAN --- */
-    margin-bottom: -10px;
-    display: block; /* Tidak perlu diubah */
-}
-
-/* 3. Keyframes Animasi Melayang */
-@keyframes float {
-    0%, 100% {
-        /* Posisi awal dan akhir */
-        transform: translateY(0px);
-    }
-    50% {
-        /* Posisi di tengah animasi (bergerak ke atas 10px) */
-        transform: translateY(-10px);
-    }
-}
-
-        .section-title {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    
-    /* --- PERUBAHAN DIMULAI DI SINI --- */
-
-    /* 1. Warna Kayu dengan Gradien */
-    /* Warna teks dibuat transparan agar gradien background terlihat */
-    color: transparent;
-    background-image: linear-gradient(
-        to bottom,
-        #ffffff 0%, /* Warna kayu terang */
-        #fefefe 30%,
-        #ffffff 60%,
-        #ffffff 100% /* Warna kayu gelap */
-    );
-    /* Properti penting untuk memotong background agar hanya mengikuti bentuk teks */
-    background-clip: text;
-    -webkit-background-clip: text; /* Untuk kompatibilitas browser WebKit (Safari, Chrome lama) */
-
-    /* 2. Efek 3D dengan Text Shadow */
-    /* Kita gunakan beberapa bayangan untuk menciptakan kedalaman */
-    text-shadow:
-        1px 1px 2px rgba(0, 0, 0, 0.6), /* Bayangan utama yang lebih tajam */
-        2px 2px 4px rgba(0, 0, 0, 0.5), /* Bayangan kedua untuk menambah depth */
-        3px 3px 6px rgba(0, 0, 0, 0.4); /* Bayangan ketiga yang lebih blur untuk efek softness */
-
-    /* 3. Sentuhan Tepi (Opsional, tapi direkomendasikan) */
-    /* Memberikan garis tepi tipis agar teks lebih terdefinisi */
-    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
-
-    /* 4. Membuat Elemen Terlihat Seperti Balok Kayu */
-    /* Menambahkan bayangan pada kotak elemen itu sendiri */
-    box-shadow: 
-        inset 0 2px 5px rgba(0, 0, 0, 0.3), /* Bayangan dalam untuk efek cekung */
-        0 5px 10px rgba(0, 0, 0, 0.5); /* Bayangan luar untuk efek mengambang */
-
-    /* --- PROPERTI ASLI ANDA TETAP DIPERTAHANKAN --- */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px; /* Tambahkan padding agar lebih terlihat seperti balok */
-    border-radius: 5px; /* Sedikit melengkungkan sudut */
-}
         
-        .section-title::before, .section-title::after {
-            content: "❧"; /* Ornament */
-            color: var(--violin-red);
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-date {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-        }
-        
-        .section-title::before { left: -40px; }
-        .section-title::after { right: -40px; transform: translateY(-50%) scaleX(-1); }
-
-        /* --- ABOUT & DESCRIPTION --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-frame {
-            border: var(--border-classic);
-            padding: 15px;
-            position: relative;
-            background: rgba(0,0,0,0.2);
-        }
-
-        .about-frame img {
+            top: 0;
             width: 100%;
-            display: block;
-            filter: sepia(30%) contrast(110%);
+            text-align: center;
+            font-weight: bold;
+            color: var(--secondary-color);
         }
-
-        /* Corner ornaments */
-        .corner {
+        
+        .timeline-item:nth-child(odd) .timeline-date {
+            left: -55%;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            right: -55%;
+        }
+        
+        .timeline-dot {
             position: absolute;
+            top: 25px;
+            left: 50%;
             width: 20px;
             height: 20px;
-            border-color: var(--antique-gold);
-            border-style: solid;
-        }
-        .tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
-        .tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
-        .bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
-        .br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #322b1d; /* Slightly darker than parchment for readability */
-            font-size: 1.1rem;
-            text-align: justify;
-            font-style: italic; /* Classic book feel */
-        }
-
-        /* --- DISTINCTION (Cards) --- */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .card {
-            background: rgba(62, 39, 35, 0.4);
-            padding: 0; /* Padding handled by inner content */
-            border: 1px solid var(--antique-gold);
-            position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            transform: translateX(-50%);
+            border: 4px solid var(--primary-color);
         }
         
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 5px; left: 5px; right: 5px; bottom: 5px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            pointer-events: none;
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 50px 0 20px;
         }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background: rgba(62, 39, 35, 0.6);
-        }
-
-        .card-header {
-            background: var(--antique-gold);
-            color: var(--wood-dark);
-            padding: 15px;
-            text-align: center;
-            font-family: var(--font-heading);
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .card-body {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            color: var(--light-gold);
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
-
-        .card p {
-            color: #4a412d;
-            font-size: 0.95rem;
-        }
-
-        /* --- MESSAGE SECTION --- */
-        .message-section {
-            background: linear-gradient(rgba(26, 18, 11, 0.9), rgba(26, 18, 11, 0.8)), url('https://picsum.photos/seed/piano/1920/1080');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .message-card {
-            background: rgba(20, 10, 5, 0.85);
-            padding: 4rem;
-            max-width: 800px;
-            margin: 2rem 0;
-            border: var(--border-classic);
-            position: relative;
-        }
-
-        .quote-deco {
-            position: absolute;
-            font-family: var(--font-script);
-            font-size: 8rem;
-            color: rgba(197, 160, 89, 0.1);
-            top: -20px;
-            left: 20px;
-            pointer-events: none;
-        }
-
-        .message-text {
-            font-style: italic;
-            font-size: 1.15rem;
-            line-height: 2;
-            color: var(--parchment);
-            position: relative;
-            z-index: 2;
-        }
-
-        .signature {
-            margin-top: 3rem;
-            text-align: right;
-            font-family: var(--font-script);
+        
+        .footer-title {
             font-size: 1.5rem;
-            color: var(--antique-gold);
-        }
-
-        /* --- REGISTRATION FORM --- */
-        .form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(20, 10, 5, 0.6);
-            padding: 3rem;
-            border: 1px solid var(--antique-gold);
-            position: relative;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
         
-        /* Ornamental corners for form */
-        .form-container::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 5px;
-            background: repeating-linear-gradient(45deg, var(--antique-gold), var(--antique-gold) 10px, var(--wood-dark) 10px, var(--wood-dark) 20px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+        .footer-link {
+            color: var(--light-text);
+            text-decoration: none;
+            margin-bottom: 10px;
             display: block;
-            margin-bottom: 0.5rem;
-            color: var(--antique-gold);
-            font-family: var(--font-heading);
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid #5d4037;
-            border-bottom: 2px solid var(--antique-gold);
-            border-radius: 0; /* Classic sharp input */
-            color: #fff;
-            font-family: var(--font-body);
-            transition: background 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        select.form-control option {
-            background-color: var(--wood-brown);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: var(--wood-brown);
-            color: var(--antique-gold);
-            border: 2px solid var(--antique-gold);
-            font-family: var(--font-heading);
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
             transition: all 0.3s;
-            font-size: 1rem;
-            letter-spacing: 2px;
         }
-
-        .submit-btn:hover {
-            background: var(--antique-gold);
-            color: var(--wood-dark);
+        
+        .footer-link:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
         }
-
-        /* --- FOOTER --- */
-        footer {
-            background: #0f0905;
-            padding: 4rem 10% 2rem;
+        
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--light-text);
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .director-message {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .director-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .director-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .director-title {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .competition-card {
+            padding: 30px;
+            height: 100%;
+        }
+        
+        .registration-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/registration/1920/800.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            padding: 80px 0;
             text-align: center;
-            border-top: 4px double var(--antique-gold);
         }
-
-        .footer-logo {
-            font-family: var(--font-heading);
-            color: var(--antique-gold);
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        
+        .registration-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
-
-        .footer-links a {
-            color: var(--parchment);
-            margin: 0 15px;
+        
+        .registration-info {
             font-size: 1.2rem;
-            transition: color 0.3s;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .footer-links a:hover {
-            color: var(--violin-red);
+        
+        .ymj-credit {
+            font-size: 0.9rem;
+            margin-top: 20px;
+            color: #ccc;
         }
-
-        .copyright {
-            margin-top: 2rem;
-            font-size: 0.8rem;
-            color: #6d4c41;
-            font-family: var(--font-heading);
+        
+        .ymj-logo {
+            max-height: 60px;
+            margin-bottom: 15px;
         }
-
-        /* --- TOAST --- */
-        #toast {
-            visibility: hidden;
-            min-width: 300px;
-            background-color: var(--wood-brown);
-            color: var(--antique-gold);
-            text-align: center;
-            border: 1px solid var(--antique-gold);
-            border-radius: 4px;
-            padding: 20px;
-            position: fixed;
-            z-index: 1001;
-            right: 30px;
-            bottom: 30px;
-            font-family: var(--font-heading);
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
-            transform: translateX(100%);
-            transition: transform 0.5s ease-in-out;
-        }
-
-        #toast.show {
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- RESPONSIVE --- */
+        
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--wood-dark);
-                padding: 2rem;
-                border-bottom: 2px solid var(--antique-gold);
+            .hero-title {
+                font-size: 2.5rem;
             }
-            .nav-links.active { display: flex; }
-            .menu-toggle { display: block; }
             
-            .hero-title { font-size: 2.5rem; }
-            .section-title::before, .section-title::after { display: none; } /* Hide ornaments on small screen */
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
             
-            .about-grid { grid-template-columns: 1fr; }
-            .about-frame { order: -1; }
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 60px !important;
+            }
+            
+            .timeline-date {
+                position: relative;
+                left: 0 !important;
+                right: 0 !important;
+                margin-bottom: 10px;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .language-selector {
+                top: 70px;
+                right: 10px;
+            }
         }
     </style>
 </head>
-<body class="lang-en">
-
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo"><i class="fas fa-music"></i> JISMF 2026</div>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="nav-links" id="nav-links">
-            <a href="#about">
-                <span class="lang-en">About</span>
-                <span class="lang-id">Tentang</span>
-                <span class="lang-cn">关于</span>
-            </a>
-            <a href="#distinction">
-                <span class="lang-en">Distinction</span>
-                <span class="lang-id">Keunggulan</span>
-                <span class="lang-cn">特色</span>
-            </a>
-            <a href="#message">
-                <span class="lang-en">Director</span>
-                <span class="lang-id">Direktur</span>
-                <span class="lang-cn">总监</span>
-            </a>
-            <a href="#register">
-                <span class="lang-en">Register</span>
-                <span class="lang-id">Daftar</span>
-                <span class="lang-cn">注册</span>
-            </a>
-            
-            <div class="lang-switch">
-                <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
-                <button class="lang-btn" onclick="setLanguage('id')">ID</button>
-                <button class="lang-btn" onclick="setLanguage('cn')">中文</button>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">JISMF 2026</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-translate="nav-home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-translate="nav-about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faculty" data-translate="nav-faculty">Faculty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#program" data-translate="nav-program">Program</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#workshop" data-translate="nav-workshops">Workshops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#competition" data-translate="nav-competition">Competition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#registration" data-translate="nav-registration">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-translate="nav-contact">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
-
-    <!-- HERO SECTION -->
-    <header id="home">
-        <canvas id="hero-canvas"></canvas>
-        <div class="hero-content">
-            <h2 class="hero-subtitle">Jakarta International Summer Music Festival</h2>
-            <h1 class="hero-title">
-                <span class="lang-en">Legacy in Motion</span>
-                <span class="lang-id">Legacy in Motion</span>
-                <span class="lang-cn">Legacy in Motion</span>
-            </h1>
-            <p class="hero-tagline">
-                <span class="lang-en">Roots & Wings – Re:Sound</span>
-                <span class="lang-id">Roots & Wings – Re:Sound</span>
-                <span class="lang-cn">Roots & Wings – Re:Sound</span>
-            </p>
-            <a href="#register" class="cta-btn">
-                <span class="lang-en">Join the Symphony</span>
-                <span class="lang-id">Bergabung dalam Simfoni</span>
-                <span class="lang-cn">加入交响乐章</span>
-            </a>
-        </div>
-    </header>
-
-    <!-- ABOUT SECTION -->
-    <section id="about" class="reveal">
-        <div class="section-header">
-            <span class="section-script">The Maestro's Vision</span>
-            <h2 class="section-title">
-                <span class="lang-en">Official Description</span>
-                <span class="lang-id">Deskripsi Resmi</span>
-                <span class="lang-cn">官方介绍</span>
-            </h2>
-        </div>
-        <div class="about-grid">
-            <div class="about-text">
-                <!-- English -->
-                <div class="lang-en">
-                    <p>After years of global uncertainty and pause, the Jakarta International Summer Music Festival returns in 2026 with renewed clarity of purpose. HOME | Legacy in Motion marks not merely the revival of a music camp, but the continuation of a living legacy.</p>
-                    <p>JISMF alumni — now graduates of leading international institutions — return as faculty members. What was once a place of learning becomes a place of mentorship. What began as roots now extends as wings.</p>
-                    <p>Throughout one immersive week, participants will reside within a vibrant artistic community. They will receive intensive lessons and masterclasses, engage in daily artistic dialogue, and perform in nightly concerts. Music becomes not only study, but lived experience.</p>
-                    <p>The festival culminates in the Indonesia Open Competition (IOC), a platform designed to uphold transparency, rigor, and international standards. Winners will be presented in a distinguished Gala Concert.</p>
-                </div>
-                <!-- Bahasa Indonesia -->
-                <div class="lang-id">
-                    <p>Setelah melewati masa ketidakpastian global dan jeda yang panjang, Jakarta International Summer Music Festival kembali hadir pada tahun 2026. HOME | Legacy in Motion bukan sekadar kembalinya sebuah music camp, melainkan kelanjutan dari sebuah warisan pendidikan yang hidup.</p>
-                    <p>Para alumni JISMF — yang kini telah menyelesaikan studi di berbagai institusi musik terkemuka dunia — kembali sebagai anggota fakultas. Tempat yang dahulu menjadi ruang belajar mereka kini menjadi ruang pengabdian.</p>
-                    <p>Selama satu minggu penuh, peserta akan menjalani pengalaman artistik yang intensif: tinggal bersama dalam komunitas kreatif, mengikuti lesson dan masterclass instrumen mayor, serta tampil dalam konser setiap malam.</p>
-                    <p>Festival ini akan ditutup dengan Indonesia Open Competition (IOC), sebuah kompetisi terbuka yang menjunjung tinggi transparansi dan standar internasional, serta diakhiri dengan Gala Concert.</p>
-                </div>
-                <!-- Mandarin -->
-                <div class="lang-cn">
-                    <p>在经历全球不确定与长期停顿之后，雅加达国际夏季音乐节（JISMF）将于2026年重启。HOME | Legacy in Motion 不仅仅是一次音乐营的回归，更是一份持续发展的教育传承。</p>
-                    <p>2026年的特别之处在于——曾经的学员，如今已毕业于世界顶尖音乐学府，现以导师身份回归。这不仅是一次重聚，更是一种传承的完成。</p>
-                    <p>为期一周的沉浸式课程中，学员将与导师共同生活于艺术氛围之中，接受主要乐器的一对一课程与大师班，并在每晚音乐会上登台演出。</p>
-                    <p>音乐节最终将以 印尼公开赛（Indonesia Open Competition, IOC） 作为高潮，在透明与国际标准的评审机制下选出优胜者，并以盛大的 Gala Concert 为音乐节画下荣耀句点。</p>
-                </div>
-            </div>
-            <div class="about-frame">
-                <div class="corner tl"></div><div class="corner tr"></div>
-                <div class="corner bl"></div><div class="corner br"></div>
-                <!-- Image of Violin/Cello -->
-                <img src="pict">
+    
+    <!-- Enhanced Language Selector -->
+    <div class="language-selector">
+        <button class="language-btn active" onclick="changeLanguage('en')">EN</button>
+        <button class="language-btn" onclick="changeLanguage('id')">ID</button>
+        <button class="language-btn" onclick="changeLanguage('zh')">中文</button>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="hero-title" data-translate="hero-title">Jakarta International Summer Music Festival 2026</h1>
+            <h2 class="hero-subtitle" data-translate="hero-subtitle">HOME | Legacy in Motion</h2>
+            <div class="hero-theme" data-translate="hero-theme1">Roots & Wings – Re:Sound, A New Chapter</div>
+            <div class="hero-theme" data-translate="hero-theme2">The Return of Excellence</div>
+            <div class="mt-4">
+                <a href="#registration" class="btn btn-primary-custom" data-translate="btn-register">Register Now</a>
+                <a href="#about" class="btn btn-outline-light btn-lg" data-translate="btn-learn">Learn More</a>
             </div>
         </div>
     </section>
-
-    <!-- DISTINCTION SECTION -->
-    <section id="distinction" class="reveal">
-        <div class="section-header">
-            <span class="section-script">Artistic Excellence</span>
-            <h2 class="section-title">
-                <span class="lang-en">Distinction</span>
-                <span class="lang-id">Keunggulan</span>
-                <span class="lang-cn">特色</span>
-            </h2>
-        </div>
-        <div class="cards-container">
-            <!-- Card 1 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="lang-en">Mentorship</span>
-                    <span class="lang-id">Mentorship</span>
-                    <span class="lang-cn">导师传承</span>
+    
+    <!-- About Section -->
+    <section id="about" class="section-padding light-bg">
+        <div class="container">
+            <h2 class="section-title mb-5" data-translate="about-title">About The Festival</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card card-custom h-100">
+                        <img src="https://picsum.photos/seed/festival1/600/400.jpg" class="card-img-top" alt="Festival Image">
+                        <div class="card-body">
+                            <h3 class="card-title" data-translate="about-legacy-title">Our Legacy</h3>
+                            <p class="card-text" data-translate="about-legacy-text">After years of global uncertainty and pause, the Jakarta International Summer Music Festival returns in 2026 with renewed clarity of purpose and artistic conviction. HOME | Legacy in Motion marks not merely the revival of a music camp, but the continuation of a living legacy.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
-                    <p>
-                        <span class="lang-en">Alumni return as faculty. A seamless bridge between international standards and local context.</span>
-                        <span class="lang-id">Alumni kembali sebagai fakultas. Jembatan sempurna antara standar internasional dan konteks lokal.</span>
-                        <span class="lang-cn">校友回归担任导师。完美连接国际标准与本土语境。</span>
-                    </p>
+                <div class="col-lg-6 mb-4">
+                    <div class="card card-custom h-100">
+                        <img src="https://picsum.photos/seed/festival2/600/400.jpg" class="card-img-top" alt="Festival Image">
+                        <div class="card-body">
+                            <h3 class="card-title" data-translate="about-philosophy-title">Our Philosophy</h3>
+                            <p class="card-text" data-translate="about-philosophy-text">Under the philosophical framework of Roots & Wings, JISMF 2026 celebrates the educational lineage of YMJ — nurturing foundations strong enough to send students to the world, and welcoming them home to shape the next generation.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="lang-en">Masterclasses</span>
-                    <span class="lang-id">Masterclasses</span>
-                    <span class="lang-cn">大师班</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-icon"><i class="fas fa-music"></i></div>
-                    <p>
-                        <span class="lang-en">Intensive lessons and masterclasses. Daily artistic dialogue shaping the musicians of tomorrow.</span>
-                        <span class="lang-id">Les intensif dan masterclasses. Dialog artistik harian yang membentuk musisi masa depan.</span>
-                        <span class="lang-cn">强化课程与大师班。每日的艺术对话塑造未来的音乐家。</span>
-                    </p>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="lang-en">Gala Concert</span>
-                    <span class="lang-id">Gala Concert</span>
-                    <span class="lang-cn">盛典音乐会</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-icon"><i class="fas fa-trophy"></i></div>
-                    <p>
-                        <span class="lang-en">The Indonesia Open Competition (IOC) culminates in a distinguished Gala Concert of winners.</span>
-                        <span class="lang-id">Indonesia Open Competition (IOC) ditutup dengan Gala Concert yang megah untuk para pemenang.</span>
-                        <span class="lang-cn">印尼公开赛（IOC）最终以优胜者参与的盛大盛典音乐会画下句点。</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MESSAGE SECTION -->
-    <section id="message" class="message-section reveal">
-        <div class="message-card">
-            <div class="quote-deco">“</div>
-            <div class="section-header">
-                <span class="section-script">From the Podium</span>
-                <h2 class="section-title" style="font-size: 2rem;">
-                    <span class="lang-en">Artistic Director’s Message</span>
-                    <span class="lang-id">Pesan Artistic Director</span>
-                    <span class="lang-cn">艺术总监寄语</span>
-                </h2>
             </div>
             
-            <div class="message-text">
-                <!-- English -->
-                <div class="lang-en">
-                    <p>"It is with deep gratitude that I welcome the return of the Jakarta International Summer Music Festival in 2026."</p>
-                    <p>"This is the true spirit of HOME | Legacy in Motion — where strong roots give rise to wings, and those wings return to strengthen the roots of the next generation."</p>
-                    <p>"May this festival become a renewed resonance for Indonesia — a meeting place of tradition, renewal, and excellence."</p>
+            <!-- Artistic Director's Message -->
+            <div class="director-message">
+                <img src="https://picsum.photos/seed/director/150/150.jpg" class="director-img" alt="Artistic Director">
+                <h3 class="director-name">Dr. Kuei Pin Yeo</h3>
+                <p class="director-title" data-translate="director-title">Artistic Director, JISMF 2026</p>
+                <p data-translate="director-message">"It is with deep gratitude and conviction that I welcome the return of the Jakarta International Summer Music Festival in 2026. This year is especially significant. JISMF alumni, now graduates of leading international music institutions, return as faculty members. This is the true spirit of HOME | Legacy in Motion — where strong roots give rise to wings, and those wings return to strengthen the roots of the next generation."</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Faculty Section -->
+    <section id="faculty" class="section-padding">
+        <div class="container">
+            <h2 class="section-title mb-5" data-translate="faculty-title">Our Distinguished Faculty</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card card-custom faculty-card">
+                        <img src="https://picsum.photos/seed/faculty1/200/200.jpg" class="faculty-img" alt="Faculty Member">
+                        <h4 class="faculty-name">Faculty Name 1</h4>
+                        <p class="faculty-title">Violin | Juilliard School</p>
+                        <p data-translate="faculty-alumni">JISMF Alumni</p>
+                    </div>
                 </div>
-                <!-- ID -->
-                <div class="lang-id">
-                    <p>"Dengan penuh rasa syukur dan kebanggaan, saya menyambut kembalinya Jakarta International Summer Music Festival pada tahun 2026."</p>
-                    <p>"Inilah makna sejati dari HOME | Legacy in Motion — ketika akar yang kuat melahirkan sayap, dan sayap itu kembali untuk memperkuat akar generasi berikutnya."</p>
-                    <p>"Semoga festival ini menjadi ruang resonansi baru bagi Indonesia — tempat tradisi, pembaruan, dan keunggulan bertemu."</p>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card card-custom faculty-card">
+                        <img src="https://picsum.photos/seed/faculty2/200/200.jpg" class="faculty-img" alt="Faculty Member">
+                        <h4 class="faculty-name">Faculty Name 2</h4>
+                        <p class="faculty-title">Piano | Curtis Institute</p>
+                        <p data-translate="faculty-alumni">JISMF Alumni</p>
+                    </div>
                 </div>
-                <!-- CN -->
-                <div class="lang-cn">
-                    <p>"怀着感恩与坚定的信念，我诚挚欢迎雅加达国际夏季音乐节于2026年的回归。"</p>
-                    <p>"这正是 HOME | Legacy in Motion 的核心精神——坚实的根基孕育出翅膀，而翅膀归来，继续滋养新的根基。"</p>
-                    <p>"愿本届音乐节成为印尼音乐再次共鸣的重要里程碑，让传统、更新与卓越在此汇聚。"</p>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card card-custom faculty-card">
+                        <img src="https://picsum.photos/seed/faculty3/200/200.jpg" class="faculty-img" alt="Faculty Member">
+                        <h4 class="faculty-name">Faculty Name 3</h4>
+                        <p class="faculty-title">Cello | Royal College of Music</p>
+                        <p data-translate="faculty-alumni">JISMF Alumni</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card card-custom faculty-card">
+                        <img src="https://picsum.photos/seed/faculty4/200/200.jpg" class="faculty-img" alt="Faculty Member">
+                        <h4 class="faculty-name">Faculty Name 4</h4>
+                        <p class="faculty-title">Composition | Berklee College</p>
+                        <p data-translate="faculty-alumni">JISMF Alumni</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="signature">
-                <div class="lang-id">Dr. Kuei Pin Yeo
-                <div class="lang-id">Dr. Kuei Pin Yeo
-                <div class="lang-cn">杨圭斌博士</div>
+            <div class="text-center mt-4">
+                <p class="lead" data-translate="faculty-description">A defining strength of JISMF 2026 lies in its faculty — distinguished alumni of the festival who have since graduated from leading international institutions and are now active artists and educators. Their return represents more than professional achievement; it represents continuity of vision.</p>
+            </div>
         </div>
     </section>
-
-    <!-- REGISTRATION FORM -->
-    <section id="register" class="reveal">
-        <div class="section-header">
-            <span class="section-script">Secure Your Seat</span>
-            <h2 class="section-title">
-                <span class="lang-en">Registration</span>
-                <span class="lang-id">Pendaftaran</span>
-                <span class="lang-cn">注册报名</span>
-            </h2>
+    
+    <!-- Program Section -->
+    <section id="program" class="section-padding light-bg">
+        <div class="container">
+            <h2 class="section-title mb-5" data-translate="program-title">Festival Program</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date" data-translate="program-day1">Day 1</div>
+                    <div class="timeline-content">
+                        <h4 data-translate="program-opening-title">Opening Ceremony & Welcome Concert</h4>
+                        <p data-translate="program-opening-desc">The festival begins with an opening ceremony featuring performances by faculty members and a welcome reception for all participants.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date" data-translate="program-day2-5">Day 2-5</div>
+                    <div class="timeline-content">
+                        <h4 data-translate="program-lessons-title">Intensive Lessons & Masterclasses</h4>
+                        <p data-translate="program-lessons-desc">Participants will receive intensive lessons and masterclasses two to three times during the festival, engage in daily artistic dialogue with faculty.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date" data-translate="program-day2-6">Day 2-6</div>
+                    <div class="timeline-content">
+                        <h4 data-translate="program-concerts-title">Evening Concerts</h4>
+                        <p data-translate="program-concerts-desc">Nightly concerts featuring participants, faculty, and guest artists. Music becomes not only study, but lived experience.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date" data-translate="program-day3-5">Day 3-5</div>
+                    <div class="timeline-content">
+                        <h4 data-translate="program-workshops-title">Workshops & Seminars</h4>
+                        <p data-translate="program-workshops-desc">Specialized workshops on topics ranging from performance practice to career development in the modern music industry.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date" data-translate="program-day6-7">Day 6-7</div>
+                    <div class="timeline-content">
+                        <h4 data-translate="program-competition-title">Indonesia Open Competition</h4>
+                        <p data-translate="program-competition-desc">The festival culminates in the Indonesia Open Competition (IOC), a platform designed to uphold transparency, rigor, and international standards.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date" data-translate="program-day7">Day 7</div>
+                    <div class="timeline-content">
+                        <h4 data-translate="program-gala-title">Gala Concert & Closing Ceremony</h4>
+                        <p data-translate="program-gala-desc">Winners of the competition will be presented in a distinguished Gala Concert — a celebration of excellence and emerging artistry.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-container">
-            <p style="text-align: center; margin-bottom: 20px; color: var(--antique-gold); font-style: italic;">
-                <span class="lang-en">Apply now to secure your place in the 2026 Season.</span>
-                <span class="lang-id">Daftarkan diri Anda sekarang untuk musim 2026.</span>
-                <span class="lang-cn">立即申请，锁定2026乐季席位。</span>
-            </p>
+    </section>
+    
+    <!-- Workshop Section -->
+    <section id="workshop" class="section-padding">
+        <div class="container">
+            <h2 class="section-title mb-5" data-translate="workshop-title">Workshops & Seminars</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom workshop-card">
+                        <h3 class="workshop-title" data-translate="workshop1-title">Classical Roots, Commercial Future</h3>
+                        <p class="workshop-subtitle" data-translate="workshop1-subtitle">"Beyond the Conservatory: Entering the Modern Music Industry"</p>
+                        <p data-translate="workshop1-desc">Explore the transition from classical training to diverse career paths in the contemporary music landscape.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom workshop-card">
+                        <h3 class="workshop-title" data-translate="workshop2-title">European Music Schools</h3>
+                        <p class="workshop-subtitle" data-translate="workshop2-subtitle">"The European Conservatoire System: Strengths, Challenges & Hidden Realities"</p>
+                        <p data-translate="workshop2-desc">Gain insights into studying music in Germany, Austria, Italy, and other European countries.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom workshop-card">
+                        <h3 class="workshop-title" data-translate="workshop3-title">American Conservatory Dream</h3>
+                        <p class="workshop-subtitle" data-translate="workshop3-subtitle">"The American Conservatory Dream: Is It Right For You?"</p>
+                        <p data-translate="workshop3-desc">Discover the opportunities and challenges of pursuing music education in the United States.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom workshop-card">
+                        <h3 class="workshop-title" data-translate="workshop4-title">The Future of Classical Musicians</h3>
+                        <p class="workshop-subtitle" data-translate="workshop4-subtitle">"The 21st Century Musician: Beyond Competitions & Conservatories"</p>
+                        <p data-translate="workshop4-desc">Explore diverse career paths and skills needed for success in the evolving musical landscape.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom workshop-card">
+                        <h3 class="workshop-title" data-translate="workshop5-title">Building Your Portfolio Career</h3>
+                        <p class="workshop-subtitle" data-translate="workshop5-subtitle">"Portfolio Career, Branding & Social Media Presence"</p>
+                        <p data-translate="workshop5-desc">Learn how to develop a diverse career path and build your personal brand as a musician.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom workshop-card">
+                        <h3 class="workshop-title" data-translate="workshop6-title">Surviving in the AI Era</h3>
+                        <p class="workshop-subtitle" data-translate="workshop6-subtitle">"Cross-discipline Collaborations & Surviving in the AI Era"</p>
+                        <p data-translate="workshop6-desc">Explore how musicians can adapt and thrive in an increasingly technological world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Competition Section -->
+    <section id="competition" class="section-padding light-bg">
+        <div class="container">
+            <h2 class="section-title mb-5" data-translate="competition-title">Indonesia Open Competition</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card card-custom competition-card">
+                        <h3 data-translate="competition-about-title">About the Competition</h3>
+                        <p data-translate="competition-about-desc">The festival culminates in the Indonesia Open Competition (IOC), a platform designed to uphold transparency, rigor, and international standards. The competition provides an opportunity for participants to showcase their skills and receive valuable feedback from our distinguished international faculty.</p>
+                        <p data-translate="competition-about-desc2">Winners will be presented in a distinguished Gala Concert — a celebration of excellence and emerging artistry.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card card-custom competition-card">
+                        <h3 data-translate="competition-categories-title">Competition Categories</h3>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-music me-2"></i> Piano</li>
+                            <li><i class="fas fa-music me-2"></i> Violin</li>
+                            <li><i class="fas fa-music me-2"></i> Cello</li>
+                            <li><i class="fas fa-music me-2"></i> Flute</li>
+                            <li><i class="fas fa-music me-2"></i> Clarinet</li>
+                            <li><i class="fas fa-music me-2"></i> Composition</li>
+                        </ul>
+                        <p data-translate="competition-categories-desc">Each category will have different age groups and repertoire requirements. Detailed competition guidelines will be provided upon registration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Registration Section -->
+    <section id="registration" class="registration-section">
+        <div class="container">
+            <h2 class="registration-title" data-translate="registration-title">Registration</h2>
+            <p class="registration-info" data-translate="registration-info">Join us for this extraordinary musical journey. Registration for JISMF 2026 is now open. Secure your place in this immersive musical experience.</p>
+            <a href="https://forms.google.com/your-form-link-here" target="_blank" class="btn btn-primary-custom btn-lg" data-translate="btn-register">Register Now</a>
             
-            <form id="registrationForm" action="mailto:info@yayasanmusikjakarta.org" method="post" enctype="text/plain">
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">Full Name</span>
-                        <span class="lang-id">Nama Lengkap</span>
-                        <span class="lang-cn">全名</span>
-                    </label>
-                    <input type="text" name="Full Name" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">Email Address</span>
-                        <span class="lang-id">Alamat Email</span>
-                        <span class="lang-cn">电子邮箱</span>
-                    </label>
-                    <input type="email" name="Email" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">Instrument</span>
-                        <span class="lang-id">Instrumen</span>
-                        <span class="lang-cn">乐器</span>
-                    </label>
-                    <select name="Instrument" class="form-control" required>
-                        <option value="" disabled selected>Select Instrument...</option>
-                        <option value="Piano">Piano</option>
-                        <option value="Violin">Violin</option>
-                        <option value="Viola">Viola</option>
-                        <option value="Cello">Cello</option>
-                        <option value="Double Bass">Double Bass</option>
-                        <option value="Flute">Flute</option>
-                        <option value="Clarinet">Clarinet</option>
-                        <option value="Voice">Voice</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">Message</span>
-                        <span class="lang-id">Pesan</span>
-                        <span class="lang-cn">留言</span>
-                    </label>
-                    <textarea name="Message" rows="4" class="form-control"></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    <span class="lang-en">Send Application</span>
-                    <span class="lang-id">Kirim Permohonan</span>
-                    <span class="lang-cn">发送申请</span>
-                </button>
-            </form>
+            <div class="mt-5">
+                <img src="https://picsum.photos/seed/ymjlogo/300/100.jpg" class="ymj-logo" alt="YMJ Logo">
+                <p class="ymj-credit" data-translate="ymj-credit">This event is organized by YMJ Stage, under the management of Yayasan Musik Jakarta (YMJ)</p>
+            </div>
         </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-logo">JISMF 2026</div>
-        <div class="footer-links">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="mailto:info@yayasanmusikjakarta.org"><i class="fas fa-envelope"></i></a>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title mb-5" data-translate="contact-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marker-alt fa-3x mb-3 text-primary"></i>
+                            <h4 data-translate="contact-location">Location</h4>
+                            <p data-translate="contact-location-desc">Jakarta, Indonesia<br>Exact venue details will be provided to registered participants</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope fa-3x mb-3 text-primary"></i>
+                            <h4 data-translate="contact-email">Email</h4>
+                            <p>info@jismf.org<br>registration@jismf.org</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-phone fa-3x mb-3 text-primary"></i>
+                            <h4 data-translate="contact-phone">Phone</h4>
+                            <p>+62 21 1234 5678<br>+62 812 3456 7890</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <h4 data-translate="contact-follow">Follow Us</h4>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 Yayasan Musik Jakarta. All Rights Reserved.
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">JISMF 2026</h5>
+                    <p data-translate="footer-desc1">Jakarta International Summer Music Festival 2026 - HOME | Legacy in Motion</p>
+                    <p data-translate="footer-desc2">Roots & Wings – Re:Sound, A New Chapter</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title" data-translate="footer-quick-links">Quick Links</h5>
+                    <a href="#about" class="footer-link" data-translate="footer-about">About</a>
+                    <a href="#faculty" class="footer-link" data-translate="footer-faculty">Faculty</a>
+                    <a href="#program" class="footer-link" data-translate="footer-program">Program</a>
+                    <a href="#workshop" class="footer-link" data-translate="footer-workshops">Workshops</a>
+                    <a href="#competition" class="footer-link" data-translate="footer-competition">Competition</a>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title" data-translate="footer-organized">Organized By</h5>
+                    <p>YMJ Stage</p>
+                    <p data-translate="footer-management">Under the management of</p>
+                    <p>Yayasan Musik Jakarta (YMJ)</p>
+                </div>
+            </div>
+            <hr class="my-4" style="background-color: rgba(255,255,255,0.2);">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p data-translate="footer-copyright">&copy; 2026 Jakarta International Summer Music Festival. All Rights Reserved.</p>
+                </div>
+            </div>
         </div>
     </footer>
-
-    <!-- TOAST -->
-    <div id="toast">
-        <i class="fas fa-music"></i> 
-        <span id="toast-msg">Success</span>
-    </div>
-
-    <!-- JAVASCRIPT -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // --- LANGUAGE SWITCHER ---
-        function setLanguage(lang) {
-            document.body.className = `lang-${lang}`;
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if(lang === 'en') buttons[0].classList.add('active');
-            if(lang === 'id') buttons[1].classList.add('active');
-            if(lang === 'cn') buttons[2].classList.add('active');
-            checkScroll();
-        }
-
-        // --- MOBILE MENU ---
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('active'));
-        });
-
-        // --- SCROLL ANIMATION ---
-        const revealElements = document.querySelectorAll('.reveal');
-        function checkScroll() {
-            const triggerBottom = window.innerHeight * 0.85;
-            revealElements.forEach(box => {
-                const boxTop = box.getBoundingClientRect().top;
-                if(boxTop < triggerBottom) box.classList.add('active');
-            });
-        }
-        window.addEventListener('scroll', checkScroll);
-        checkScroll();
-
-        // --- FORM HANDLING ---
-        const form = document.getElementById('registrationForm');
-        const toast = document.getElementById('toast');
-        const toastMsg = document.getElementById('toast-msg');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Visual Feedback
-            let successText = "Opening Mail Client...";
-            if(document.body.classList.contains('lang-id')) successText = "Membuka Aplikasi Email...";
-            if(document.body.classList.contains('lang-cn')) successText = "正在打开邮件应用...";
-
-            toastMsg.textContent = successText;
-            toast.className = "show";
-
-            setTimeout(() => {
-                form.submit();
-                toast.className = toast.className.replace("show", "");
-                form.reset();
-            }, 3000);
-        });
-
-        // --- HERO ANIMATION: VIBRATING STRINGS (CLASSICAL THEME) ---
-        const canvas = document.getElementById('hero-canvas');
-        const ctx = canvas.getContext('2d');
+        // Translation object
+        const translations = {
+            en: {
+                "nav-home": "Home",
+                "nav-about": "About",
+                "nav-faculty": "Faculty",
+                "nav-program": "Program",
+                "nav-workshops": "Workshops",
+                "nav-competition": "Competition",
+                "nav-registration": "Registration",
+                "nav-contact": "Contact",
+                "hero-title": "Jakarta International Summer Music Festival 2026",
+                "hero-subtitle": "HOME | Legacy in Motion",
+                "hero-theme1": "Roots & Wings – Re:Sound, A New Chapter",
+                "hero-theme2": "The Return of Excellence",
+                "btn-register": "Register Now",
+                "btn-learn": "Learn More",
+                "about-title": "About The Festival",
+                "about-legacy-title": "Our Legacy",
+                "about-legacy-text": "After years of global uncertainty and pause, the Jakarta International Summer Music Festival returns in 2026 with renewed clarity of purpose and artistic conviction. HOME | Legacy in Motion marks not merely the revival of a music camp, but the continuation of a living legacy.",
+                "about-philosophy-title": "Our Philosophy",
+                "about-philosophy-text": "Under the philosophical framework of Roots & Wings, JISMF 2026 celebrates the educational lineage of YMJ — nurturing foundations strong enough to send students to the world, and welcoming them home to shape the next generation.",
+                "director-title": "Artistic Director, JISMF 2026",
+                "director-message": "\"It is with deep gratitude and conviction that I welcome the return of the Jakarta International Summer Music Festival in 2026. This year is especially significant. JISMF alumni, now graduates of leading international music institutions, return as faculty members. This is the true spirit of HOME | Legacy in Motion — where strong roots give rise to wings, and those wings return to strengthen the roots of the next generation.\"",
+                "faculty-title": "Our Distinguished Faculty",
+                "faculty-alumni": "JISMF Alumni",
+                "faculty-description": "A defining strength of JISMF 2026 lies in its faculty — distinguished alumni of the festival who have since graduated from leading international institutions and are now active artists and educators. Their return represents more than professional achievement; it represents continuity of vision.",
+                "program-title": "Festival Program",
+                "program-day1": "Day 1",
+                "program-opening-title": "Opening Ceremony & Welcome Concert",
+                "program-opening-desc": "The festival begins with an opening ceremony featuring performances by faculty members and a welcome reception for all participants.",
+                "program-day2-5": "Day 2-5",
+                "program-lessons-title": "Intensive Lessons & Masterclasses",
+                "program-lessons-desc": "Participants will receive intensive lessons and masterclasses two to three times during the festival, engage in daily artistic dialogue with faculty.",
+                "program-day2-6": "Day 2-6",
+                "program-concerts-title": "Evening Concerts",
+                "program-concerts-desc": "Nightly concerts featuring participants, faculty, and guest artists. Music becomes not only study, but lived experience.",
+                "program-day3-5": "Day 3-5",
+                "program-workshops-title": "Workshops & Seminars",
+                "program-workshops-desc": "Specialized workshops on topics ranging from performance practice to career development in the modern music industry.",
+                "program-day6-7": "Day 6-7",
+                "program-competition-title": "Indonesia Open Competition",
+                "program-competition-desc": "The festival culminates in the Indonesia Open Competition (IOC), a platform designed to uphold transparency, rigor, and international standards.",
+                "program-day7": "Day 7",
+                "program-gala-title": "Gala Concert & Closing Ceremony",
+                "program-gala-desc": "Winners of the competition will be presented in a distinguished Gala Concert — a celebration of excellence and emerging artistry.",
+                "workshop-title": "Workshops & Seminars",
+                "workshop1-title": "Classical Roots, Commercial Future",
+                "workshop1-subtitle": "\"Beyond the Conservatory: Entering the Modern Music Industry\"",
+                "workshop1-desc": "Explore the transition from classical training to diverse career paths in the contemporary music landscape.",
+                "workshop2-title": "European Music Schools",
+                "workshop2-subtitle": "\"The European Conservatoire System: Strengths, Challenges & Hidden Realities\"",
+                "workshop2-desc": "Gain insights into studying music in Germany, Austria, Italy, and other European countries.",
+                "workshop3-title": "American Conservatory Dream",
+                "workshop3-subtitle": "\"The American Conservatory Dream: Is It Right For You?\"",
+                "workshop3-desc": "Discover the opportunities and challenges of pursuing music education in the United States.",
+                "workshop4-title": "The Future of Classical Musicians",
+                "workshop4-subtitle": "\"The 21st Century Musician: Beyond Competitions & Conservatories\"",
+                "workshop4-desc": "Explore diverse career paths and skills needed for success in the evolving musical landscape.",
+                "workshop5-title": "Building Your Portfolio Career",
+                "workshop5-subtitle": "\"Portfolio Career, Branding & Social Media Presence\"",
+                "workshop5-desc": "Learn how to develop a diverse career path and build your personal brand as a musician.",
+                "workshop6-title": "Surviving in the AI Era",
+                "workshop6-subtitle": "\"Cross-discipline Collaborations & Surviving in the AI Era\"",
+                "workshop6-desc": "Explore how musicians can adapt and thrive in an increasingly technological world.",
+                "competition-title": "Indonesia Open Competition",
+                "competition-about-title": "About the Competition",
+                "competition-about-desc": "The festival culminates in the Indonesia Open Competition (IOC), a platform designed to uphold transparency, rigor, and international standards. The competition provides an opportunity for participants to showcase their skills and receive valuable feedback from our distinguished international faculty.",
+                "competition-about-desc2": "Winners will be presented in a distinguished Gala Concert — a celebration of excellence and emerging artistry.",
+                "competition-categories-title": "Competition Categories",
+                "competition-categories-desc": "Each category will have different age groups and repertoire requirements. Detailed competition guidelines will be provided upon registration.",
+                "registration-title": "Registration",
+                "registration-info": "Join us for this extraordinary musical journey. Registration for JISMF 2026 is now open. Secure your place in this immersive musical experience.",
+                "ymj-credit": "This event is organized by YMJ Stage, under the management of Yayasan Musik Jakarta (YMJ)",
+                "contact-title": "Contact Us",
+                "contact-location": "Location",
+                "contact-location-desc": "Jakarta, Indonesia<br>Exact venue details will be provided to registered participants",
+                "contact-email": "Email",
+                "contact-phone": "Phone",
+                "contact-follow": "Follow Us",
+                "footer-desc1": "Jakarta International Summer Music Festival 2026 - HOME | Legacy in Motion",
+                "footer-desc2": "Roots & Wings – Re:Sound, A New Chapter",
+                "footer-quick-links": "Quick Links",
+                "footer-about": "About",
+                "footer-faculty": "Faculty",
+                "footer-program": "Program",
+                "footer-workshops": "Workshops",
+                "footer-competition": "Competition",
+                "footer-organized": "Organized By",
+                "footer-management": "Under the management of",
+                "footer-copyright": "&copy; 2026 Jakarta International Summer Music Festival. All Rights Reserved."
+            },
+            id: {
+                "nav-home": "Beranda",
+                "nav-about": "Tentang",
+                "nav-faculty": "Fakultas",
+                "nav-program": "Program",
+                "nav-workshops": "Workshop",
+                "nav-competition": "Kompetisi",
+                "nav-registration": "Pendaftaran",
+                "nav-contact": "Kontak",
+                "hero-title": "Festival Musik Musim Panas Internasional Jakarta 2026",
+                "hero-subtitle": "HOME | Warisan dalam Gerakan",
+                "hero-theme1": "Akar & Sayap – Re:Sound, Babak Baru",
+                "hero-theme2": "Kembalinya Keunggulan",
+                "btn-register": "Daftar Sekarang",
+                "btn-learn": "Pelajari Lebih Lanjut",
+                "about-title": "Tentang Festival",
+                "about-legacy-title": "Warisan Kami",
+                "about-legacy-text": "Setelah tahun-tahun ketidakpastian global dan jeda, Festival Musik Musim Panas Internasional Jakarta kembali pada tahun 2026 dengan kejelasan tujuan dan keyakinan artistik yang diperbarui. HOME | Legacy in Motion menandakan bukan hanya kebangkitan sebuah kamp musik, tetapi kelanjutan dari warisan yang hidup.",
+                "about-philosophy-title": "Filosofi Kami",
+                "about-philosophy-text": "Di bawah kerangka filosofis Akar & Sayap, JISMF 2026 merayakan silsilah pendidikan YMJ — memupuk fondasi yang cukup kuat untuk mengirim siswa ke dunia, dan menyambut mereka pulang untuk membentuk generasi berikutnya.",
+                "director-title": "Direktur Artistik, JISMF 2026",
+                "director-message": "\"Dengan rasa terima kasih yang mendalam dan keyakinan, saya menyambut kembalinya Festival Musik Musim Panas Internasional Jakarta pada tahun 2026. Tahun ini sangat signifikan. Alumni JISMF, yang sekarang merupakan lulusan institusi musik internasional terkemuka, kembali sebagai anggota fakultas. Ini adalah semangat sejati dari HOME | Legacy in Motion — di mana akar yang kuat menimbulkan sayap, dan sayap itu kembali untuk memperkuat akar generasi berikutnya.\"",
+                "faculty-title": "Fakultas Terhormat Kami",
+                "faculty-alumni": "Alumni JISMF",
+                "faculty-description": "Kekuatan penentu JISMF 2026 terletak pada fakultasnya — alumni terkemuka festival yang sejak itu lulus dari institusi internasional terkemuka dan sekarang menjadi seniman dan pendidik aktif. Kembali mereka mewakili lebih dari sekadar pencapaian profesional; itu mewakili kelanjutan visi.",
+                "program-title": "Program Festival",
+                "program-day1": "Hari 1",
+                "program-opening-title": "Upacara Pembukaan & Konser Selamat Datang",
+                "program-opening-desc": "Festival dimulai dengan upacara pembukaan yang menampilkan pertunjukan oleh anggota fakultas dan resepsi selamat datang untuk semua peserta.",
+                "program-day2-5": "Hari 2-5",
+                "program-lessons-title": "Pelajaran Intensif & Masterclass",
+                "program-lessons-desc": "Peserta akan menerima pelajaran intensif dan masterclass dua hingga tiga kali selama festival, terlibat dalam dialog artistik harian dengan fakultas.",
+                "program-day2-6": "Hari 2-6",
+                "program-concerts-title": "Konser Malam",
+                "program-concerts-desc": "Konser malam yang menampilkan peserta, fakultas, dan artis tamu. Musik menjadi tidak hanya belajar, tetapi pengalaman yang hidup.",
+                "program-day3-5": "Hari 3-5",
+                "program-workshops-title": "Workshop & Seminar",
+                "program-workshops-desc": "Workshop khusus tentang topik yang berkisar dari praktik pertunjukan hingga pengembangan karir di industri musik modern.",
+                "program-day6-7": "Hari 6-7",
+                "program-competition-title": "Kompetisi Terbuka Indonesia",
+                "program-competition-desc": "Festival mencapai puncaknya di Kompetisi Terbuka Indonesia (IOC), sebuah platform yang dirancang untuk menegakkan transparansi, ketat, dan standar internasional.",
+                "program-day7": "Hari 7",
+                "program-gala-title": "Konser Gala & Upacara Penutupan",
+                "program-gala-desc": "Pemenang kompetisi akan dipresentasikan dalam Konser Gala yang terhormat — perayaan keunggulan dan artistik yang muncul.",
+                "workshop-title": "Workshop & Seminar",
+                "workshop1-title": "Akar Klasik, Masa Depan Komersial",
+                "workshop1-subtitle": "\"Di Luar Konservatori: Memasuki Industri Musik Modern\"",
+                "workshop1-desc": "Jelajahi transisi dari pelatihan klasik ke jalur karier yang beragam dalam lanskap musik kontemporer.",
+                "workshop2-title": "Sekolah Musik Eropa",
+                "workshop2-subtitle": "\"Sistem Konservatori Eropa: Kekuatan, Tantangan & Realitas Tersembunyi\"",
+                "workshop2-desc": "Dapatkan wawasan tentang belajar musik di Jerman, Austria, Italia, dan negara Eropa lainnya.",
+                "workshop3-title": "Mimpi Konservatori Amerika",
+                "workshop3-subtitle": "\"Mimpi Konservatori Amerika: Apakah Itu Tepat Untuk Anda?\"",
+                "workshop3-desc": "Temukan peluang dan tantangan mengejar pendidikan musik di Amerika Serikat.",
+                "workshop4-title": "Masa Depan Musisi Klasik",
+                "workshop4-subtitle": "\"Musisi Abad ke-21: Di Luar Kompetisi & Konservatori\"",
+                "workshop4-desc": "Jelajahi jalur karier yang beragam dan keterampilan yang dibutuhkan untuk kesuksesan dalam lanskap musik yang terus berkembang.",
+                "workshop5-title": "Membangun Karir Portfolio Anda",
+                "workshop5-subtitle": "\"Karir Portfolio, Branding & Kehadiran Media Sosial\"",
+                "workshop5-desc": "Pelajari cara mengembangkan jalur karier yang beragam dan membangun merek pribadi Anda sebagai musisi.",
+                "workshop6-title": "Bertahan di Era AI",
+                "workshop6-subtitle": "\"Kolaborasi Lintas Disiplin & Bertahan di Era AI\"",
+                "workshop6-desc": "Jelajahi bagaimana musisi dapat beradaptasi dan berkembang dalam dunia yang semakin teknologis.",
+                "competition-title": "Kompetisi Terbuka Indonesia",
+                "competition-about-title": "Tentang Kompetisi",
+                "competition-about-desc": "Festival mencapai puncaknya di Kompetisi Terbuka Indonesia (IOC), sebuah platform yang dirancang untuk menegakkan transparansi, ketat, dan standar internasional. Kompetisi memberikan kesempatan bagi peserta untuk menampilkan keterampilan mereka dan menerima umpan balik berharga dari fakultas internasional terhormat kami.",
+                "competition-about-desc2": "Pemenang akan dipresentasikan dalam Konser Gala yang terhormat — perayaan keunggulan dan artistik yang muncul.",
+                "competition-categories-title": "Kategori Kompetisi",
+                "competition-categories-desc": "Setiap kategori akan memiliki kelompok usia dan persyaratan repertoar yang berbeda. Panduan kompetisi rinci akan diberikan saat pendaftaran.",
+                "registration-title": "Pendaftaran",
+                "registration-info": "Bergabunglah dengan kami dalam perjalanan musik yang luar biasa ini. Pendaftaran untuk JISMF 2026 sekarang dibuka. Amankan tempat Anda dalam pengalaman musik yang mendalam ini.",
+                "ymj-credit": "Acara ini diselenggarakan oleh YMJ Stage, di bawah manajemen Yayasan Musik Jakarta (YMJ)",
+                "contact-title": "Hubungi Kami",
+                "contact-location": "Lokasi",
+                "contact-location-desc": "Jakarta, Indonesia<br>Detail venue tepat akan diberikan kepada peserta yang terdaftar",
+                "contact-email": "Email",
+                "contact-phone": "Telepon",
+                "contact-follow": "Ikuti Kami",
+                "footer-desc1": "Festival Musik Musim Panas Internasional Jakarta 2026 - HOME | Warisan dalam Gerakan",
+                "footer-desc2": "Akar & Sayap – Re:Sound, Babak Baru",
+                "footer-quick-links": "Tautan Cepat",
+                "footer-about": "Tentang",
+                "footer-faculty": "Fakultas",
+                "footer-program": "Program",
+                "footer-workshops": "Workshop",
+                "footer-competition": "Kompetisi",
+                "footer-organized": "Diselenggarakan Oleh",
+                "footer-management": "Di bawah manajemen",
+                "footer-copyright": "&copy; 2026 Festival Musik Musim Panas Internasional Jakarta. Semua Hak Dilindungi."
+            },
+            zh: {
+                "nav-home": "首页",
+                "nav-about": "关于",
+                "nav-faculty": "师资",
+                "nav-program": "项目",
+                "nav-workshops": "工作坊",
+                "nav-competition": "比赛",
+                "nav-registration": "注册",
+                "nav-contact": "联系",
+                "hero-title": "2026年雅加达国际夏季音乐节",
+                "hero-subtitle": "HOME | 传承在行动",
+                "hero-theme1": "根与翼 – 重塑声音，新篇章",
+                "hero-theme2": "卓越的回归",
+                "btn-register": "立即注册",
+                "btn-learn": "了解更多",
+                "about-title": "关于音乐节",
+                "about-legacy-title": "我们的传承",
+                "about-legacy-text": "经过多年的全球不确定性和暂停，雅加达国际夏季音乐节于2026年回归，带着重新明确的目标和艺术信念。HOME | Legacy in Motion 不仅仅标志着音乐营的复兴，更标志着活态传承的延续。",
+                "about-philosophy-title": "我们的理念",
+                "about-philosophy-text": "在根与翼的哲学框架下，JISMF 2026 庆祝 YMJ 的教育传承 — 培养足够强大的基础，将学生送到世界，并欢迎他们回家塑造下一代。",
+                "director-title": "艺术总监，JISMF 2026",
+                "director-message": "\"我怀着深深的感激和信念，欢迎2026年雅加达国际夏季音乐节的回归。这一年尤其重要。JISMF 校友，现在是从领先的国际音乐院校毕业的，作为教员回归。这是 HOME | Legacy in Motion 的真正精神 — 强大的根产生翅膀，那些翅膀回归以加强下一代的根。\"",
+                "faculty-title": "我们杰出的师资",
+                "faculty-alumni": "JISMF 校友",
+                "faculty-description": "JISMF 2026 的决定性优势在于其师资 — 音乐节的杰出校友，他们此后从领先的国际机构毕业，现在是活跃的艺术家和教育家。他们的回归代表的不仅仅是职业成就；它代表了愿景的延续。",
+                "program-title": "音乐节项目",
+                "program-day1": "第1天",
+                "program-opening-title": "开幕式与欢迎音乐会",
+                "program-opening-desc": "音乐节以开幕式开始， featuring 教员表演和为所有参与者准备的欢迎招待会。",
+                "program-day2-5": "第2-5天",
+                "program-lessons-title": "强化课程与大师班",
+                "program-lessons-desc": "参与者将在音乐节期间接受两到三次强化课程和大师班，与教员进行日常艺术对话。",
+                "program-day2-6": "第2-6天",
+                "program-concerts-title": "晚间音乐会",
+                "program-concerts-desc": " featuring 参与者、教员和客座艺术家的夜间音乐会。音乐不仅是学习，更是生活体验。",
+                "program-day3-5": "第3-5天",
+                "program-workshops-title": "工作坊与研讨会",
+                "program-workshops-desc": "关于从表演实践到现代音乐行业职业发展等主题的专业工作坊。",
+                "program-day6-7": "第6-7天",
+                "program-competition-title": "印尼公开赛",
+                "program-competition-desc": "音乐节在印尼公开赛（IOC）达到高潮，这是一个旨在维护透明度、严谨性和国际标准的平台。",
+                "program-day7": "第7天",
+                "program-gala-title": " Gala 音乐会与闭幕式",
+                "program-gala-desc": "比赛获胜者将在一个杰出的 Gala 音乐会上呈现 — 庆祝卓越和新兴艺术。",
+                "workshop-title": "工作坊与研讨会",
+                "workshop1-title": "古典根源，商业未来",
+                "workshop1-subtitle": "\"超越音乐学院：进入现代音乐行业\"",
+                "workshop1-desc": "探索从古典训练到当代音乐景观中多样化职业道路的过渡。",
+                "workshop2-title": "欧洲音乐学校",
+                "workshop2-subtitle": "\"欧洲音乐学院系统：优势、挑战与隐藏的现实\"",
+                "workshop2-desc": "深入了解在德国、奥地利、意大利和其他欧洲国家学习音乐。",
+                "workshop3-title": "美国音乐学院之梦",
+                "workshop3-subtitle": "\"美国音乐学院之梦：它适合你吗？\"",
+                "workshop3-desc": "发现在美国追求音乐教育的机会和挑战。",
+                "workshop4-title": "古典音乐家的未来",
+                "workshop4-subtitle": "\"21世纪音乐家：超越比赛与音乐学院\"",
+                "workshop4-desc": "探索在不断发展的音乐景观中成功所需的多样化职业道路和技能。",
+                "workshop5-title": "建立您的作品集职业",
+                "workshop5-subtitle": "\"作品集职业、品牌与社交媒体存在\"",
+                "workshop5-desc": "学习如何发展多样化的职业道路并建立您作为音乐家的个人品牌。",
+                "workshop6-title": "在人工智能时代生存",
+                "workshop6-subtitle": "\"跨学科合作与在人工智能时代生存\"",
+                "workshop6-desc": "探索音乐家如何适应并在日益技术化的世界中茁壮成长。",
+                "competition-title": "印尼公开赛",
+                "competition-about-title": "关于比赛",
+                "competition-about-desc": "音乐节在印尼公开赛（IOC）达到高潮，这是一个旨在维护透明度、严谨性和国际标准的平台。比赛为参与者提供了展示技能并从我们杰出的国际教员那里获得宝贵反馈的机会。",
+                "competition-about-desc2": "获胜者将在一个杰出的 Gala 音乐会上呈现 — 庆祝卓越和新兴艺术。",
+                "competition-categories-title": "比赛类别",
+                "competition-categories-desc": "每个类别将有不同的年龄组和曲目要求。详细的比赛指南将在注册时提供。",
+                "registration-title": "注册",
+                "registration-info": "加入我们进行这次非凡的音乐之旅。JISMF 2026 的注册现已开放。确保您在这个沉浸式音乐体验中的位置。",
+                "ymj-credit": "此活动由 YMJ Stage 组织，在雅加达音乐基金会（YMJ）的管理下",
+                "contact-title": "联系我们",
+                "contact-location": "位置",
+                "contact-location-desc": "印度尼西亚雅加达<br>确切场地详情将提供给注册参与者",
+                "contact-email": "电子邮件",
+                "contact-phone": "电话",
+                "contact-follow": "关注我们",
+                "footer-desc1": "2026年雅加达国际夏季音乐节 - HOME | 传承在行动",
+                "footer-desc2": "根与翼 – 重塑声音，新篇章",
+                "footer-quick-links": "快速链接",
+                "footer-about": "关于",
+                "footer-faculty": "师资",
+                "footer-program": "项目",
+                "footer-workshops": "工作坊",
+                "footer-competition": "比赛",
+                "footer-organized": "组织者",
+                "footer-management": "在...管理下",
+                "footer-copyright": "&copy; 2026 雅加达国际夏季音乐节。保留所有权利。"
+            }
+        };
         
-        let width, height;
-        let strings = [];
-
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            initStrings();
-        }
-
-        class StringLine {
-            constructor(y, amplitude, frequency, speed, color) {
-                this.yBase = y;
-                this.amplitude = amplitude;
-                this.frequency = frequency;
-                this.speed = speed;
-                this.color = color;
-                this.offset = Math.random() * Math.PI * 2;
-            }
-
-            draw(time) {
-                ctx.beginPath();
-                for (let x = 0; x < width; x+=5) { // Optimization: skip pixels
-                    // Sine wave equation for vibration
-                    const y = this.yBase + Math.sin(x * this.frequency + time * this.speed + this.offset) * this.amplitude * Math.sin(time * 0.5); 
-                    if(x===0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
+        // Language switching function
+        function changeLanguage(lang) {
+            // Update active button
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update all elements with translation
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
                 }
-                ctx.strokeStyle = this.color;
-                ctx.lineWidth = 1.5;
-                ctx.stroke();
-            }
-        }
-
-        function initStrings() {
-            strings = [];
-            // Create multiple lines resembling strings (Violin/Cello/Piano)
-            const numStrings = 12;
-            const spacing = height / (numStrings + 2);
+            });
             
-            for (let i = 1; i <= numStrings; i++) {
-                // Gold colors with varying opacity
-                const alpha = 0.1 + (i / numStrings) * 0.3;
-                const color = `rgba(197, 160, 89, ${alpha})`;
-                
-                strings.push(new StringLine(
-                    i * spacing,      // Y position
-                    30 + Math.random() * 20, // Amplitude (vibration width)
-                    0.002 + Math.random() * 0.003, // Frequency (wave tightness)
-                    0.002 + Math.random() * 0.003, // Speed
-                    color
-                ));
-            }
+            // Store language preference
+            localStorage.setItem('selectedLanguage', lang);
         }
-
-        let time = 0;
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
+        
+        // Load saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
             
-            // Draw all strings
-            strings.forEach(str => str.draw(time));
+            // Set active button for saved language
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(savedLanguage) || 
+                    (savedLanguage === 'zh' && btn.textContent === '中文')) {
+                    btn.classList.add('active');
+                }
+            });
             
-            time += 1;
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
-        animate();
-
+            // Apply saved language
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[savedLanguage] && translations[savedLanguage][key]) {
+                    element.textContent = translations[savedLanguage][key];
+                }
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to navigation items on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
-
