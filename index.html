@@ -11,14 +11,10 @@
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        
         body {
             font-family: 'Montserrat', 'Inter', sans-serif;
-            
-            /* BACKGROUND PUTIH POLOS SESUAI REQUEST */
-            background-color: #ffffff; 
-            background-image: none; /* Menghapus gradasi biru sebelumnya */
-            
+            background-color: #ffffff;
+            background-image: none;
             color: #1e29b3;
             min-height: 100vh;
             position: relative;
@@ -26,159 +22,52 @@
             transition: background 0.3s ease;
         }
 
-        /* HAPUS ANIMASI GARIS PARTITUR (MUSIC STAFF) */
-        /* body::before { display: none; } -> Tidak perlu karena sudah saya hapus definisinya di bawah */
-
-        /* WATERMARK 3 LOGO */
         .watermark-container {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; 
-            z-index: 0; /* Di bawah konten */
-            overflow: hidden;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
         }
-
-                .wm-logo {
-            position: absolute;
-            opacity: 0.3; /* Dinaikkan sedikit agar warna terlihat jelas */
-            transition: opacity 0.5s;
-        }
-        
-        /* Ukuran Logo Responsif */
-        .wm-logo img {
-            width: clamp(150px, 15vw, 250px);
-            height: auto;
-            /* Filter grayscale dihapus agar tetap berwarna */
-        }
-
-        .wm-pos-1 { top: 50%; left: 5%; animation: floatUp 10s ease-in-out infinite; }
-        .wm-pos-2 { bottom: 10%; left: 5%; animation: floatDown 12s ease-in-out infinite; }
-        .wm-pos-3 { top: 20%; left: 8%; animation: floatRotate 15s linear infinite; }
+        .wm-logo { position: absolute; opacity: 0.3; transition: opacity 0.5s; }
+        .wm-logo img { width: clamp(100px, 10vw, 200px); height: auto; }
+        .wm-pos-1 { top: 20%; left: 5%; animation: floatUp 10s ease-in-out infinite; }
+        .wm-pos-2 { bottom: 40%; left: 5%; animation: floatDown 12s ease-in-out infinite; }
+        .wm-pos-3 { bottom: 5%; left: 3%; animation: floatRotate 15s linear infinite; }
         .wm-pos-4 { bottom: -1%; right: 5%; animation: floatRotate 15s linear infinite; }
-    
-    
-        @keyframes floatUp {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        @keyframes floatDown {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(20px) rotate(-2deg); }
-        }
-        @keyframes floatRotate {
-            0% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(5deg); }
-            50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(15px) rotate(-5deg); }
-            100% { transform: translateY(0) rotate(0deg); }
-        }
+
+        @keyframes floatUp { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(2deg); } }
+        @keyframes floatDown { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(20px) rotate(-2deg); } }
+        @keyframes floatRotate { 0% { transform: translateY(0) rotate(0deg); } 25% { transform: translateY(-15px) rotate(5deg); } 50% { transform: translateY(0) rotate(0deg); } 75% { transform: translateY(15px) rotate(-5deg); } 100% { transform: translateY(0) rotate(0deg); } }
 
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #4B2C82; border-radius: 3px; }
 
-        .grad-text {
-            background: linear-gradient(180deg, #2E1A47 0%, #4B2C82 50%, #5D8CCB 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .grad-text-cyan {
-            background: linear-gradient(135deg, #A32A2E, #8B1A1E, #6B1015);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .glow-line {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #A32A2E, transparent);
-            box-shadow: 0 0 20px rgba(163,42,46,0.3), 0 0 60px rgba(163,42,46,0.08);
-        }
+        .grad-text { background: linear-gradient(180deg, #2E1A47 0%, #4B2C82 50%, #5D8CCB 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .grad-text-cyan { background: linear-gradient(135deg, #A32A2E, #8B1A1E, #6B1015); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glow-line { height: 2px; background: linear-gradient(90deg, transparent, #A32A2E, transparent); box-shadow: 0 0 20px rgba(163,42,46,0.3), 0 0 60px rgba(163,42,46,0.08); }
         .thin-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent); }
 
-        .glass-card {
-            /* Agar tetap terlihat jelas di background putih/foto */
-            background: rgba(255,255,255,0.95); 
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: 16px; transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-        .glass-card:hover {
-            border-color: #4B2C82; background: #fff;
-            transform: translateY(-3px); box-shadow: 0 20px 40px -15px rgba(75,44,130,0.2);
-        }
-        .btn-primary {
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            background: #A32A2E; color: #fff; font-weight: 500;
-            padding: 14px 32px; border-radius: 999px; font-size: 14px;
-            text-decoration: none; border: none; cursor: pointer; transition: all 0.15s ease;
-            box-shadow: 0 4px 6px rgba(163, 42, 46, 0.3);
-        }
+        .glass-card { background: rgba(255,255,255,0.95); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; transition: all 0.3s ease; backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .glass-card:hover { border-color: #4B2C82; background: #fff; transform: translateY(-3px); box-shadow: 0 20px 40px -15px rgba(75,44,130,0.2); }
+
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #A32A2E; color: #fff; font-weight: 500; padding: 14px 32px; border-radius: 999px; font-size: 14px; text-decoration: none; border: none; cursor: pointer; transition: all 0.15s ease; box-shadow: 0 4px 6px rgba(163,42,46,0.3); }
         .btn-primary:hover { background: #C43A3E; transform: translateY(-1px); }
-        .btn-secondary {
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            background: #fff; color: #2E1A47; font-weight: 600;
-            padding: 14px 32px; border-radius: 999px; font-size: 14px;
-            text-decoration: none; border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.15s ease;
-        }
+        .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #fff; color: #2E1A47; font-weight: 600; padding: 14px 32px; border-radius: 999px; font-size: 14px; text-decoration: none; border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.15s ease; }
         .btn-secondary:hover { background: #f8fafc; border-color: #cbd5e1; }
 
         .container-main { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
         .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
         .section { padding: 96px 0; position: relative; z-index: 2; }
-        .section-label {
-            font-size: 11px; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.15em; color: #A32A2E; margin-bottom: 16px;
-        }
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(28px, 5vw, 42px); font-weight: 600;
-            line-height: 1.15; letter-spacing: 0.02em;
-        }
+        .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #A32A2E; margin-bottom: 16px; }
+        .section-title { font-family: 'Cinzel', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 600; line-height: 1.15; letter-spacing: 0.02em; }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center;
-            justify-content: center; text-align: center;
-            position: relative; padding-top: 80px;
-            
-            /* Hero Background bisa tetap ada di bagian atas ini, terpisah dari background body */
-            background: url('https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/') center/cover no-repeat;
-            background-attachment: fixed; 
-            z-index: 1; 
-        }
-        
-        .hero-bg {
-            position: absolute; inset: 0; z-index: 0;
-            /* Ubah warna overlay agar tidak terlalu biru di background putih, gunakan putih transparan */
-            background:
-                radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 60%, rgba(240,245,255,0.9) 100%);
-        }
-        .hero-pattern {
-            position: absolute; inset: 0; z-index: 1; opacity: 0.05;
-            background-image:
-                linear-gradient(rgba(46,26,71,0.8) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(46,26,71,0.8) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding-top: 80px; background: url('https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/') center/cover no-repeat; background-attachment: fixed; z-index: 1; }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 60%, rgba(240,245,255,0.9) 100%); }
+        .hero-pattern { position: absolute; inset: 0; z-index: 1; opacity: 0.05; background-image: linear-gradient(rgba(46,26,71,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(46,26,71,0.8) 1px, transparent 1px); background-size: 60px 60px; }
         .hero-content { position: relative; z-index: 5; max-width: 800px; padding: 0 24px; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 6px 16px; border-radius: 999px;
-            background: rgba(0, 50, 252, 0.08); border: 1px solid rgba(0,0,0,0.1);
-            font-size: 13px; color: #000000; margin-bottom: 32px;
-            backdrop-filter: blur(4px);
-        }
-        .hero-badge .dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: #A32A2E; animation: pulse-dot 2s infinite;
-        }
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(163,42,46,0.4); }
-            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(163,42,46,0); }
-        }
-        .hero h1 {
-            font-size: clamp(40px,8vw,76px); font-weight: 600;
-            line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; color: #2E1A47;
-            text-shadow: none; /* Hapus shadow teks agar tajam di background putih */
-        }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(0,50,252,0.08); border: 1px solid rgba(0,0,0,0.1); font-size: 13px; color: #000000; margin-bottom: 32px; backdrop-filter: blur(4px); }
+        .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #A32A2E; animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(163,42,46,0.4); } 50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(163,42,46,0); } }
+        .hero h1 { font-size: clamp(40px,8vw,76px); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; color: #2E1A47; }
         .hero-theme { font-size: clamp(18px,3.5vw,28px); font-weight: 500; letter-spacing: 0.04em; margin-bottom: 8px; color: #4B2C82; }
         .hero-sub-theme { font-size: clamp(13px,2vw,16px); font-weight: 300; color: #64748b; letter-spacing: 0.06em; margin-bottom: 24px; }
         .hero-tagline { font-size: clamp(14px,2.2vw,17px); font-weight: 400; color: #2E1A47; letter-spacing: 0.02em; margin-bottom: 8px; font-style: italic; }
@@ -189,18 +78,8 @@
         .hero-divider { display: flex; align-items: center; gap: 16px; margin: 0 auto 32px; max-width: 320px; }
         .hero-divider span { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(163,42,46,0.4), transparent); }
 
-        /* Navigation */
-        .nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            height: 64px; display: flex; align-items: center;
-            background: rgba(37, 74, 169, 0.95); backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        .nav-inner {
-            max-width: 1200px; margin: 0 auto; padding: 0 24px;
-            width: 100%; display: flex; align-items: center; justify-content: space-between;
-        }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; background: rgba(37,74,169,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
         .nav-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; }
         .nav-logo-cyan { color: #2E1A47; font-weight: 700; font-size: 18px; }
         .nav-logo-year { color: #94a3b8; font-weight: 300; font-size: 14px; }
@@ -208,298 +87,119 @@
         .nav-links a { font-size: 13px; color: #64748b; text-decoration: none; transition: color 0.15s; }
         .nav-links a:hover { color: #2E1A47; }
         .nav-right { display: flex; align-items: center; gap: 12px; }
-        .lang-btn {
-            font-size: 12px; font-weight: 500; padding: 5px 14px;
-            border-radius: 999px; border: 1px solid #cbd5e1;
-            background: #fff; color: #2E1A47; cursor: pointer; transition: all 0.15s;
-        }
+        .lang-btn { font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 999px; border: 1px solid #cbd5e1; background: #fff; color: #2E1A47; cursor: pointer; transition: all 0.15s; }
         .lang-btn:hover { background: #f8fafc; border-color: #94a3b8; }
-        .nav-register {
-            font-size: 13px; font-weight: 500; padding: 8px 20px; border-radius: 999px;
-            background: #A32A2E; color: #fff; text-decoration: none; border: none; cursor: pointer; transition: background 0.15s;
-        }
+        .nav-register { font-size: 13px; font-weight: 500; padding: 8px 20px; border-radius: 999px; background: #A32A2E; color: #fff; text-decoration: none; border: none; cursor: pointer; transition: background 0.15s; }
         .nav-register:hover { background: #C43A3E; }
         .hamburger { display: none; background: none; border: none; color: #2E1A47; cursor: pointer; padding: 4px; }
 
-        .mobile-menu {
-            display: none; position: fixed; top: 64px; left: 0; right: 0;
-            background: rgba(255,255,255,0.98); backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding: 16px 24px; z-index: 99;
-            max-height: 80vh; overflow-y: auto;
-        }
+        .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 16px 24px; z-index: 99; max-height: 80vh; overflow-y: auto; }
         .mobile-menu.open { display: flex; flex-direction: column; gap: 12px; }
         .mobile-menu a { font-size: 14px; color: #64748b; text-decoration: none; padding: 8px 0; transition: color 0.15s; }
         .mobile-menu a:hover { color: #2E1A47; }
 
-        @media (max-width: 768px) {
-            .nav-links, .nav-register { display: none !important; }
-            .hamburger { display: block; }
-            .hero-bg { display: none; }
-        }
+        @media (max-width: 768px) { .nav-links, .nav-register { display: none !important; } .hamburger { display: block; } .hero-bg { display: none; } }
 
-        /* Grid System */
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 32px; }
         .grid-4 { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .grid-3 { display: grid; grid-template-columns: 1fr; gap: 24px; }
         @media (min-width: 640px) { .grid-4 { grid-template-columns: 1fr 1fr; } }
-        @media (min-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr 1fr; gap: 48px; }
-            .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
-        }
+        @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: 48px; } .grid-3 { grid-template-columns: 1fr 1fr 1fr; } }
 
-        /* Card Styles */
         .img-card { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); background: #eee; }
         .img-card img { width: 100%; display: block; opacity: 0.9; transition: opacity 0.5s, transform 0.5s; object-fit: cover; }
         .img-card:hover img { opacity: 1; transform: scale(1.02); }
         .img-card .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(46,26,71,0.8) 0%, transparent 60%); }
         .img-card .badge-overlay { position: absolute; bottom: 20px; left: 20px; z-index: 2; }
 
-        .faculty-card {
-            position: relative; border-radius: 16px; overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-            background: #fff; transition: all 0.3s;
-        }
+        .faculty-card { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); background: #fff; transition: all 0.3s; }
         .faculty-card:hover { border-color: #4B2C82; transform: translateY(-3px); }
         .faculty-card .img-wrap { aspect-ratio: 3/4; overflow: hidden; background: #f1f5f9; }
         .faculty-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: all 0.5s; }
         .faculty-card:hover .img-wrap img { opacity: 1; transform: scale(1.05); }
         .faculty-card .info { padding: 20px; }
 
-        /* Cycle & Steps */
         .cycle-container { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
         .cycle-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
-        .cycle-icon {
-            width: 72px; height: 72px; border-radius: 16px;
-            background: #f8fafc; border: 1px solid #e2e8f0;
-            display: flex; align-items: center; justify-content: center; color: #A32A2E;
-        }
+        .cycle-icon { width: 72px; height: 72px; border-radius: 16px; background: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; color: #A32A2E; }
         .cycle-arrow { color: #cbd5e1; animation: arrow-pulse 2s ease-in-out infinite; }
         @keyframes arrow-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-        @media (max-width: 640px) {
-            .cycle-arrow-v { display: block !important; }
-            .cycle-arrow-h { display: none !important; }
-            .cycle-container { flex-direction: column; }
-        }
-        @media (min-width: 641px) {
-            .cycle-arrow-v { display: none !important; }
-            .cycle-arrow-h { display: block !important; }
-        }
+        @media (max-width: 640px) { .cycle-arrow-v { display: block !important; } .cycle-arrow-h { display: none !important; } .cycle-container { flex-direction: column; } }
+        @media (min-width: 641px) { .cycle-arrow-v { display: none !important; } .cycle-arrow-h { display: block !important; } }
 
-        /* Timeline */
-        .timeline { position: relative; padding-left: 32px; }
-        .tl-item { position: relative; padding-bottom: 32px; }
-        .tl-item:last-child { padding-bottom: 0; }
-        .tl-dot {
-            position: absolute; left: -32px; top: 4px;
-            width: 12px; height: 12px; border-radius: 50%;
-            background: #A32A2E; box-shadow: 0 0 10px rgba(163,42,46,0.5); z-index: 2;
-        }
-        .tl-dot-glow { background: #C43A3E; box-shadow: 0 0 15px rgba(163,42,46,0.8); }
-        .tl-line {
-            position: absolute; left: -27px; top: 16px; bottom: 0; width: 2px;
-            background: linear-gradient(to bottom, rgba(163,42,46,0.5), rgba(163,42,46,0.05));
-        }
-        .tl-item:last-child .tl-line { display: none; }
-
-        /* Video */
-        .video-wrap {
-            position: relative; padding-bottom: 56.25%; height: 0;
-            overflow: hidden; border-radius: 12px; background: #fff;
-            border: 1px solid #e2e8f0;
-        }
-        .video-wrap iframe, .video-wrap video {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            border: none; border-radius: 12px;
-        }
-        .video-placeholder {
-            border-radius: 12px; aspect-ratio: 16/9;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94a3b8;
-        }
-
-        /* Check List */
-        .check-item {
-            display: flex; align-items: flex-start; gap: 16px; padding: 20px; border-radius: 12px;
-            background: #f8fafc; border: 1px solid #e2e8f0;
-        }
-        .check-icon {
-            width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
-            background: rgba(163,42,46,0.1);
-            display: flex; align-items: center; justify-content: center; color: #A32A2E; margin-top: 2px;
-        }
-
-        /* Animations */
         .anim { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .anim.visible { opacity: 1; transform: translateY(0); }
 
-        /* Toast Notification */
-        .toast-box {
-            position: fixed; bottom: 24px; right: 24px; z-index: 200;
-            padding: 14px 20px; border-radius: 12px;
-            background: #2E1A47; border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            display: flex; align-items: center; gap: 10px;
-            transform: translateY(100px); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 14px; color: #fff;
-        }
+        .toast-box { position: fixed; bottom: 24px; right: 24px; z-index: 200; padding: 14px 20px; border-radius: 12px; background: #2E1A47; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 10px; transform: translateY(100px); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 14px; color: #fff; }
         .toast-box.show { transform: translateY(0); opacity: 1; }
 
-        /* Footer */
-        .footer {
-            padding: 48px 0; border-top: 1px solid #e2e8f0;
-            background: #fff; position: relative; z-index: 2;
-            color: #475569;
-        }
-        .footer-inner {
-            max-width: 1200px; margin: 0 auto; padding: 0 24px;
-            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;
-        }
+        .footer { padding: 48px 0; border-top: 1px solid #e2e8f0; background: #fff; position: relative; z-index: 2; color: #475569; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
         .footer-links { display: flex; gap: 12px; }
-        .footer-link {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: #f8fafc; border: 1px solid #e2e8f0;
-            display: flex; align-items: center; justify-content: center;
-            color: #64748b; text-decoration: none; transition: all 0.15s;
-        }
+        .footer-link { width: 40px; height: 40px; border-radius: 50%; background: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; color: #64748b; text-decoration: none; transition: all 0.15s; }
         .footer-link:hover { color: #A32A2E; border-color: #cbd5e1; background: #fff; }
 
-        /* CTA Box */
-        .cta-box {
-            position: relative; border-radius: 20px; padding: 48px 32px; text-align: center;
-            background: #fff; border: 1px solid #e2e8f0; overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-        }
+        .cta-box { position: relative; border-radius: 20px; padding: 48px 32px; text-align: center; background: #fff; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
         .cta-box::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: rgba(123,187,235,0.05); filter: blur(60px); }
         .cta-box::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 200px; height: 200px; border-radius: 50%; background: rgba(75,44,130,0.03); filter: blur(80px); }
 
         .hidden { display: none !important; }
 
-        .input-field {
-            width: 100%; background: #fff;
-            border: 1px solid #cbd5e1; border-radius: 10px;
-            padding: 10px 16px; font-size: 14px; color: #1e293b; outline: none;
-            font-family: inherit; transition: border-color 0.15s;
-        }
+        .input-field { width: 100%; background: #fff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 10px 16px; font-size: 14px; color: #1e293b; outline: none; font-family: inherit; transition: border-color 0.15s; }
         .input-field::placeholder { color: #94a3b8; }
         .input-field:focus { border-color: #4B2C82; }
 
-        /* Specific Sections */
-        .why-box {
-            position: relative; border-radius: 20px; padding: 48px; text-align: center;
-            background: #fff; border: 1px solid #e2e8f0; overflow: hidden;
-        }
-        .why-box::before { content: ''; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; border-radius: 50%; background: rgba(163,42,46,0.03); filter: blur(60px); }
-
-        .date-card {
-            text-align: center; padding: 32px; border-radius: 16px;
-            background: #fff; border: 1px solid #e2e8f0; transition: all 0.3s;
-        }
-        .date-card:hover { border-color: #A32A2E; transform: translateY(-2px); }
-        .date-num { font-size: 28px; font-weight: 500; color: #2E1A47; }
-        .date-month { font-size: 28px; font-weight: 300; color: #4B2C82; }
-
-        .ioc-card {
-            border-radius: 20px; overflow: hidden;
-            border: 1px solid #e2e8f0; background: #fff;
-        }
+        .ioc-card { border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; background: #fff; }
         .ioc-card-body { padding: 32px; }
 
-        .upload-toggle {
-            display: flex; align-items: center; gap: 8px;
-            font-size: 13px; color: #64748b; background: none;
-            border: none; cursor: pointer; font-family: inherit; transition: color 0.15s; padding: 0;
-            margin: 0 auto;
-        }
-        .upload-toggle:hover { color: #2E1A47; }
-
-        .btn-small {
-            padding: 10px 16px; border-radius: 10px; font-size: 13px;
-            font-weight: 500; cursor: pointer; border: none;
-            background: rgba(163,42,46,0.1); color: #A32A2E; transition: background 0.15s; font-family: inherit;
-        }
+        .btn-small { padding: 10px 16px; border-radius: 10px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; background: rgba(163,42,46,0.1); color: #A32A2E; transition: background 0.15s; font-family: inherit; }
         .btn-small:hover { background: rgba(163,42,46,0.2); }
 
-        .hint-box {
-            margin-top: 12px; padding: 12px 16px; border-radius: 8px;
-            background: #f8fafc; border: 1px solid #e2e8f0;
-            font-size: 12px; color: #64748b; line-height: 1.6;
-        }
-        .hint-box code { color: #A32A2E; font-size: 11px; }
-        .config-input-row { display: flex; gap: 8px; max-width: 440px; margin: 0 auto; }
+        .upload-toggle { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #64748b; background: none; border: none; cursor: pointer; font-family: inherit; transition: color 0.15s; padding: 0; margin: 0 auto; }
+        .upload-toggle:hover { color: #2E1A47; }
 
-        .director-section { background: linear-gradient(180deg, transparent, rgba(75,44,130,0.03), transparent); }
-        .director-quote {
-            font-size: clamp(16px, 2.2vw, 18px); font-weight: 300;
-            color: #374151; line-height: 1.85; font-style: italic;
-        }
-        .director-quote p { margin-bottom: 20px; }
-        .director-signature { margin-top: 32px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-        .director-portrait {
-            width: 80px; height: 80px; border-radius: 50%;
-            background: #f1f5f9; border: 2px solid rgba(163,42,46,0.2);
-            display: flex; align-items: center; justify-content: center;
-            color: #4B2C82; margin: 0 auto 20px; overflow: hidden;
-        }
-        
+        .config-group { margin-bottom: 16px; text-align: left; }
+        .config-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #64748b; margin-bottom: 6px; display: block; }
+        .config-input-row { display: flex; gap: 8px; max-width: 440px; margin: 0 auto; }
+        .settings-divider { margin: 20px 0; border-top: 1px solid #e2e8f0; }
+
+        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; width: 100%; }
+        .file-input-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
+        .file-input-btn { width: 100%; padding: 10px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; text-align: center; color: #64748b; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+        .file-input-wrapper:hover .file-input-btn { background: #f1f5f9; border-color: #94a3b8; color: #2E1A47; }
+
         .excellence-feature { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid #e2e8f0; }
         .excellence-feature:last-child { border-bottom: none; }
-        .excellence-num {
-            width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
-            background: rgba(163,42,46,0.1); display: flex; align-items: center; justify-content: center;
-            font-size: 12px; font-weight: 600; color: #A32A2E; margin-top: 2px;
-        }
+        .excellence-num { width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; background: rgba(163,42,46,0.1); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #A32A2E; margin-top: 2px; }
         .approach-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; }
         .approach-dot { width: 6px; height: 6px; border-radius: 50%; background: #A32A2E; flex-shrink: 0; margin-top: 8px; }
 
-        /* Background Config Styles */
-        .config-group { margin-bottom: 16px; text-align: left; }
-        .config-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #64748b; margin-bottom: 6px; display: block; }
-        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; width: 100%; }
-        .file-input-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
-        .file-input-btn {
-            width: 100%; padding: 10px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; text-align: center; color: #64748b; font-size: 13px; cursor: pointer; transition: all 0.2s;
-        }
-        .file-input-wrapper:hover .file-input-btn { background: #f1f5f9; border-color: #94a3b8; color: #2E1A47; }
-
-        /* Waves */
-        .wave-section { position: relative; height: 60px; overflow: hidden; z-index: 1; margin-top: -1px; }
-        .wave-section svg { position: absolute; width: 200%; height: 200%; min-width: 800px; top: -60px; left: 50%; transform: translateX(-50%); }
-        
-        .settings-divider {
-            margin: 20px 0;
-            border-top: 1px solid #e2e8f0;
-        }
+        .venue-video-wrap { position: relative; width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #000; margin-bottom: 20px; }
+        .venue-video-wrap video { width: 100%; display: block; border-radius: 12px; }
     </style>
 </head>
 <body>
 
-<!-- WATERMARK LOGO ANIMASI (LEBIH SUBTLE DI PUTIH) -->
+<!-- WATERMARK LOGO ANIMASI -->
 <div class="watermark-container">
-    <!-- Logo 1: JISMF -->
     <div class="wm-logo wm-pos-1">
         <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/logojismf.png" alt="JISMF Watermark">
     </div>
-    <!-- Logo 2: IOC -->
     <div class="wm-logo wm-pos-2">
         <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/logoioc.png" alt="IOC Watermark">
     </div>
-    <!-- Logo 3: HKIMF -->
     <div class="wm-logo wm-pos-3">
-        <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/hkimflogo.png" alt="HKIMF Watermark">
-    </div>
-<!-- Logo 4: HKIMF -->
+    <!-- TAMBAHKAN style="width: 350px; height: auto;" DI BAWAH INI -->
+    <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/hkimflogo.png" alt="HKIMF Watermark" style="width: 150px; height: auto;">
+</div>
     <div class="wm-logo wm-pos-4">
-        <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/watermark.png" alt="watermark Watermark">
+        <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/" alt="">
     </div>
 </div>
 
-<!-- WATERMARK TAMBAHAN (TENGAH - HARDCODED) -->
-<div style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; display:flex; align-items:center; justify-content:center;">
-    <!-- GANTI URL DI src="..." DI BAWAH INI -->
-    <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/watermark.png.png" 
-         alt="Extra Watermark" 
-         style="width: 40vw; max-width: 600px; height: auto; opacity: 0.05; object-fit: contain;">
+<!-- WATERMARK EXTRA TENGAH -->
+<div style="position:fixed; top:40%; left:20%; width:100%; height:100%; pointer-events:none; z-index:1; display:flex; align-items:center; justify-content:center;">
+    <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/watermark.png" alt="Extra Watermark" style="width: 100vw; max-width:px; height: auto; opacity: 0.15; object-fit: contain;">
 </div>
 
 <!-- NAVIGATION -->
@@ -515,8 +215,8 @@
             <a href="#concerts" data-en="Concerts" data-id="Konser">Concerts</a>
             <a href="#ioc">IOC</a>
             <a href="#excellence" data-en="Faculty" data-id="Pengajar">Faculty</a>
-            <a href="#director" data-en="Director" data-id="Direktur">Director</a>
-            <a href="#structure" data-en="Schedule" data-id="Jadwal">Schedule</a>
+            <a href="#faculty-grid" data-en="Meet Faculty" data-id="Daftar Faculty">Meet Faculty</a>
+            <a href="#register" data-en="Register" data-id="Daftar">Register</a>
         </div>
         <div class="nav-right">
             <button class="lang-btn" id="langToggle">ID</button>
@@ -533,8 +233,8 @@
     <a href="#concerts" data-en="Concerts" data-id="Konser">Concerts</a>
     <a href="#ioc">IOC</a>
     <a href="#excellence" data-en="Faculty" data-id="Pengajar">Faculty</a>
-    <a href="#director" data-en="Director" data-id="Direktur">Director</a>
-    <a href="#structure" data-en="Schedule" data-id="Jadwal">Schedule</a>
+    <a href="#faculty-grid" data-en="Meet Faculty" data-id="Daftar Faculty">Meet Faculty</a>
+    <a href="#register" data-en="Register" data-id="Daftar">Register</a>
     <a href="#register" class="btn-primary" style="justify-content:center;margin-top:8px;" data-en="Register Now" data-id="Daftar Sekarang">Register Now</a>
 </div>
 
@@ -551,7 +251,7 @@
         <h1 class="grad-text">HK IMF</h1>
         <h1 class="grad-text">2026</h1>
         <p class="hero-theme grad-text-cyan" data-en="Legacy in Motion" data-id="Legacy in Motion">Legacy in Motion</p>
-        <p class="hero-sub-theme" data-en="Roots & Wings — Re:Sound, A New Chapter" data-id="Roots & Wings — Re:Sound, Sebuah Babak Baru">Roots & Wings — Re:Sound, A New Chapter</p>
+        <p class="hero-sub-theme" data-en="Roots &amp; Wings — Re:Sound, A New Chapter" data-id="Roots &amp; Wings — Re:Sound, Sebuah Babak Baru">Roots &amp; Wings — Re:Sound, A New Chapter</p>
         <div class="hero-divider"><span></span><span></span></div>
         <p class="hero-tagline" data-en="The Return of Excellence" data-id="Kembalinya Keunggulan">The Return of Excellence</p>
         <p class="hero-sub" data-en="Competition Preparation Programme" data-id="Program Persiapan Kompetisi">Competition Preparation Programme</p>
@@ -564,7 +264,6 @@
     </div>
 </section>
 
-<!-- WAVE -->
 <div style="position:relative;z-index:1;margin-top:-2px;">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:40px;">
         <path d="M0,30 Q180,0 360,30 T720,30 T1080,30 T1440,30 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.5)"/>
@@ -576,7 +275,7 @@
     <div style="display:flex;align-items:center;justify-content:center;gap:clamp(24px,6vw,64px);flex-wrap:wrap;">
         <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/logojismf.png" alt="JISMF" style="height:clamp(100px,8vw,64px);width:auto;">
         <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/logoioc.png" alt="IOC" style="height:clamp(100px,8vw,64px);width:auto;">
-        <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/hkimflogo.png" alt="HK IMF" style="height:clamp(100px,8vw,64px);width:auto;">
+        <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/hkimflogo.png" alt="HK IMF" style="height:clamp(180px,8vw,64px);width:auto;">
     </div>
 </div>
 
@@ -587,11 +286,9 @@
         <p class="section-label" data-en="Welcome" data-id="Selamat Datang">Welcome</p>
         <h2 class="section-title grad-text" style="margin-bottom:28px;">HOME | Legacy in Motion</h2>
         <p style="font-size:17px;font-weight:300;color:#374151;line-height:1.8;margin-bottom:18px;" data-en="After navigating through global uncertainty and a long pause, Jakarta International Summer Music Festival returns in 2026 with renewed spirit, vision, and direction." data-id="Setelah melewati masa ketidakpastian global dan jeda yang panjang, Jakarta International Summer Music Festival kembali hadir pada tahun 2026 dengan semangat, visi, dan arah yang semakin matang.">After navigating through global uncertainty and a long pause, Jakarta International Summer Music Festival returns in 2026 with renewed spirit, vision, and direction.</p>
-        <p style="font-size:17px;font-weight:300;color:#374151;line-height:1.8;margin-bottom:18px;" data-en="HOME | Legacy in Motion is not merely the return of a music camp — it is the continuation of a living and growing educational legacy. For years, JISMF has been a space for character formation, discipline, and international artistic standards for young Indonesian musicians." data-id="HOME | Legacy in Motion bukan sekadar kembalinya sebuah music camp, melainkan kelanjutan dari sebuah warisan pendidikan yang hidup dan bertumbuh. Selama bertahun-tahun, JISMF telah menjadi ruang pembentukan karakter, disiplin, dan standar artistik internasional bagi para musisi muda Indonesia.">HOME | Legacy in Motion is not merely the return of a music camp — it is the continuation of a living and growing educational legacy. For years, JISMF has been a space for character formation, discipline, and international artistic standards for young Indonesian musicians.</p>
-        <p style="font-size:17px;font-weight:300;color:#374151;line-height:1.8;margin-bottom:18px;" data-en="The 2026 edition holds special significance. JISMF alumni — who have now completed studies at various world-renowned music institutions — return as faculty members. The place that was once their learning space now becomes a space of dedication and mentoring for the next generation." data-id="Edisi 2026 memiliki makna yang istimewa. Para alumni JISMF — yang kini telah menyelesaikan studi di berbagai institusi musik terkemuka dunia — kembali sebagai anggota fakultas. Tempat yang dahulu menjadi ruang belajar mereka kini menjadi ruang pengabdian dan mentoring bagi generasi berikutnya.">The 2026 edition holds special significance. JISMF alumni — who have now completed studies at various world-renowned music institutions — return as faculty members. The place that was once their learning space now becomes a space of dedication and mentoring for the next generation.</p>
-        <p style="font-size:17px;font-weight:300;color:#374151;line-height:1.8;margin-bottom:18px;" data-en="Carrying the philosophy of Roots & Wings, JISMF 2026 celebrates strong educational roots while acknowledging the wings that carry students to international stages — and now, returning to build Indonesia's musical ecosystem." data-id="Mengusung filosofi Roots & Wings, JISMF 2026 merayakan akar pendidikan yang kuat sekaligus sayap yang membawa para siswa terbang ke panggung internasional, dan kini kembali untuk membangun ekosistem musik Indonesia.">Carrying the philosophy of Roots & Wings, JISMF 2026 celebrates strong educational roots while acknowledging the wings that carry students to international stages — and now, returning to build Indonesia's musical ecosystem.</p>
-        <p style="font-size:17px;font-weight:300;color:#374151;line-height:1.8;" data-en="For one full week, participants will undergo an intensive artistic experience: living together in a creative community, attending two to three major instrument lessons and masterclasses, and performing in concerts every evening alongside fellow participants and faculty. The festival culminates with the Indonesia Open Competition (IOC) — an open competition upholding transparency and international standards — and closes with a Gala Concert celebrating artistic achievement and excellence." data-id="Selama satu minggu penuh, peserta akan menjalani pengalaman artistik yang intensif: tinggal bersama dalam komunitas kreatif, mengikuti lesson dan masterclass instrumen mayor sebanyak dua hingga tiga kali, serta tampil dalam konser setiap malam bersama sesama peserta dan para dosen. Festival ini akan ditutup dengan Indonesia Open Competition (IOC), sebuah kompetisi terbuka yang menjunjung tinggi transparansi dan standar internasional, serta diakhiri dengan Gala Concert bagi para pemenang sebagai perayaan prestasi dan keunggulan artistik.">For one full week, participants will undergo an intensive artistic experience: living together in a creative community, attending two to three major instrument lessons and masterclasses, and performing in concerts every evening alongside fellow participants and faculty. The festival culminates with the Indonesia Open Competition (IOC) — an open competition upholding transparency and international standards — and closes with a Gala Concert celebrating artistic achievement and excellence.</p>
-    
+        <p style="font-size:17px;font-weight:300;color:#374151;line-height:1.8;margin-bottom:18px;" data-en="HOME | Legacy in Motion is not merely the return of a music camp — it is the continuation of a living and growing educational legacy." data-id="HOME | Legacy in Motion bukan sekadar kembalinya sebuah music camp, melainkan kelanjutan dari sebuah warisan pendidikan yang hidup dan bertumbuh.">HOME | Legacy in Motion is not merely the return of a music camp — it is the continuation of a living and growing educational legacy.</p>
+        <p style="font-size:17px;font-weight:300;color:#374151;line-height:1.8;margin-bottom:18px;" data-en="The 2026 edition holds special significance. JISMF alumni — who have now completed studies at various world-renowned music institutions — return as faculty members." data-id="Edisi 2026 memiliki makna yang istimewa. Para alumni JISMF kini telah menyelesaikan studi di berbagai institusi musik terkemuka dunia dan kembali sebagai anggota fakultas.">The 2026 edition holds special significance. JISMF alumni — who have now completed studies at various world-renowned music institutions — return as faculty members.</p>
+        <p style="font-size:17px;font-weight:300;color:#374151;line-height:1.8;" data-en="For one full week, participants will undergo an intensive artistic experience: living together in a creative community, attending lessons and masterclasses, and performing in concerts every evening. The festival culminates with the Indonesia Open Competition (IOC) and closes with a Gala Concert." data-id="Selama satu minggu penuh, peserta akan menjalani pengalaman artistik yang intensif. Festival ini ditutup dengan Indonesia Open Competition (IOC) serta Gala Concert.">For one full week, participants will undergo an intensive artistic experience: living together in a creative community, attending lessons and masterclasses, and performing in concerts every evening. The festival culminates with the Indonesia Open Competition (IOC) and closes with a Gala Concert.</p>
     </div>
     <div class="glow-line" style="margin-top:48px;"></div>
 </div>
@@ -601,12 +298,10 @@
     <div class="container-main">
         <div class="grid-2" style="align-items:center;">
             <div class="anim">
-                <p class="section-label" data-en="About" data-id="Tentang Program">About</p> Programme</p>
+                <p class="section-label" data-en="About" data-id="Tentang Program">About</p>
                 <h2 class="section-title grad-text" style="margin-bottom:20px;" data-en="Designed for Competition Readiness" data-id="Dirancang untuk Kesiapan Kompetisi">Designed for Competition Readiness</h2>
                 <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;margin-bottom:16px;" data-en="JISMF 2026 is designed as an intensive training programme to help young musicians prepare for music competitions at an international level." data-id="JISMF 2026 dirancang sebagai program pembinaan intensif untuk membantu musisi muda mempersiapkan diri menghadapi kompetisi musik di tingkat internasional.">JISMF 2026 is designed as an intensive training programme to help young musicians prepare for music competitions at an international level.</p>
-                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;margin-bottom:16px;" data-en="Unlike conventional festivals, JISMF presents a focused learning ecosystem where participants not only receive technical guidance, but also develop artistic strategies, mental readiness, and a deep understanding of global competition standards." data-id="Berbeda dari festival pada umumnya, JISMF menghadirkan sebuah ekosistem pembelajaran yang terarah, di mana peserta tidak hanya menerima bimbingan teknis, tetapi juga mengembangkan strategi artistik, kesiapan mental, serta pemahaman mendalam terhadap standar kompetisi global.">Unlike conventional festivals, JISMF presents a focused learning ecosystem where participants not only receive technical guidance, but also develop artistic strategies, mental readiness, and a deep understanding of global competition standards.</p>
-                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;" data-en="The programme features JISMF alumni who are now active on international stages as faculty, offering real and relevant perspectives drawn from their direct experience." data-id="Program ini menghadirkan para alumni JISMF yang kini aktif di panggung internasional sebagai faculty, memberikan perspektif nyata dan relevan berdasarkan pengalaman langsung mereka.">The programme features JISMF alumni who are now active on international stages as faculty, offering real and relevant perspectives drawn from their direct experience.</p>
-            
+                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;" data-en="Unlike conventional festivals, JISMF presents a focused learning ecosystem where participants develop artistic strategies, mental readiness, and a deep understanding of global competition standards." data-id="Berbeda dari festival pada umumnya, JISMF menghadirkan sebuah ekosistem pembelajaran yang terarah.">Unlike conventional festivals, JISMF presents a focused learning ecosystem where participants develop artistic strategies, mental readiness, and a deep understanding of global competition standards.</p>
             </div>
             <div class="anim">
                 <div class="img-card">
@@ -668,7 +363,7 @@
     </div>
 </section>
 
-<!-- ==================== INTERNAL CONCERTS ==================== -->
+<!-- INTERNAL CONCERTS -->
 <section class="section" id="concerts" style="background:linear-gradient(180deg,transparent,rgba(6,182,212,0.02),transparent);">
     <div class="container-main">
         <div class="grid-2" style="align-items:center;">
@@ -684,14 +379,14 @@
             <div class="anim" style="order:1;">
                 <p class="section-label" data-en="Performance" data-id="Penampilan">Performance</p>
                 <h2 class="section-title grad-text" style="margin-bottom:20px;" data-en="Internal Concert Series" data-id="Rangkaian Internal Concert">Internal Concert Series</h2>
-                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;margin-bottom:16px;" data-en="Participants will perform in concerts every evening alongside fellow participants and faculty — designed as structured performance simulations before competitions." data-id="Peserta akan tampil dalam konser setiap malam bersama sesama peserta dan para dosen — dirancang sebagai simulasi performa terstruktur sebelum kompetisi.">Participants will perform in concerts every evening alongside fellow participants and faculty — designed as structured performance simulations before competitions.</p>
-                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;" data-en="Each performance serves as a vital step in developing stage readiness, confidence, and artistic maturity." data-id="Setiap penampilan menjadi langkah penting dalam membangun kesiapan panggung, kepercayaan diri, dan kematangan artistik.">Each performance serves as a vital step in developing stage readiness, confidence, and artistic maturity.</p>
+                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;margin-bottom:16px;" data-en="Participants will perform in concerts every evening alongside fellow participants and faculty." data-id="Peserta akan tampil dalam konser setiap malam bersama sesama peserta dan para dosen.">Participants will perform in concerts every evening alongside fellow participants and faculty.</p>
+                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;" data-en="Each performance serves as a vital step in developing stage readiness, confidence, and artistic maturity." data-id="Setiap penampilan menjadi langkah penting dalam membangun kesiapan panggung.">Each performance serves as a vital step in developing stage readiness, confidence, and artistic maturity.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== LEARNING CYCLE ==================== -->
+<!-- LEARNING CYCLE -->
 <section class="section">
     <div class="container-main">
         <div class="anim" style="text-align:center;margin-bottom:40px;">
@@ -701,42 +396,34 @@
         <div class="anim">
             <div class="cycle-container">
                 <div class="cycle-step">
-                    <div class="cycle-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"/><circle cx="17" cy="7" r="5"/></svg>
-                    </div>
+                    <div class="cycle-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"/><circle cx="17" cy="7" r="5"/></svg></div>
                     <span style="font-size:14px;font-weight:500;color:#374151;" data-en="Perform" data-id="Tampil">Perform</span>
                 </div>
                 <span class="cycle-arrow cycle-arrow-h"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
                 <span class="cycle-arrow cycle-arrow-v" style="display:none;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></span>
                 <div class="cycle-step">
-                    <div class="cycle-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
+                    <div class="cycle-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                     <span style="font-size:14px;font-weight:500;color:#374151;" data-en="Evaluate" data-id="Evaluasi">Evaluate</span>
                 </div>
                 <span class="cycle-arrow cycle-arrow-h" style="animation-delay:0.5s;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
                 <span class="cycle-arrow cycle-arrow-v" style="display:none;animation-delay:0.5s;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></span>
                 <div class="cycle-step">
-                    <div class="cycle-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                    </div>
+                    <div class="cycle-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
                     <span style="font-size:14px;font-weight:500;color:#374151;" data-en="Refine" data-id="Sempurnakan">Refine</span>
                 </div>
                 <span class="cycle-arrow cycle-arrow-h" style="animation-delay:1s;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
                 <span class="cycle-arrow cycle-arrow-v" style="display:none;animation-delay:1s;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></span>
                 <div class="cycle-step">
-                    <div class="cycle-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
-                    </div>
+                    <div class="cycle-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></div>
                     <span style="font-size:14px;font-weight:500;color:#374151;" data-en="Perform Again" data-id="Tampil Kembali">Perform Again</span>
                 </div>
             </div>
-            <p style="text-align:center;font-size:15px;font-weight:300;color:#374151;line-height:1.7;margin-top:40px;max-width:640px;margin-left:auto;margin-right:auto;" data-en="After each internal concert, participants join in-depth evaluation sessions with faculty, discussing specific aspects of artistry, technique, and stage presentation. Through this cycle, participants gain multiple performance opportunities in a supportive environment, direct and applicable evaluation, space to implement real improvements, and measurable progress from one performance to the next." data-id="Setelah setiap internal concert, peserta akan mengikuti sesi evaluasi mendalam bersama faculty, membahas secara spesifik aspek artistik, teknis, dan presentasi panggung. Melalui siklus ini, peserta mendapatkan kesempatan tampil berkali-kali dalam lingkungan yang suportif, evaluasi langsung yang aplikatif dan terarah, ruang untuk menerapkan perbaikan secara nyata, serta progres yang terukur dari satu penampilan ke penampilan berikutnya.">After each internal concert, participants join in-depth evaluation sessions with faculty, discussing specific aspects of artistry, technique, and stage presentation. Through this cycle, participants gain multiple performance opportunities in a supportive environment, direct and applicable evaluation, space to implement real improvements, and measurable progress from one performance to the next.</p>
+            <p style="text-align:center;font-size:15px;font-weight:300;color:#374151;line-height:1.7;margin-top:40px;max-width:640px;margin-left:auto;margin-right:auto;" data-en="After each internal concert, participants join in-depth evaluation sessions with faculty, discussing specific aspects of artistry, technique, and stage presentation." data-id="Setelah setiap internal concert, peserta akan mengikuti sesi evaluasi mendalam bersama faculty.">After each internal concert, participants join in-depth evaluation sessions with faculty, discussing specific aspects of artistry, technique, and stage presentation.</p>
         </div>
     </div>
 </section>
 
-<!-- ==================== ARTISTIC EXCELLENCE ==================== -->
+<!-- ARTISTIC EXCELLENCE -->
 <section class="section" id="excellence" style="background:linear-gradient(180deg,transparent,rgba(6,182,212,0.015),transparent);">
     <div class="container-main">
         <div class="grid-2" style="align-items:center;gap:56px;">
@@ -750,23 +437,21 @@
                 </div>
             </div>
             <div class="anim">
-                <p class="section-label" data-en="Artistic & Educational Excellence" data-id="Keunggulan Artistik & Pendidikan">Artistic & Educational Excellence</p>
+                <p class="section-label" data-en="Artistic and Educational Excellence" data-id="Keunggulan Artistik dan Pendidikan">Artistic and Educational Excellence</p>
                 <h2 class="section-title grad-text" style="margin-bottom:24px;" data-en="Faculty Who Walked This Path" data-id="Faculty yang Pernah Menjalani Jalan Ini">Faculty Who Walked This Path</h2>
-                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;margin-bottom:24px;" data-en="One of the greatest strengths of JISMF 2026 lies in its faculty — alumni of the festival who have now graduated from international music institutions and are active as performers and educators." data-id="Salah satu kekuatan utama JISMF 2026 terletak pada jajaran fakultasnya — para alumni festival yang kini telah menjadi lulusan institusi musik internasional dan aktif sebagai performer maupun pendidik.">One of the greatest strengths of JISMF 2026 lies in its faculty — alumni of the festival who have now graduated from international music institutions and are active as performers and educators.</p>
-
+                <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;margin-bottom:24px;" data-en="One of the greatest strengths of JISMF 2026 lies in its faculty — alumni of the festival who have now graduated from international music institutions and are active as performers and educators." data-id="Salah satu kekuatan utama JISMF 2026 terletak pada jajaran fakultasnya.">One of the greatest strengths of JISMF 2026 lies in its faculty — alumni of the festival who have now graduated from international music institutions and are active as performers and educators.</p>
                 <div class="excellence-feature">
                     <span class="excellence-num">1</span>
-                    <p style="font-size:14px;font-weight:300;color:#374151;line-height:1.7;" data-en="As alumni, they deeply understand the needs, challenges, and characteristics of Indonesian students. There is no cultural gap or pedagogical disconnect." data-id="Sebagai alumni, mereka memahami secara mendalam kebutuhan, tantangan, dan karakteristik siswa Indonesia. Tidak ada kesenjangan budaya atau perbedaan pendekatan pedagogis.">As alumni, they deeply understand the needs, challenges, and characteristics of Indonesian students. There is no cultural gap or pedagogical disconnect.</p>
+                    <p style="font-size:14px;font-weight:300;color:#374151;line-height:1.7;" data-en="As alumni, they deeply understand the needs, challenges, and characteristics of Indonesian students." data-id="Sebagai alumni, mereka memahami secara mendalam kebutuhan dan tantangan siswa Indonesia.">As alumni, they deeply understand the needs, challenges, and characteristics of Indonesian students.</p>
                 </div>
                 <div class="excellence-feature">
                     <span class="excellence-num">2</span>
-                    <p style="font-size:14px;font-weight:300;color:#374151;line-height:1.7;" data-en="With youthful energy and a global perspective, they effectively bridge international standards with local context — relevant and accessible." data-id="Dengan energi yang muda dan perspektif global, mereka mampu menjembatani standar internasional dengan konteks lokal secara efektif dan relevan.">With youthful energy and a global perspective, they effectively bridge international standards with local context — relevant and accessible.</p>
+                    <p style="font-size:14px;font-weight:300;color:#374151;line-height:1.7;" data-en="With youthful energy and a global perspective, they effectively bridge international standards with local context." data-id="Dengan energi muda dan perspektif global, mereka menjembatani standar internasional dengan konteks lokal.">With youthful energy and a global perspective, they effectively bridge international standards with local context.</p>
                 </div>
                 <div class="excellence-feature">
                     <span class="excellence-num">3</span>
-                    <p style="font-size:14px;font-weight:300;color:#374151;line-height:1.7;" data-en="For parents, JISMF 2026 presents tangible proof of long-term educational impact — from participant to international graduate, returning as a professional mentor." data-id="Bagi para orang tua, JISMF 2026 menghadirkan bukti nyata dampak pendidikan jangka panjang — dari peserta menjadi lulusan luar negeri, dan kembali sebagai mentor profesional.">For parents, JISMF 2026 presents tangible proof of long-term educational impact — from participant to international graduate, returning as a professional mentor.</p>
+                    <p style="font-size:14px;font-weight:300;color:#374151;line-height:1.7;" data-en="For parents, JISMF 2026 presents tangible proof of long-term educational impact — from participant to international graduate, returning as a professional mentor." data-id="Bagi para orang tua, JISMF 2026 menghadirkan bukti nyata dampak pendidikan jangka panjang.">For parents, JISMF 2026 presents tangible proof of long-term educational impact — from participant to international graduate, returning as a professional mentor.</p>
                 </div>
-                <p style="font-size:14px;font-weight:300;color:rgba(8,145,178,0.6);line-height:1.7;margin-top:16px;font-style:italic;" data-en="JISMF is not merely a one-week programme, but part of a sustainable mentoring ecosystem with real impact." data-id="JISMF bukan sekadar program satu minggu, melainkan bagian dari ekosistem pembinaan yang berkelanjutan dan berdampak nyata.">JISMF is not merely a one-week programme, but part of a sustainable mentoring ecosystem with real impact.</p>
             </div>
         </div>
     </div>
@@ -778,14 +463,20 @@
         <div class="anim" style="text-align:center;margin-bottom:48px;">
             <h2 class="section-title grad-text" style="margin-bottom:12px;" data-en="Indonesia Open Competition" data-id="Indonesia Open Competition">Indonesia Open Competition</h2>
             <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;border:1px solid rgba(163,42,46,0.2);background:rgba(163,42,46,0.05);margin-top:16px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A32A2E" stroke-width="2" stroke-linecap="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9Z"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9Z"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A32A2E" stroke-width="2" stroke-linecap="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9Z"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9Z"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
                 <span style="font-size:12px;font-weight:500;color:#A32A2E;" data-en="In Affiliation with HKIMF" data-id="Afiliasi dengan HKIMF">In Affiliation with HKIMF</span>
             </div>
         </div>
-
         <div class="anim">
-            <div class="ioc-card" style="margin-bottom:32px;">
+            <div class="ioc-card">
                 <div class="ioc-card-body">
+                    <!-- VIDEO: GANTI src URL setelah upload video ke GitHub -->
+                    <div class="venue-video-wrap">
+                        <video controls playsinline preload="metadata" poster="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/jismfpictabout.png">
+                            <source src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/video.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung pemutar video.
+                        </video>
+                    </div>
                     <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;">
                         <div style="width:48px;height:48px;border-radius:12px;background:rgba(163,42,46,0.1);display:flex;align-items:center;justify-content:center;color:#A32A2E;flex-shrink:0;">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -795,81 +486,67 @@
                             <p style="font-size:14px;color:#475569;" data-en="Guangdong Science Center · 16–21 August 2026" data-id="Guangdong Science Center · 16–21 Agustus 2026">Guangdong Science Center · 16–21 August 2026</p>
                         </div>
                     </div>
-                    <div id="videoDisplay" class="video-wrap" style="margin-bottom:20px;display:none;"></div>
-                    <div id="videoPlaceholder" class="video-placeholder" style="margin-bottom:20px;">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="margin-bottom:12px;color:#cbd5e1;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                        <p style="font-size:14px;color:#94a3b8;" data-en="Video will be displayed here" data-id="Video akan ditampilkan di sini">Video will be displayed here</p>
-                    </div>
-                    <div style="text-align:left;">
-                        <button id="toggleUpload" class="upload-toggle">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                            <span data-en="Configure venue video" data-id="Konfigurasi video venue">Configure venue video</span>
-                            <svg id="uploadChevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="transition:transform 0.2s;"><polyline points="6 9 12 15 18 9"/></svg>
-                        </button>
-                        <div id="uploadPanel" class="hidden">
-                            <div style="margin-top:16px;">
-                                <input type="text" id="videoUrlInput" class="input-field" placeholder="https://raw.githubusercontent.com/...">
-                                <div style="display:flex;gap:8px;margin-top:10px;">
-                                    <button class="btn-small" id="applyVideoBtn" data-en="Apply" data-id="Terapkan">Apply</button>
-                                    <button class="btn-small" id="removeVideoBtn" style="background:rgba(163,42,46,0.1);color:#A32A2E;" data-en="Remove" data-id="Hapus">Remove</button>
-                                </div>
-                                <div class="hint-box"><span data-en="Upload video to your GitHub repo, then paste="> raw URL here." data-id="Upload video ke repo GitHub Anda, lalu tempel raw URL di sini.">Upload video to your GitHub repo, then paste="> raw URL here.</span><br>Format: <code>https://raw.githubusercontent.com/USER/REPO/main/folder/video.mp4</code></div>
-                            </div>
-                        </div>
-                    </div>
+                    <p style="font-size:15px;font-weight:300;color:#374151;line-height:1.7;" data-en="The Indonesia Open Competition (IOC) is an open competition that upholds transparency and international standards. Winners will have the opportunity to advance to the HKIMF Grand Final in Guangzhou, China." data-id="Indonesia Open Competition (IOC) adalah kompetisi terbuka yang menjunjung tinggi transparansi dan standar internasional.">The Indonesia Open Competition (IOC) is an open competition that upholds transparency and international standards. Winners will have the opportunity to advance to the HKIMF Grand Final in Guangzhou, China.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FACULTY -->
+<!-- ============================================================ -->
+<!-- FACULTY GRID — 13 ORANG                                      -->
+<!--                                                             -->
+<!-- PERHATIAN: TIDAK ADA class="anim" PADA wrapper grid-3       -->
+<!-- Ini sengaja agar kartu selalu terlihat (opacity: 1)         -->
+<!-- Tanpa harus menunggu scroll animation trigger               -->
+<!-- ============================================================ -->
 <section class="section" id="faculty-grid">
     <div class="container-main">
+
         <div class="anim" style="text-align:center;margin-bottom:48px;">
-            <p class="section-label" data-en="Meet=" Faculty" data-id="Kenali Para Faculty">Meet=" Faculty</p>
+            <p class="section-label" data-en="Meet Faculty" data-id="Kenali Para Faculty">Meet Faculty</p>
             <h2 class="section-title grad-text" style="margin-bottom:12px;" data-en="JISMF Alumni — Now Your Mentors" data-id="Alumni JISMF — Kini Mentor Anda">JISMF Alumni — Now Your Mentors</h2>
         </div>
-        <div class="grid-3 anim">
+
+        <!-- TANPA class="anim" — langsung terlihat -->
+        <div class="grid-3">
+
             <div class="faculty-card">
                 <div class="img-wrap">
-                    <img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/direkturymj.png" alt="Faculty 1">
+                    <img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/direkturymj.png" alt="Dr. Kuei Pin Yeo">
                 </div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Dr. Kuei Pin Yeo</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Piano & Director</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Dr. Kuei Pin Yeo is a prominent Indonesian pianist and Indonesia's first Doctor of Musical Arts in piano performance. She is known as a musician with a long international career, performing as a recitalist, orchestral soloist, and chamber musician in the United States and Asia." data-id="Dr. Kuei Pin Yeo adalah pianis Indonesia terkemuka dan doktor musik pertama Indonesia dalam bidang piano performance. Ia dikenal sebagai musisi dengan karier internasional yang panjang, tampil sebagai resitalis, solis dengan orkestra, serta musisi kamar di Amerika Serikat dan Asia.">Bio will be updated soon.</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Her recital debut at Carnegie Recital Hall, New York, marked the beginning of her international recognition. On that occasion, The New York Times praised her performance as that of a pianist with mature technique and sensitive musicality, as well as elegant, clear, and musically direct interpretations. Other critics have called her 'an extraordinary pianist' with high sensitivity and artistic depth." data-id="Debut resitalnya di Carnegie Recital Hall, New York, menandai awal pengakuan internasionalnya. Pada kesempatan tersebut, The New York Times memuji permainannya sebagai pianis dengan teknik yang matang dan musikalitas yang peka, serta interpretasi yang elegan, jernih, dan langsung secara musikal. Kritik lain menyebutnya sebagai 'seorang pianis yang luar biasa', dengan kepekaan dan kedalaman artistik yang tinggi.">Bio will be updated soon.</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="As a performer, Dr. Yeo has an extensive repertoire covering classical, romantic, to 20th-century works, with special attention to the German-Austrian tradition, chamber music, and large-scale works including concertos. Her interpretive approach emphasizes structural clarity, stylistic integrity, and depth of musical expression." data-id="Sebagai performer, Dr. Yeo memiliki repertoar luas yang mencakup karya-karya klasik, romantik, hingga abad ke-20, dengan perhatian khusus pada tradisi Jerman–Austria, musik kamar, dan karya-karya berskala besar termasuk concerto. Pendekatan interpretatifnya menekankan kejelasan struktur, integritas gaya, dan kedalaman ekspresi musikal.">Bio will be updated soon.</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Born in Jakarta, Dr. Yeo pursued her music education at Manhattan School of Music, New York, with a full scholarship. She is also a recipient of the John D. Rockefeller 3rd Fund / Asian Cultural Council Scholarship and the Harold Bauer Award. For her contributions and international career, her name is listed in various reference publications, including International Women Who's Who and Asian Who's Who." data-id="Lahir di Jakarta, Dr. Yeo menempuh pendidikan musiknya di Manhattan School of Music, New York, dengan beasiswa penuh. Ia juga merupakan penerima John D. Rockefeller 3rd Fund / Asian Cultural Council Scholarship serta peraih Harold Bauer Award. Atas kontribusi dan kiprahnya di tingkat internasional, namanya tercantum dalam berbagai publikasi referensi, termasuk International Women Who's Who dan Asian Who's Who. Hingga kini, ia tetap aktif tampil, mengajar, dan terlibat dalam proyek-proyek artistik internasional.">Bio will be updated soon.</p>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Piano &amp; Director</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Dr. Kuei Pin Yeo is a prominent Indonesian pianist and Indonesia's first Doctor of Musical Arts in piano performance. Her recital debut at Carnegie Recital Hall, New York, marked the beginning of her international recognition." data-id="Dr. Kuei Pin Yeo adalah pianis Indonesia terkemuka dan doktor musik pertama Indonesia dalam bidang piano performance.">Dr. Kuei Pin Yeo is a prominent Indonesian pianist and Indonesia's first Doctor of Musical Arts in piano performance. Her recital debut at Carnegie Recital Hall, New York, marked the beginning of her international recognition.</p>
                 </div>
             </div>
+
             <div class="faculty-card">
                 <div class="img-wrap">
-                    <img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/japyeoduo/jtk-portrait.jpg" alt="Faculty 2">
+                    <img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/japyeoduo/jtk-portrait.jpg" alt="Jap Tji Kien">
                 </div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Jap Tji Kien</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Violin & Conductor</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Jap Tji Kien is a leading Indonesian violinist and conductor, born in Bandung, and recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia. He began studying violin at the age of four and made his first stage performance at age ten, marking the beginning of his long career as a professional musician." data-id="Jap Tji Kien adalah violinis dan dirigen terkemuka Indonesia, lahir di Bandung, dan dikenal sebagai penerima Fellowship of the Royal Schools of Music (FRSM), London, pertama di Asia Tenggara. Ia mulai belajar biola pada usia empat tahun dan tampil untuk pertama kalinya di atas panggung pada usia sepuluh tahun, menandai awal karier panjangnya sebagai musisi profesional.">Bio will be updated soon.</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="As a violinist, Jap Tji Kien has performed extensively as a soloist and chamber musician, appearing in various concerts, radio broadcasts, and television programs, gaining wide recognition in Indonesia and abroad. In 1971, he was accepted as the youngest member of the Jakarta Symphony Orchestra, serving as concertmaster from 1973 to 1985." data-id="Sebagai violinis, Jap Tji Kien telah tampil luas sebagai solis dan musisi kamar, hadir di berbagai konser, siaran radio, dan televisi, serta memperoleh pengakuan luas di Indonesia dan mancanegara. Pada tahun 1971, ia diterima sebagai anggota termuda Orkestra Simfoni Jakarta, dan dari 1973 hingga 1985 menjabat sebagai concertmaster orkestra tersebut.">Bio will be updated soon.</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="In 1985, he received full scholarships and fellowships from the Asian Cultural Council (formerly John D. Rockefeller 3rd Fund) and Aspen School of Music, Colorado, to continue his studies under the legendary violin teacher Dorothy DeLay." data-id="Pada tahun 1985, ia menerima beasiswa dan fellowship penuh dari Asian Cultural Council (sebelumnya John D. Rockefeller 3rd Fund) serta Aspen School of Music, Colorado, untuk melanjutkan studi di bawah bimbingan guru biola legendaris Dorothy DeLay.">Bio will be updated soon.</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Since 1976, Jap Tji Kien has also been active as a conductor. He has led various large orchestras and choirs, including concerts with over a thousand musicians and singers at state events. Currently, he remains active as a violinist, conductor, and music educator, serving as Resident Conductor of the Indonesian National Symphony Orchestra (OSNI)." data-id="Sejak 1976, Jap Tji Kien juga aktif sebagai dirigen. Ia telah memimpin berbagai orkestra dan paduan suara besar, termasuk konser dengan lebih dari seribu musisi dan penyanyi dalam acara kenegaraan. Saat ini, ia aktif sebagai violinis, dirigen, dan pendidik musik, serta menjabat sebagai Resident Conductor Orkes Simfoni Nasional Indonesia (OSNI).">Bio will be updated soon.</p>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Violin &amp; Conductor</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Jap Tji Kien is a leading Indonesian violinist and conductor, recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia." data-id="Jap Tji Kien adalah violinis dan dirigen terkemuka Indonesia, penerima FRSM London pertama di Asia Tenggara.">Jap Tji Kien is a leading Indonesian violinist and conductor, recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia.</p>
                 </div>
             </div>
+
             <div class="faculty-card">
                 <div class="img-wrap">
-                    <img src="" alt="Faculty 3">
+                    <img src="" alt="Mevlied Nahla">
                 </div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Mevlied Nahla</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Violi</p>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Viola</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-                        <div class="faculty-card">
+
+            <div class="faculty-card">
                 <div class="img-wrap">
-                    <img src="" alt="Faculty 4">
+                    <img src="" alt="Martin Kusuma">
                 </div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Martin Kusuma</h3>
@@ -877,9 +554,10 @@
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
+
             <div class="faculty-card">
                 <div class="img-wrap">
-                    <img src="" alt="Faculty 5">
+                    <img src="" alt="Amelia Santoso">
                 </div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Amelia Santoso</h3>
@@ -887,9 +565,10 @@
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
+
             <div class="faculty-card">
                 <div class="img-wrap">
-                    <img src="" alt="Faculty 6">
+                    <img src="" alt="Carolin Tjoa">
                 </div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Carolin Tjoa</h3>
@@ -898,9 +577,88 @@
                 </div>
             </div>
 
+            <div class="faculty-card">
+                <div class="img-wrap">
+                    <img src="" alt="Faculty 7">
+                </div>
+                <div class="info">
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 7</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="img-wrap">
+                    <img src="" alt="Faculty 8">
+                </div>
+                <div class="info">
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 8</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="img-wrap">
+                    <img src="" alt="Faculty 9">
+                </div>
+                <div class="info">
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 9</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="img-wrap">
+                    <img src="" alt="Faculty 10">
+                </div>
+                <div class="info">
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 10</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="img-wrap">
+                    <img src="" alt="Faculty 11">
+                </div>
+                <div class="info">
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 11</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="img-wrap">
+                    <img src="" alt="Faculty 12">
+                </div>
+                <div class="info">
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 12</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="img-wrap">
+                    <img src="" alt="Faculty 13">
+                </div>
+                <div class="info">
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 13</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
 
-<!-- REGISTER & SETTINGS -->
+<!-- REGISTER -->
 <section class="section" id="register">
     <div class="container-narrow">
         <div class="anim cta-box">
@@ -911,35 +669,13 @@
                 <h2 class="section-title grad-text" style="margin-bottom:12px;" data-en="Ready to Begin?" data-id="Siap Memulai?">Ready to Begin?</h2>
                 <p style="font-size:16px;font-weight:300;color:#374151;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;" data-en="Secure your place in JISMF 2026." data-id="Amankan tempat Anda di JISMF 2026.">Secure your place in JISMF 2026.</p>
                 <a href="https://forms.gle/mqfmPFtZpXXibGzk6" target="_blank" rel="noopener noreferrer" id="registerLink" class="btn-primary" style="font-size:16px;padding:16px 40px;margin-bottom:12px;">
-                    <span data-en="Register Now" data-id="Daftar Sekarang">Register Now
+                    <span data-en="Register Now" data-id="Daftar Sekarang">Register Now</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
-                
-                <!-- SETTINGS PANELS -->
                 <div style="margin-top:32px; border-top:1px solid rgba(0,0,0,0.05); padding-top:24px; max-width: 500px; margin-left: auto; margin-right: auto; text-align: left;">
-                    
-                    <!-- SITE BACKGROUND CONFIG (BARU) -->
                     <div class="config-group">
-                        <label class="config-label">Site Background (Background Halaman)</label>
-                        <div class="file-input-wrapper">
-                            <input type="file" id="siteBgInput" accept="image/*">
-                            <div class="file-input-btn">
-                                <span id="siteBgBtnText" data-en="Upload Photo Background" data-id="Upload Foto Background">Upload Photo Background</span>
-                            </div>
-                        </div>
-                        <button id="resetSiteBg" class="btn-small" style="margin-top:8px; width:100%;" data-en="Reset to White" data-id="Reset ke Putih">Reset to White</button>
                     </div>
-
-                    <div class="settings-divider"></div>
-
-                    <!-- HERO SECTION CONFIG -->
-                    <button id="toggleConfig" class="upload-toggle" style="margin:0;">
-                        <span data-en="Configure Hero Section & Registration Link" data-id="Konfigurasi Hero & Link Pendaftaran">Configure Hero Section & Registration Link</span>
-                        <svg id="configChevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="transition:transform 0.2s;"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    
                     <div id="configPanel" class="hidden" style="margin-top:16px;">
-                        <!-- Registration Link -->
                         <div class="config-group">
                             <label class="config-label">Registration URL</label>
                             <div class="config-input-row">
@@ -947,20 +683,15 @@
                                 <button class="btn-small" id="saveRegUrl" data-en="Save" data-id="Simpan">Save</button>
                             </div>
                         </div>
-
-                        <!-- Hero BG -->
                         <div class="config-group">
-                            <label class="config-label">Hero Background (Top Section Only)</label>
+                            <label class="config-label">Hero Background</label>
                             <div class="config-input-row">
                                 <input type="text" id="bgUrlInput" class="input-field" placeholder="Image URL">
                                 <button class="btn-small" id="saveBgUrl" data-en="Set" data-id="Terapkan">Set</button>
                             </div>
-                            <div style="margin-top:8px;">
-                                <button class="btn-small" id="resetBg" data-en="Reset Hero" data-id="Reset Hero">Reset Hero</button>
-                            </div>
+                            <div style="margin-top:8px;"><button class="btn-small" id="resetBg" data-en="Reset Hero" data-id="Reset Hero">Reset Hero</button></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -985,12 +716,12 @@
                 <span style="color:#1e293b;font-weight:700;font-size:20px;">JISMF</span>
                 <span style="color:rgba(0,0,0,0.4);font-weight:300;font-size:13px;">2026</span>
             </div>
-            <p style="font-size:12px;color:rgba(0,0,0,0.6);" data-en="Legacy in Motion" data-id="Legacy in Motion">Legacy in Motion — Competition Preparation Programme</p>
+            <p style="font-size:12px;color:rgba(0,0,0,0.6);">Legacy in Motion — Competition Preparation Programme</p>
             <p style="font-size:11px;color:rgba(0,0,0,0.35);margin-top:4px;">Yayasan Musik Jakarta — BSD Campus</p>
         </div>
         <div class="footer-links">
             <a href="https://instagram.com/jismf" target="_blank" rel="noopener noreferrer" class="footer-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            <a href="https://jismf.id" target="_blank" rel="noopener noreferrer" class="footer-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+            <a href="https://jismf.id" target="_blank" rel="noopener noreferrer" class="footer-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
             <a href="mailto:info@jismf.id" class="footer-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
         </div>
     </div>
@@ -998,186 +729,127 @@
     <p style="text-align:center;font-size:11px;color:rgba(0,0,0,0.35);position:relative;z-index:2;">© 2026 JISMF. All rights reserved.</p>
 </footer>
 
-<!-- TOAST -->
 <div class="toast-box" id="toast">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A32A2E" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     <span id="toastMsg"></span>
 </div>
 
-<!-- SCRIPTS -->
 <script>
-    // --- 1. LANGUAGE SYSTEM ---
-    let lang = localStorage.getItem('jismf_lang') || 'en';
-    const langBtn = document.getElementById('langToggle');
-    function setLang(l) {
-        lang = l;
-        langBtn.textContent = l === 'en' ? 'ID' : 'EN';
-        document.querySelectorAll('[data-en]').forEach(function(el) {
-            var t = el.getAttribute('data-' + l);
-            if (t) { 
-                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t; 
-                else el.textContent = t; 
-            }
-        });
-        localStorage.setItem('jismf_lang', l);
-    }
-    setLang(lang);
-    langBtn.addEventListener('click', function() { setLang(lang === 'en' ? 'id' : 'en'); });
-
-    // --- 2. MOBILE MENU ---
-    document.getElementById('hamburgerBtn').addEventListener('click', function() { 
-        document.getElementById('mobileMenu').classList.toggle('open'); 
-    });
-    document.querySelectorAll('#mobileMenu a').forEach(function(a) { 
-        a.addEventListener('click', function() { 
-            document.getElementById('mobileMenu').classList.remove('open'); 
-        }); 
-    });
-
-    // --- 3. ANIMATION OBSERVER ---
-    var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) { 
-            if (e.isIntersecting) e.target.classList.add('visible'); 
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.anim').forEach(function(el) { obs.observe(el); });
-
-    // --- 4. TOAST HELPER ---
-    function showToast(msg) {
-        var t = document.getElementById('toast');
-        document.getElementById('toastMsg').textContent = msg;
-        t.classList.add('show');
-        setTimeout(function() { t.classList.remove('show'); }, 3000);
-    }
-
-    // --- 5. VIDEO CONFIGURATION ---
-    function showVideo(url) {
-        document.getElementById('videoDisplay').style.display = 'block';
-        document.getElementById('videoDisplay').innerHTML = '<video controls playsinline><source src="' + url + '" type="video/mp4">Your browser does not support video.</video>';
-        document.getElementById('videoPlaceholder').style.display = 'none';
-    }
-    function hideVideo() {
-        document.getElementById('videoDisplay').style.display = 'none';
-        document.getElementById('videoDisplay').innerHTML = '';
-        document.getElementById('videoPlaceholder').style.display = 'flex';
-        localStorage.removeItem('jismf_vid');
-    }
-    document.getElementById('toggleUpload').addEventListener('click', function() {
-        var panel = document.getElementById('uploadPanel');
-        var open = panel.classList.contains('hidden');
-        panel.classList.toggle('hidden', !open);
-        document.getElementById('uploadChevron').style.transform = open ? 'rotate(180deg)' : '';
-    });
-    document.getElementById('applyVideoBtn').addEventListener('click', function() {
-        var url = document.getElementById('videoUrlInput').value.trim();
-        if (!url) { showToast(lang === 'en' ? 'Enter a URL' : 'Masukkan URL'); return; }
-        showVideo(url);
-        localStorage.setItem('jismf_vid', url);
-        showToast(lang === 'en' ? 'Video applied!' : 'Video diterapkan!');
-    });
-    document.getElementById('removeVideoBtn').addEventListener('click', function() {
-        document.getElementById('videoUrlInput').value = '';
-        hideVideo();
-        showToast(lang === 'en' ? 'Video removed' : 'Video dihapus');
-    });
-    var sv = localStorage.getItem('jismf_vid');
-    if (sv) { showVideo(sv); document.getElementById('videoUrlInput').value = sv; }
-
-    // --- 6. SITE BACKGROUND CONFIG (FEATURE BARU) ---
-    const siteBgInput = document.getElementById('siteBgInput');
-    const siteBgBtnText = document.getElementById('siteBgBtnText');
-    const resetSiteBg = document.getElementById('resetSiteBg');
-
-    function applySiteBackground(imgUrl) {
-        if(imgUrl) {
-            document.body.style.backgroundImage = `url('${imgUrl}')`;
-            document.body.style.backgroundSize = 'cover';
-            document.body.style.backgroundPosition = 'center';
-            document.body.style.backgroundAttachment = 'fixed';
-            document.body.style.backgroundColor = '#ffffff'; // Fallback
-        } else {
-            document.body.style.backgroundImage = 'none';
-            document.body.style.backgroundColor = '#ffffff';
-        }
-    }
-
-    // Load saved site background
-    var savedSiteBg = localStorage.getItem('jismf_site_bg');
-    if(savedSiteBg) {
-        applySiteBackground(savedSiteBg);
-        siteBgBtnText.textContent = lang === 'en' ? "Change Background" : "Ganti Background";
-    }
-
-    siteBgInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if(file) {
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                const base64 = evt.target.result;
-                localStorage.setItem('jismf_site_bg', base64);
-                applySiteBackground(base64);
-                siteBgBtnText.textContent = file.name;
-                showToast(lang === 'en' ? 'Background updated!' : 'Background diperbarui!');
-            };
-            reader.readAsDataURL(file);
+var lang = localStorage.getItem('jismf_lang') || 'en';
+var langBtn = document.getElementById('langToggle');
+function setLang(l) {
+    lang = l;
+    langBtn.textContent = l === 'en' ? 'ID' : 'EN';
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+        var t = el.getAttribute('data-' + l);
+        if (t) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t;
+            else el.textContent = t;
         }
     });
+    localStorage.setItem('jismf_lang', l);
+}
+setLang(lang);
+langBtn.addEventListener('click', function() { setLang(lang === 'en' ? 'id' : 'en'); });
 
-    resetSiteBg.addEventListener('click', function() {
-        localStorage.removeItem('jismf_site_bg');
-        applySiteBackground(null);
-        siteBgBtnText.textContent = lang === 'en' ? "Upload Photo Background" : "Upload Foto Background";
-        siteBgInput.value = '';
-        showToast(lang === 'en' ? 'Background reset to white' : 'Background di-reset ke putih');
-    });
+document.getElementById('hamburgerBtn').addEventListener('click', function() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('#mobileMenu a').forEach(function(a) {
+    a.addEventListener('click', function() { document.getElementById('mobileMenu').classList.remove('open'); });
+});
 
+var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.anim').forEach(function(el) { obs.observe(el); });
 
-    // --- 7. REGISTRATION LINK & HERO CONFIG ---
-    document.getElementById('toggleConfig').addEventListener('click', function() { 
-        document.getElementById('configPanel').classList.toggle('hidden'); 
-        document.getElementById('configChevron').style.transform = document.getElementById('configPanel').classList.contains('hidden') ? '' : 'rotate(180deg)';
-    });
-    
-    // Reg URL
-    var sru = localStorage.getItem('jismf_regurl');
-    if (sru) { document.getElementById('registerLink').href = sru; document.getElementById('regUrlInput').value = sru; }
-    document.getElementById('saveRegUrl').addEventListener('click', function() {
-        var u = document.getElementById('regUrlInput').value.trim();
-        if (u) {
-            document.getElementById('registerLink').href = u;
-            localStorage.setItem('jismf_regurl', u);
-            showToast(lang === 'en' ? 'Link updated!' : 'Link diperbarui!');
-        }
-    });
+function showToast(msg) {
+    var t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 3000);
+}
 
-    // Hero BG
-    const defaultHeroBg = "url('https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/jismfpictabout.png')";
-    function setHeroBackground(url) {
-        var hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.background = url + " center/cover no-repeat";
-            hero.style.backgroundAttachment = "fixed";
-        }
+var siteBgInput = document.getElementById('siteBgInput');
+var siteBgBtnText = document.getElementById('siteBgBtnText');
+var resetSiteBg = document.getElementById('resetSiteBg');
+
+function applySiteBackground(imgUrl) {
+    if (imgUrl) {
+        document.body.style.backgroundImage = "url('" + imgUrl + "')";
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundAttachment = 'fixed';
+        document.body.style.backgroundColor = '#ffffff';
+    } else {
+        document.body.style.backgroundImage = 'none';
+        document.body.style.backgroundColor = '#ffffff';
     }
-    var savedHeroBg = localStorage.getItem('jismf_bgurl');
-    if (savedHeroBg) { setHeroBackground(savedHeroBg); document.getElementById('bgUrlInput').value = savedHeroBg; }
+}
 
-    document.getElementById('saveBgUrl').addEventListener('click', function() {
-        const url = document.getElementById('bgUrlInput').value.trim();
-        if (url) {
-            setHeroBackground("url('" + url + "')");
-            localStorage.setItem('jismf_bgurl', url);
-            showToast(lang === 'en' ? 'Hero BG saved!' : 'Hero BG tersimpan!');
-        }
-    });
+var savedSiteBg = localStorage.getItem('jismf_site_bg');
+if (savedSiteBg) {
+    applySiteBackground(savedSiteBg);
+    siteBgBtnText.textContent = lang === 'en' ? "Change Background" : "Ganti Background";
+}
 
-    document.getElementById('resetBg').addEventListener('click', function() {
-        setHeroBackground(defaultHeroBg);
-        localStorage.removeItem('jismf_bgurl');
-        document.getElementById('bgUrlInput').value = '';
-        showToast(lang === 'en' ? 'Hero BG reset' : 'Hero BG di-reset');
-    });
+siteBgInput.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(evt) {
+            var base64 = evt.target.result;
+            localStorage.setItem('jismf_site_bg', base64);
+            applySiteBackground(base64);
+            siteBgBtnText.textContent = file.name;
+            showToast(lang === 'en' ? 'Background updated!' : 'Background diperbarui!');
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
+resetSiteBg.addEventListener('click', function() {
+    localStorage.removeItem('jismf_site_bg');
+    applySiteBackground(null);
+    siteBgBtnText.textContent = lang === 'en' ? "Upload Photo Background" : "Upload Foto Background";
+    siteBgInput.value = '';
+    showToast(lang === 'en' ? 'Background reset to white' : 'Background di-reset ke putih');
+});
+
+document.getElementById('toggleConfig').addEventListener('click', function() {
+    document.getElementById('configPanel').classList.toggle('hidden');
+    document.getElementById('configChevron').style.transform = document.getElementById('configPanel').classList.contains('hidden') ? '' : 'rotate(180deg)';
+});
+
+var sru = localStorage.getItem('jismf_regurl');
+if (sru) { document.getElementById('registerLink').href = sru; document.getElementById('regUrlInput').value = sru; }
+document.getElementById('saveRegUrl').addEventListener('click', function() {
+    var u = document.getElementById('regUrlInput').value.trim();
+    if (u) {
+        document.getElementById('registerLink').href = u;
+        localStorage.setItem('jismf_regurl', u);
+        showToast(lang === 'en' ? 'Link updated!' : 'Link diperbarui!');
+    }
+});
+
+var defaultHeroBg = "url('https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/')";
+function setHeroBackground(url) {
+    var hero = document.querySelector('.hero');
+    if (hero) { hero.style.background = url + " center/cover no-repeat"; hero.style.backgroundAttachment = "fixed"; }
+}
+var savedHeroBg = localStorage.getItem('jismf_bgurl');
+if (savedHeroBg) { setHeroBackground(savedHeroBg); document.getElementById('bgUrlInput').value = savedHeroBg; }
+document.getElementById('saveBgUrl').addEventListener('click', function() {
+    var url = document.getElementById('bgUrlInput').value.trim();
+    if (url) { setHeroBackground("url('" + url + "')"); localStorage.setItem('jismf_bgurl', url); showToast(lang === 'en' ? 'Hero BG saved!' : 'Hero BG tersimpan!'); }
+});
+document.getElementById('resetBg').addEventListener('click', function() {
+    setHeroBackground(defaultHeroBg);
+    localStorage.removeItem('jismf_bgurl');
+    document.getElementById('bgUrlInput').value = '';
+    showToast(lang === 'en' ? 'Hero BG reset' : 'Hero BG di-reset');
+});
 </script>
 </body>
 </html>
