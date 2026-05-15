@@ -176,6 +176,159 @@
 
         .venue-video-wrap { position: relative; width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #000; margin-bottom: 20px; }
         .venue-video-wrap video { width: 100%; display: block; border-radius: 12px; }
+
+        /* ===== POSTER SECTION STYLES ===== */
+        .poster-section {
+            padding: 64px 0 48px;
+            position: relative;
+            z-index: 2;
+        }
+        .poster-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        @media (min-width: 768px) {
+            .poster-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+        .poster-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #f8fafc;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .poster-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 24px 48px -12px rgba(75,44,130,0.25);
+            border-color: #4B2C82;
+        }
+        .poster-card img {
+            width: 100%;
+            display: block;
+            object-fit: contain;
+            background: #fff;
+            transition: transform 0.5s ease;
+        }
+        .poster-card:hover img {
+            transform: scale(1.03);
+        }
+        .poster-label {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .poster-label-jismf {
+            background: rgba(46,26,71,0.85);
+            color: #fff;
+        }
+        .poster-label-ioc {
+            background: rgba(163,42,46,0.9);
+            color: #fff;
+        }
+        .poster-label .label-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fff;
+            animation: pulse-dot 2s infinite;
+        }
+        .poster-glow {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 80px;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.4;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .poster-glow-jismf { background: #4B2C82; }
+        .poster-glow-ioc { background: #A32A2E; }
+        .poster-caption {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 12px;
+            font-weight: 400;
+            color: #94a3b8;
+            letter-spacing: 0.04em;
+        }
+        /* Poster lightbox */
+        .poster-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 300;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            cursor: zoom-out;
+        }
+        .poster-lightbox.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .poster-lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .poster-lightbox.open img {
+            transform: scale(1);
+        }
+        .poster-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.15s;
+            font-size: 20px;
+        }
+        .poster-lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
     </style>
 </head>
 <body>
@@ -189,9 +342,8 @@
         <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/logoioc.png" alt="IOC Watermark">
     </div>
     <div class="wm-logo wm-pos-3">
-    <!-- TAMBAHKAN style="width: 350px; height: auto;" DI BAWAH INI -->
-    <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/hkimflogo.png" alt="HKIMF Watermark" style="width: 150px; height: auto;">
-</div>
+        <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/hkimflogo.png" alt="HKIMF Watermark" style="width: 150px; height: auto;">
+    </div>
     <div class="wm-logo wm-pos-4">
         <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/" alt="">
     </div>
@@ -276,6 +428,53 @@
         <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/logoioc.png" alt="IOC" style="height:clamp(100px,8vw,64px);width:auto;">
         <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/hkimflogo.png" alt="HK IMF" style="height:clamp(180px,8vw,64px);width:auto;">
     </div>
+</div>
+
+<!-- ===== POSTER SECTION — JISMF & IOC ===== -->
+<section class="poster-section" id="posters">
+    <div style="text-align:center;margin-bottom:36px;position:relative;z-index:2;">
+        <p class="section-label" data-en="Official Posters" data-id="Poster Resmi">Official Posters</p>
+    </div>
+    <div class="poster-grid">
+        <!-- JISMF POSTER -->
+        <div class="anim" style="position:relative;">
+            <div class="poster-card" id="posterJismf" onclick="openLightbox(this.querySelector('img').src)">
+                <span class="poster-label poster-label-jismf">
+                    <span class="label-dot"></span>
+                    JISMF 2026
+                </span>
+                <!--
+                    GANTI src DI BAWAH INI dengan URL poster JISMF Anda.
+                    Contoh: https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/poster-jismf.png
+                -->
+                <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/ioc%202026%20(3).png" alt="JISMF 2026 Official Poster" style="min-height:300px;">
+            </div>
+            <div class="poster-glow poster-glow-jismf"></div>
+            <p class="poster-caption" data-en="Click to enlarge" data-id="Klik untuk memperbesar">Click to enlarge</p>
+        </div>
+        <!-- IOC POSTER -->
+        <div class="anim" style="position:relative;">
+            <div class="poster-card" id="posterIoc" onclick="openLightbox(this.querySelector('img').src)">
+                <span class="poster-label poster-label-ioc">
+                    <span class="label-dot"></span>
+                    IOC 2026
+                </span>
+                <!--
+                    GANTI src DI BAWAH INI dengan URL poster IOC Anda.
+                    Contoh: https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/poster-ioc.png
+                -->
+                <img src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/ioc%202026%20(2).png" alt="IOC 2026 Official Poster" style="min-height:300px;">
+            </div>
+            <div class="poster-glow poster-glow-ioc"></div>
+            <p class="poster-caption" data-en="Click to enlarge" data-id="Klik untuk memperbesar">Click to enlarge</p>
+        </div>
+    </div>
+</section>
+
+<!-- POSTER LIGHTBOX -->
+<div class="poster-lightbox" id="posterLightbox" onclick="closeLightbox()">
+    <button class="poster-lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="Poster">
 </div>
 
 <!-- WELCOME -->
@@ -469,7 +668,6 @@
         <div class="anim">
             <div class="ioc-card">
                 <div class="ioc-card-body">
-                    <!-- VIDEO: GANTI src URL setelah upload video ke GitHub -->
                     <div class="venue-video-wrap">
                         <video controls playsinline preload="metadata" poster="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/video/mp4.png">
                             <source src="https://raw.githubusercontent.com/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/main/video.mp4" type="video/mp4">
@@ -492,167 +690,118 @@
     </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- FACULTY GRID — 13 ORANG                                      -->
-<!--                                                             -->
-<!-- PERHATIAN: TIDAK ADA class="anim" PADA wrapper grid-3       -->
-<!-- Ini sengaja agar kartu selalu terlihat (opacity: 1)         -->
-<!-- Tanpa harus menunggu scroll animation trigger               -->
-<!-- ============================================================ -->
+<!-- FACULTY GRID -->
 <section class="section" id="faculty-grid">
     <div class="container-main">
-
         <div class="anim" style="text-align:center;margin-bottom:48px;">
             <p class="section-label" data-en="Meet Faculty" data-id="Kenali Para Faculty">Meet Faculty</p>
             <h2 class="section-title grad-text" style="margin-bottom:12px;" data-en="JISMF Alumni — Now Your Mentors" data-id="Alumni JISMF — Kini Mentor Anda">JISMF Alumni — Now Your Mentors</h2>
         </div>
-
-        <!-- TANPA class="anim" — langsung terlihat -->
         <div class="grid-3">
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/direkturymj.png" alt="Dr. Kuei Pin Yeo">
-                </div>
+                <div class="img-wrap"><img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/direkturymj.png" alt="Dr. Kuei Pin Yeo"></div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Dr. Kuei Pin Yeo</h3>
                     <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Piano &amp; Director</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Dr. Kuei Pin Yeo is a prominent Indonesian pianist and Indonesia's first Doctor of Musical Arts in piano performance. Her recital debut at Carnegie Recital Hall, New York, marked the beginning of her international recognition." data-id="Dr. Kuei Pin Yeo adalah pianis Indonesia terkemuka dan doktor musik pertama Indonesia dalam bidang piano performance.">Dr. Kuei Pin Yeo is a prominent Indonesian pianist and Indonesia's first Doctor of Musical Arts in piano performance. Her recital debut at Carnegie Recital Hall, New York, marked the beginning of her international recognition.</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Dr. Kuei Pin Yeo is a prominent Indonesian pianist and the nation's first Doctor of Musical Arts in piano performance, boasting a distinguished international career across the United States and Asia." data-id="Dr. Kuei Pin Yeo merupakan pianis terkemuka sekaligus orang Indonesia pertama yang meraih gelar Doctor of Musical Arts dengan karier internasional yang membentang dari Amerika Serikat hingga Asia.">Dr. Kuei Pin Yeo is a prominent Indonesian pianist and Indonesia's first Doctor of Musical Arts in piano performance. Her recital debut at Carnegie Recital Hall, New York, marked the beginning of her international recognition.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/japyeoduo/jtk-portrait.jpg" alt="Jap Tji Kien">
-                </div>
+                <div class="img-wrap"><img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/japyeoduo/jtk-portrait.jpg" alt="Jap Tji Kien"></div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Jap Tji Kien</h3>
                     <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Violin &amp; Conductor</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Jap Tji Kien is a leading Indonesian violinist and conductor, recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia." data-id="Jap Tji Kien adalah violinis dan dirigen terkemuka Indonesia, penerima FRSM London pertama di Asia Tenggara.">Jap Tji Kien is a leading Indonesian violinist and conductor, recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia.</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Jap Tji Kien is a leading Indonesian violinist and conductor who made history as the first musician in Southeast Asia to receive the Fellowship of the Royal Schools of Music (FRSM), London." data-id="Jap Tji Kien merupakan pemain biola dan konduktor terkemuka asal Indonesia yang tercatat sebagai penerima Fellowship of the Royal Schools of Music (FRSM) pertama di Asia Tenggara.">Jap Tji Kien is a leading Indonesian violinist and conductor, recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Mevlied Nahla">
-                </div>
+                <div class="img-wrap"><img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/nahlapict.png" alt="Mevlied Nahla"></div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Mevlied Nahla</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Viola</p>
-                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Violin</p>
+                    <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Mevlied Nahla is a versatile Jakarta-born violinist specializing in jazz fusion, progressive rock, and pop, who trained in classical music at STIKMI under Jap Tji Kien and completed her postgraduate studies at IKJ. Launching her soloist career at age 14 alongside Purwacaraka, the ASEAN International Concerto Competition (2015) Special Merit Award recipient has collaborated with prominent figures like Dewa Budjana, performed for numerous major film soundtracks, and successfully released her debut single "Mantra Tenggara" (2021) while also thriving as a music content creator with over 101k followers." data-id="Mevlied Nahla adalah pemain biola berbakat asal Jakarta yang menguasai aliran jazz fusion, progressive rock, dan pop, dengan latar belakang pendidikan musik klasik di STIKMI di bawah bimbingan Jap Tji Kien serta pendidikan pascasarjana di IKJ. Memulai karier soloisnya sejak usia 14 tahun bersama Purwacaraka, musisi peraih Special Merit Award di ASEAN International Concerto Competition (2015) ini telah berkolaborasi dengan tokoh besar seperti Dewa Budjana, mengisi soundtrack berbagai film layar lebar, serta sukses merilis single debut "Mantra Tenggara" (2021) di samping aktivitasnya sebagai kreator konten musik dengan lebih dari 100 ribu pengikut.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Martin Kusuma">
-                </div>
+                <div class="img-wrap"><img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/martinpict.png" alt="Martin Kusuma"></div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Martin Kusuma</h3>
                     <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Piano</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Amelia Santoso">
-                </div>
+                <div class="img-wrap"><img src="https://cdn.jsdelivr.net/gh/remonyayasanmusikjakarta-sketch/YMJJIAMF2026/ameliasantospict.png" alt="Amelia Santoso"></div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Amelia Santoso</h3>
                     <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Piano</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Carolin Tjoa">
-                </div>
+                <div class="img-wrap"><img src="" alt="Carolin Tjoa"></div>
                 <div class="info">
                     <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Carolin Tjoa</h3>
                     <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Piano</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Faculty 7">
-                </div>
+                <div class="img-wrap"><img src="" alt="Faculty 7"></div>
                 <div class="info">
-                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 7</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Amelia Patricia</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Guitar</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Faculty 8">
-                </div>
+                <div class="img-wrap"><img src="" alt="Faculty 8"></div>
                 <div class="info">
-                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 8</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Lita Tandiono</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">ICello</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Faculty 9">
-                </div>
+                <div class="img-wrap"><img src="" alt="Faculty 9"></div>
                 <div class="info">
-                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 9</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">PEN</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Vocal</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Faculty 10">
-                </div>
+                <div class="img-wrap"><img src="" alt="Faculty 10"></div>
                 <div class="info">
-                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 10</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Unung Supardi</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Cello</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Faculty 11">
-                </div>
+                <div class="img-wrap"><img src="" alt="Faculty 11"></div>
                 <div class="info">
-                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 11</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Samuel  Armando</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Piano Pop</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Faculty 12">
-                </div>
+                <div class="img-wrap"><img src="" alt="Faculty 12"></div>
                 <div class="info">
-                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 12</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Giant  Asrial Nada</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Saxhopone</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
             <div class="faculty-card">
-                <div class="img-wrap">
-                    <img src="" alt="Faculty 13">
-                </div>
+                <div class="img-wrap"><img src="" alt="Faculty 13"></div>
                 <div class="info">
-                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">Nama Faculty 13</h3>
-                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Instrumen</p>
+                    <h3 style="font-size:15px;font-weight:500;color:#2E1A47;margin-bottom:4px;">GCM</h3>
+                    <p style="font-size:13px;color:#A32A2E;margin-bottom:8px;">Harpa</p>
                     <p style="font-size:12px;font-weight:300;color:#475569;line-height:1.5;" data-en="Bio will be updated soon." data-id="Bio akan segera diperbarui.">Bio will be updated soon.</p>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -672,8 +821,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
                 <div style="margin-top:32px; border-top:1px solid rgba(0,0,0,0.05); padding-top:24px; max-width: 500px; margin-left: auto; margin-right: auto; text-align: left;">
-                    <div class="config-group">
-                    </div>
+                    <div class="config-group"></div>
                     <div id="configPanel" class="hidden" style="margin-top:16px;">
                         <div class="config-group">
                             <label class="config-label">Registration URL</label>
@@ -770,6 +918,22 @@ function showToast(msg) {
     setTimeout(function() { t.classList.remove('show'); }, 3000);
 }
 
+/* ===== POSTER LIGHTBOX ===== */
+function openLightbox(src) {
+    var lb = document.getElementById('posterLightbox');
+    document.getElementById('lightboxImg').src = src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    var lb = document.getElementById('posterLightbox');
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+});
+
 var siteBgInput = document.getElementById('siteBgInput');
 var siteBgBtnText = document.getElementById('siteBgBtnText');
 var resetSiteBg = document.getElementById('resetSiteBg');
@@ -790,36 +954,42 @@ function applySiteBackground(imgUrl) {
 var savedSiteBg = localStorage.getItem('jismf_site_bg');
 if (savedSiteBg) {
     applySiteBackground(savedSiteBg);
-    siteBgBtnText.textContent = lang === 'en' ? "Change Background" : "Ganti Background";
+    if (siteBgBtnText) siteBgBtnText.textContent = lang === 'en' ? "Change Background" : "Ganti Background";
 }
 
-siteBgInput.addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    if (file) {
-        var reader = new FileReader();
-        reader.onload = function(evt) {
-            var base64 = evt.target.result;
-            localStorage.setItem('jismf_site_bg', base64);
-            applySiteBackground(base64);
-            siteBgBtnText.textContent = file.name;
-            showToast(lang === 'en' ? 'Background updated!' : 'Background diperbarui!');
-        };
-        reader.readAsDataURL(file);
-    }
-});
+if (siteBgInput) {
+    siteBgInput.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(evt) {
+                var base64 = evt.target.result;
+                localStorage.setItem('jismf_site_bg', base64);
+                applySiteBackground(base64);
+                if (siteBgBtnText) siteBgBtnText.textContent = file.name;
+                showToast(lang === 'en' ? 'Background updated!' : 'Background diperbarui!');
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+}
 
-resetSiteBg.addEventListener('click', function() {
-    localStorage.removeItem('jismf_site_bg');
-    applySiteBackground(null);
-    siteBgBtnText.textContent = lang === 'en' ? "Upload Photo Background" : "Upload Foto Background";
-    siteBgInput.value = '';
-    showToast(lang === 'en' ? 'Background reset to white' : 'Background di-reset ke putih');
-});
+if (resetSiteBg) {
+    resetSiteBg.addEventListener('click', function() {
+        localStorage.removeItem('jismf_site_bg');
+        applySiteBackground(null);
+        if (siteBgBtnText) siteBgBtnText.textContent = lang === 'en' ? "Upload Photo Background" : "Upload Foto Background";
+        if (siteBgInput) siteBgInput.value = '';
+        showToast(lang === 'en' ? 'Background reset to white' : 'Background di-reset ke putih');
+    });
+}
 
-document.getElementById('toggleConfig').addEventListener('click', function() {
-    document.getElementById('configPanel').classList.toggle('hidden');
-    document.getElementById('configChevron').style.transform = document.getElementById('configPanel').classList.contains('hidden') ? '' : 'rotate(180deg)';
-});
+if (document.getElementById('toggleConfig')) {
+    document.getElementById('toggleConfig').addEventListener('click', function() {
+        document.getElementById('configPanel').classList.toggle('hidden');
+        document.getElementById('configChevron').style.transform = document.getElementById('configPanel').classList.contains('hidden') ? '' : 'rotate(180deg)';
+    });
+}
 
 var sru = localStorage.getItem('jismf_regurl');
 if (sru) { document.getElementById('registerLink').href = sru; document.getElementById('regUrlInput').value = sru; }
